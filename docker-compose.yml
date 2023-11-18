@@ -1,0 +1,10 @@
+services:
+  webapp:
+    build:
+      context: .
+      target: develop
+    ports:
+      - '3000:3000'
+      - '4173:4173'
+    volumes:
+      - ./src:/app/src
