@@ -1,14 +1,19 @@
 import { Direction } from "./Direction";
 import { DirectionHandler } from "./DirectionHandler";
 import { GridPhysics } from "./GridPhysics";
+import { KeyEventHandler } from "./KeyEventHandler";
 
 export class GridControls {
   private directionController;
+  private keyEventHandler: KeyEventHandler;
   constructor(
     input: Phaser.Input.InputPlugin,
     private gridPhysics: GridPhysics
   ) {
     this.directionController = new DirectionHandler(input)
+    this.keyEventHandler = new KeyEventHandler(input, {
+      'event': Phaser.Input.Keyboard.KeyCodes.E
+    })
   }
 
   update() {
@@ -20,6 +25,8 @@ export class GridControls {
       this.gridPhysics.movePlayer(Direction.DOWN);
     } else if (this.directionController.isUp()) {
       this.gridPhysics.movePlayer(Direction.UP);
+    } else if (this.keyEventHandler.isPress('event')) {
+      this.gridPhysics.interactionPlayer()
     }
   }
 }

@@ -8,6 +8,7 @@ type Vector2 = Phaser.Math.Vector2;
 export class GridPhysics {
   private moveDirection: Direction = Direction.NONE;
   private lastMoveDirection: Direction = Direction.NONE;
+  private lastMoveInputDirection: Direction = Direction.DOWN;
   private readonly speedPixelsPerSecond: number = TestScene.TILE_SIZE * 6;
   private tileSizePixelsWalked: number = 0;
 
@@ -19,6 +20,7 @@ export class GridPhysics {
   movePlayer(direction: Direction) {
     this.lastMoveDirection = direction;
     if (this.isMoving()) return;
+    this.lastMoveInputDirection = direction;
     if (this.isBlockingDirection(direction)) {
       this.player.stopAnimation(direction);
     } else {
@@ -90,12 +92,13 @@ export class GridPhysics {
   }
 
   private moveDirectionVectors: {
-    [key in Direction]?: Vector2;
+    [key in Direction]: Vector2;
   } = {
     [Direction.LEFT]: Vector2.LEFT,
     [Direction.DOWN]: Vector2.DOWN,
     [Direction.RIGHT]: Vector2.RIGHT,
     [Direction.UP]: Vector2.UP,
+    [Direction.NONE]: Vector2.ZERO
   };
 
   private updatePlayerTilePos() {
@@ -128,4 +131,11 @@ export class GridPhysics {
       return this.tileMap.hasTileAt(pos.x, pos.y, layer.name);
     });
   }
+
+  interactionPlayer() {
+    if (this.isTalkableTile()) {
+      // IMPLEMENT HERE!
+    }
+  }
+
 }
