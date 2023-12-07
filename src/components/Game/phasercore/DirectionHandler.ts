@@ -3,7 +3,7 @@ import Phaser from "phaser";
 export class DirectionHandler{
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
   private keys?: WASDKeys
-  constructor(private input: Phaser.Input.InputPlugin,) {
+  constructor(private input: Phaser.Input.InputPlugin) {
     this.keys = this.input.keyboard?.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
       down: Phaser.Input.Keyboard.KeyCodes.S,
