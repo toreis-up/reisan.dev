@@ -3,6 +3,7 @@ import { Player } from "../phasercore/Player";
 import { GridControls } from "../phasercore/GridControls";
 import { GridPhysics } from "../phasercore/GridPhysics";
 import { Direction } from "../phasercore/Direction";
+import { DialogPlugin } from "@/components/plugin/dialogModal";
 
 export class TestScene extends Phaser.Scene {
   static readonly TILE_SIZE = 32;
@@ -45,6 +46,15 @@ export class TestScene extends Phaser.Scene {
 
     this.gridPhysics = new GridPhysics(player, map);
     this.gridControls = new GridControls(this.input, this.gridPhysics);
+
+    this.plugins.installScenePlugin(
+      'dialogModal',
+      DialogPlugin,
+      'dialog',
+      this
+    )
+
+    this.sys.dialogModal.init();
 
     this.createPlayerAnimation(Direction.UP, 11, 9);
     this.createPlayerAnimation(Direction.DOWN, 0, 2);

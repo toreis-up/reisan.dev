@@ -138,4 +138,13 @@ export class GridPhysics {
     }
   }
 
+  // player talkable?
+  private isTalkableTile() {
+    return this.tileMap.layers.some((layer) => {
+      const pos = this.tilePosInDirection(this.lastMoveInputDirection)
+      const tile = this.tileMap.getTileAt(pos.x, pos.y, false, layer.name);
+      // return tile && tile.properties.isTalkable;
+      return tile && tile.properties.collides; // FIXME: temporary change!
+    });
+  }
 }
