@@ -33,7 +33,7 @@ export class TestScene extends Phaser.Scene {
     layer?.setDepth(0);
 
     const layer2 = map.createLayer(1, tiles!, 0, 0);
-    layer2?.setDepth(3);
+    layer2?.setDepth(1);
 
     const playerSprite = this.add.sprite(0, 0, "player");
     playerSprite.setDepth(2);
