@@ -3,7 +3,8 @@ import { Player } from "../phasercore/Player";
 import { GridControls } from "../phasercore/GridControls";
 import { GridPhysics } from "../phasercore/GridPhysics";
 import { Direction } from "../phasercore/Direction";
-import { DialogPlugin } from "@/components/plugin/dialogModal";
+import { DialogPlugin } from "@/components/plugin/dialogPlugin";
+import { Timeline } from "@/components/plugin/types/dialog";
 
 export class TestScene extends Phaser.Scene {
   static readonly TILE_SIZE = 32;
@@ -48,11 +49,13 @@ export class TestScene extends Phaser.Scene {
     this.gridControls = new GridControls(this.input, this.gridPhysics);
 
     this.plugins.installScenePlugin(
-      'dialogModal',
+      "dialogPlugin",
       DialogPlugin,
       "dialog",
       this
     );
+
+    this.sys.dialogPlugin.init();
 
     this.sys.events.on(
       "DISABLE_CONTROL",
@@ -65,7 +68,12 @@ export class TestScene extends Phaser.Scene {
       this
     );
 
-    this.sys.dialogModal.init();
+    const timeline = {"start": [
+      { text: "nekodesu konnnitiha hajimemasite matsuodesu" },
+      { text: "inudesu" },
+    ]} as Timeline;
+    // this.sys.dialogPlugin.setText('こんちゃ')
+    this.sys.dialogPlugin.setTimeline(timeline);
 
     this.createPlayerAnimation(Direction.UP, 11, 9);
     this.createPlayerAnimation(Direction.DOWN, 0, 2);
