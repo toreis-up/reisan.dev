@@ -50,9 +50,20 @@ export class TestScene extends Phaser.Scene {
     this.plugins.installScenePlugin(
       'dialogModal',
       DialogPlugin,
-      'dialog',
+      "dialog",
       this
-    )
+    );
+
+    this.sys.events.on(
+      "DISABLE_CONTROL",
+      () => this.gridControls.disable(),
+      this
+    );
+    this.sys.events.on(
+      "ENABLE_CONTROL",
+      () => this.gridControls.enable(),
+      this
+    );
 
     this.sys.dialogModal.init();
 

@@ -6,6 +6,7 @@ import { KeyEventHandler } from "./KeyEventHandler";
 export class GridControls {
   private directionController;
   private keyEventHandler: KeyEventHandler;
+  private isEnabled: boolean = true;
   constructor(
     input: Phaser.Input.InputPlugin,
     private gridPhysics: GridPhysics
@@ -17,6 +18,7 @@ export class GridControls {
   }
 
   update() {
+    if (!this.isEnabled) { return }
     if (this.directionController.isLeft()) {
       this.gridPhysics.movePlayer(Direction.LEFT);
     } else if (this.directionController.isRight()) {
@@ -28,5 +30,13 @@ export class GridControls {
     } else if (this.keyEventHandler.isPress('event')) {
       this.gridPhysics.interactionPlayer()
     }
+  }
+
+  disable() {
+    this.isEnabled = false;
+  }
+
+  enable() {
+    this.isEnabled = true;
   }
 }
