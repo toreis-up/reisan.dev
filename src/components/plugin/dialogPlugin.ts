@@ -10,8 +10,6 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private dialogText = [] as string[];
   private dialogTextIndex = 0;
   private timedEvent = undefined as unknown as Phaser.Time.TimerEvent;
-  private isAllShowed = false;
-  private timeline = null as unknown as Timeline;
   private timelineContent = [] as TimelineContent[]
   private timelineIndex = 0;
 
@@ -149,16 +147,24 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       dimensions.rectWidth,
       dimensions.rectHeight
     );
-
-    this.text?.style.setWordWrapWidth(dimensions.rectWidth);
   }
 
   resize() {
     console.log("called");
     this._resizeWindow();
+    this._resizeText();
+  }
+
+  private _resizeText() {
+    const gameHeight = this._getGameHeight();
+    const gameWidth = this._getGameWidth();
+    const dimensions = this._calculateWindowDimensions(gameWidth, gameHeight);
+    this.text?.style.setWordWrapWidth(dimensions.rectWidth);
   }
 
   setTimeline(timeline: Timeline) {
+    this.resize();
+    this.timelineIndex = 0;
     this.systems?.events.emit("DISABLE_CONTROL");
     this.timelineContent = timeline['start'];
     this._next();
