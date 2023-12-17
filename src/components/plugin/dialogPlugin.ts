@@ -265,7 +265,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.text = this.scene!.add.text(x, y, text, {
       wordWrap: { width: this._getGameWidth()! - this.config.padding * 2 - 25 },
       fontFamily: "DotGothic16",
-      fontSize: "16px",
+      fontSize: "1.5rem",
     });
   }
 }
