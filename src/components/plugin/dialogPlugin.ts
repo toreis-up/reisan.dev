@@ -187,6 +187,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this._setText(tempText);
 
     if (animate) {
+      this.scene?.input.keyboard.once("keydown-SPACE", this._setFullText, this);
       this.scene?.input.once("pointerdown", this._setFullText, this);
       this.timedEvent = this.scene?.time.addEvent({
         delay: 150 - this.config.dialogSpeed * 30,
@@ -199,14 +200,16 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
   private _readyNext() {
     console.log(this.scene?.events);
-    // this.scene?.events.once('keydown', () => console.log('helllo'), this)
-    const event = this.scene?.input.once("pointerdown", this._next, this);
+    // this.scene?.input.once('keydown-SPACE', () => console.log('helllo'), this)
+      this.scene?.input.keyboard.once("keydown-SPACE", this._next, this);
+      const event = this.scene?.input.once("pointerdown", this._next, this);
     console.log(event);
   }
 
   private _next() {
-    // this.scene?.events.off('keydown', this._next, this)
-    this.scene?.events.off("pointerdown", this._next, this);
+    // this.scene?.events.off('keydown-SPACE', this._next, this)
+      this.scene?.input.keyboard.off("keydown-SPACE", this._next, this);
+      this.scene?.input.off("pointerdown", this._next, this);
 
     if (this.timelineIndex >= this.timelineContent.length) {
       this.closeWindow();
@@ -219,9 +222,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private _setFullText() {
     this.text?.setText(this.dialogText.join(""));
     // this.scene?.events.off(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, this._setFullText, this)
-    this.scene?.events.off("pointerdown", this._setFullText, this);
+      this.scene?.input.keyboard.off("keydown-SPACE", this._setFullText, this);
+      this.scene?.input.off("pointerdown", this._setFullText, this);
     this.timedEvent?.remove();
-    this.isAllShowed = true;
     this._readyNext();
   }
 
@@ -231,9 +234,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this.text.text + this.dialogText[this.dialogTextIndex - 1]
     );
     if (this.dialogTextIndex == this.dialogText.length) {
-      this.isAllShowed = true;
       // this.scene?.events.off(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, this._setFullText, this)
-      this.scene?.events.off("pointerdown", this._setFullText, this);
+      this.scene?.input.keyboard.off("keydown-SPACE", this._setFullText, this);
+      this.scene?.input.off("pointerdown", this._setFullText, this);
       this.timedEvent.remove();
       this._readyNext();
     }
