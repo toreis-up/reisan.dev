@@ -79,8 +79,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _calculateWindowDimensions(width: number, height: number) {
-    const x = this.config.padding;
-    const y = height - this.config.windowHeight - this.config.padding;
+    const x = this.config.padding + this.scene?.cameras.main.scrollX;
+    const y = height - this.config.windowHeight - this.config.padding + this.scene?.cameras.main.scrollY;
     const rectWidth = width - this.config.padding * 2;
     const rectHeight = this.config.windowHeight;
     return { x, y, rectWidth, rectHeight };
@@ -241,12 +241,12 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
   private _setText(text: string) {
     if (this.text) this.text.destroy();
-    const x = this.config.padding + 10;
+    const x = this.config.padding + this.scene?.cameras.main.scrollX + 10;
     const y =
-      this._getGameHeight()! -
+      this._getGameHeight() -
       this.config.windowHeight -
       this.config.padding +
-      10;
+      this.scene?.cameras.main.scrollY + 10;
     this.text = this.scene!.add.text(x, y, text, {
       wordWrap: { width: this._getGameWidth()! - this.config.padding * 2 - 25 },
       fontFamily: "DotGothic16",
