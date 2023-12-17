@@ -5,6 +5,7 @@ import { GridPhysics } from "../phasercore/GridPhysics";
 import { Direction } from "../phasercore/Direction";
 import { DialogPlugin } from "@/components/plugin/dialogPlugin";
 import { ContentType, Timeline } from "@/components/plugin/types/dialog";
+import { SceneEventHandler } from "../phasercore/SceneEventHandler";
 
 export class TestScene extends Phaser.Scene {
   static readonly TILE_SIZE = 32;
@@ -83,6 +84,8 @@ export class TestScene extends Phaser.Scene {
     ]} as Timeline;
     // this.sys.dialogPlugin.setText('こんちゃ')
     this.sys.dialogPlugin.setTimeline(timeline);
+
+    const handler = new SceneEventHandler(this, this.sys.dialogPlugin)
 
     this.createPlayerAnimation(Direction.UP, 11, 9);
     this.createPlayerAnimation(Direction.DOWN, 0, 2);
