@@ -127,14 +127,17 @@ export class GridPhysics {
 
   private hasNoTile(pos: Vector2) {
     return !this.tileMap.layers.some((layer) => {
-      // console.log(this.tileMap.hasTileAt(pos.x, pos.y, layer.name)) // この行がないと動かない、卍
       return this.tileMap.hasTileAt(pos.x, pos.y, layer.name);
     });
   }
 
   interactionPlayer() {
     if (this.isTalkableTile()) {
-      // IMPLEMENT HERE!
+      console.log({
+        scene: this.tileMap.scene,
+        pos: this.tilePosInDirection(this.lastMoveInputDirection),
+      });
+      this.tileMap.scene.events.emit('eventDispatched', {scene: this.tileMap.scene, pos: this.tilePosInDirection(this.lastMoveInputDirection)})
     }
   }
 
@@ -143,8 +146,8 @@ export class GridPhysics {
     return this.tileMap.layers.some((layer) => {
       const pos = this.tilePosInDirection(this.lastMoveInputDirection)
       const tile = this.tileMap.getTileAt(pos.x, pos.y, false, layer.name);
-      // return tile && tile.properties.isTalkable;
-      return tile && tile.properties.collides; // FIXME: temporary change!
+      return tile && tile.properties.isTalkable;
+      // return tile && tile.properties.collisdes; // FIXME: temporary change!
     });
   }
 }
