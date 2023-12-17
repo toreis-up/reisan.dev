@@ -5,6 +5,7 @@ import { GridPhysics } from "../phasercore/GridPhysics";
 import { Direction } from "../phasercore/Direction";
 import { DialogPlugin } from "@/components/plugin/dialogPlugin";
 import { ContentType, Timeline } from "@/components/plugin/types/dialog";
+import { TimelinePlugin } from "@/components/plugin/TimelinePlugin";
 import { SceneEventHandler } from "../phasercore/SceneEventHandler";
 
 export class TestScene extends Phaser.Scene {
@@ -13,7 +14,7 @@ export class TestScene extends Phaser.Scene {
   private gridPhysics!: GridPhysics;
 
   constructor() {
-    super('TestScene');
+    super("TestScene");
   }
   update(_time: number, delta: number) {
     this.gridControls.update();
@@ -65,7 +66,15 @@ export class TestScene extends Phaser.Scene {
       this
     );
 
+    this.plugins.installScenePlugin(
+      "timelinePlugin",
+      TimelinePlugin,
+      "dialog",
+      this
+    )
+
     this.sys.dialogPlugin.init();
+    this.sys.timelinePlugin.init();
 
     this.sys.events.on(
       "DISABLE_CONTROL",
