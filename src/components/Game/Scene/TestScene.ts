@@ -4,7 +4,7 @@ import { GridControls } from "../phasercore/GridControls";
 import { GridPhysics } from "../phasercore/GridPhysics";
 import { Direction } from "../phasercore/Direction";
 import { DialogPlugin } from "@/components/plugin/dialogPlugin";
-import { Timeline } from "@/components/plugin/types/dialog";
+import { ContentType, Timeline } from "@/components/plugin/types/dialog";
 
 export class TestScene extends Phaser.Scene {
   static readonly TILE_SIZE = 32;
@@ -25,19 +25,28 @@ export class TestScene extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 48,
     });
+    this.load.image("tiles2", "character/Anim_Slimes_SpriteSheet.png");
   }
   create() {
     const map = this.make.tilemap({ key: "map" });
 
     const tiles = map.addTilesetImage("map", "tiles");
+    const tiles2 = map.addTilesetImage("slime", "tiles2")
+
     const layer = map.createLayer(0, tiles!, 0, 0);
     layer?.setDepth(0);
 
     const layer2 = map.createLayer(1, tiles!, 0, 0);
     layer2?.setDepth(1);
 
+    const layer3 = map.createLayer(2, tiles!, 0, 0);
+    layer3?.setDepth(2);
+
+    const layer4 = map.createLayer(3, tiles2!, 0, 0);
+    layer4?.setDepth(3);
+
     const playerSprite = this.add.sprite(0, 0, "player");
-    playerSprite.setDepth(2);
+    playerSprite.setDepth(5);
     playerSprite.scale = 3;
     this.cameras.main.startFollow(playerSprite);
     this.cameras.main.roundPixels = true;
@@ -69,8 +78,8 @@ export class TestScene extends Phaser.Scene {
     );
 
     const timeline = {"start": [
-      { text: "nekodesu konnnitiha hajimemasite matsuodesu" },
-      { text: "inudesu" },
+      { type: ContentType.CHAT, text: "nekodesu konnnitiha hajimemasite matsuodesu"} ,
+      { type: ContentType.CHAT, text: "inudesu"},
     ]} as Timeline;
     // this.sys.dialogPlugin.setText('こんちゃ')
     this.sys.dialogPlugin.setTimeline(timeline);
