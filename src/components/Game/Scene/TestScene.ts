@@ -76,16 +76,7 @@ export class TestScene extends Phaser.Scene {
     this.sys.dialogPlugin.init();
     this.sys.timelinePlugin.init();
 
-    this.sys.events.on(
-      "DISABLE_CONTROL",
-      () => this.gridControls.disable(),
-      this
-    );
-    this.sys.events.on(
-      "ENABLE_CONTROL",
-      () => this.gridControls.enable(),
-      this
-    );
+    
 
     const timeline = {"start": [
       { type: ContentType.CHAT, text: "nekodesu konnnitiha hajimemasite matsuodesu"} ,

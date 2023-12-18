@@ -15,6 +15,17 @@ export class GridControls {
     this.keyEventHandler = new KeyEventHandler(input, {
       'event': Phaser.Input.Keyboard.KeyCodes.E
     })
+
+    input.on(
+      "DISABLE_CONTROL",
+      () => this.disable(),
+      this
+    );
+    input.on(
+      "ENABLE_CONTROL",
+      () => this.enable(),
+      this
+    );
   }
 
   update() {

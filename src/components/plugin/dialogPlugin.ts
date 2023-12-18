@@ -166,7 +166,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.resize();
     this._openWindow()
     this.timelineIndex = 0;
-    this.systems?.events.emit("DISABLE_CONTROL");
+    this.scene?.input.emit("DISABLE_CONTROL");
     this.timelineContent = timeline['start'];
     this._next();
   }
@@ -180,7 +180,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
   closeWindow() {
     this.toggleWindow();
-    this.systems?.events.emit("ENABLE_CONTROL");
+    this.scene?.input.emit("ENABLE_CONTROL");
   }
 
   _openWindow() {
