@@ -32,6 +32,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
     eventEmitter?.on(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this);
     eventEmitter?.on(Phaser.Scenes.Events.DESTROY, this.destroy, this);
+    eventEmitter?.on('dialogStart', e => this.setTimeline(e), this)
     this.systems?.scale.on(
       Phaser.Scale.Events.RESIZE,
       () => this.resize(),

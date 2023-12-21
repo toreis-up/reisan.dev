@@ -4,7 +4,7 @@ import { Scene } from "phaser";
 
 export class SceneEventHandler {
   constructor(scene: Scene, private dialogPlugin: DialogPlugin) {
-    scene.events.on('eventDispatched', (e:any) => this.eventHandler(e), this)
+    // scene.events.on('interactionDispatch', (e:any) => this.eventHandler(e), this)
   }
 
   eventHandler(e: any) {

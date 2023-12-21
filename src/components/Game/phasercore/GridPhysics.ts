@@ -132,22 +132,10 @@ export class GridPhysics {
   }
 
   interactionPlayer() {
-    if (this.isTalkableTile()) {
       console.log({
         scene: this.tileMap.scene,
         pos: this.tilePosInDirection(this.lastMoveInputDirection),
       });
-      this.tileMap.scene.events.emit('eventDispatched', {scene: this.tileMap.scene, pos: this.tilePosInDirection(this.lastMoveInputDirection)})
-    }
-  }
-
-  // player talkable?
-  private isTalkableTile() {
-    return this.tileMap.layers.some((layer) => {
-      const pos = this.tilePosInDirection(this.lastMoveInputDirection)
-      const tile = this.tileMap.getTileAt(pos.x, pos.y, false, layer.name);
-      return tile && tile.properties.isTalkable;
-      // return tile && tile.properties.collisdes; // FIXME: temporary change!
-    });
+      this.tileMap.scene.events.emit('interactionDispatch', {scene: this.tileMap.scene, pos: this.tilePosInDirection(this.lastMoveInputDirection)})
   }
 }

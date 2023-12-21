@@ -7,6 +7,7 @@ import { DialogPlugin } from "@/components/plugin/dialogPlugin";
 import { ContentType, Timeline } from "@/components/plugin/types/dialog";
 import { TimelinePlugin } from "@/components/plugin/TimelinePlugin";
 import { SceneEventHandler } from "../phasercore/SceneEventHandler";
+import { NPC } from "../class/NPC";
 
 export class TestScene extends Phaser.Scene {
   static readonly TILE_SIZE = 32;
@@ -27,6 +28,10 @@ export class TestScene extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 48,
     });
+    this.load.spritesheet("slime", "character/reisan.png", {
+      frameWidth: 32,
+      frameHeight: 48,
+    })
     this.load.image("tiles2", "character/Anim_Slimes_SpriteSheet.png");
   }
   create() {
@@ -47,16 +52,24 @@ export class TestScene extends Phaser.Scene {
     const layer4 = map.createLayer(3, tiles2!, 0, 0);
     layer4?.setDepth(3);
 
+    const timelines = [{"start": [
+      { type: ContentType.CHAT, text: "nekodesu konnnitiha hajimemasite matsuodesu"} ,
+      { type: ContentType.CHAT, text: "inudesu"},
+    ]}] as Timeline[]
+    const slimeNPC = new NPC(this, new Phaser.Math.Vector2(5,5), "slime", timelines, 1)
+    const slimeNPCSplite = this.add.existing(slimeNPC)
+    slimeNPCSplite.scale = 1.5
+
     const playerSprite = this.add.sprite(0, 0, "player");
     playerSprite.setDepth(5);
-    playerSprite.scale = 3;
+    playerSprite.scale = 1.5;
     this.cameras.main.startFollow(playerSprite);
     this.cameras.main.roundPixels = true;
     const player = new Player(playerSprite, new Phaser.Math.Vector2(6, 6));
 
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
-    this.gridPhysics = new GridPhysics(player, map);
+    this.gridPhysics = new GridPhysics(player, map, this.children);
     this.gridControls = new GridControls(this.input, this.gridPhysics);
 
     this.plugins.installScenePlugin(
