@@ -8,7 +8,10 @@ import { ContentType, Timeline } from "@/components/plugin/types/dialog";
 import { TimelinePlugin } from "@/components/plugin/TimelinePlugin";
 import { SceneEventHandler } from "../phasercore/SceneEventHandler";
 import { NPC } from "../class/NPC";
+<<<<<<< HEAD
 import { SceneBase } from "./SceneBase";
+=======
+>>>>>>> 7d58883c1b57a9ec320efae0ec275207b8ba9a3a
 
 export class TestScene extends SceneBase {
   static readonly TILE_SIZE = 32;
@@ -32,7 +35,11 @@ export class TestScene extends SceneBase {
     this.load.spritesheet("slime", "character/reisan.png", {
       frameWidth: 32,
       frameHeight: 48,
+<<<<<<< HEAD
     });
+=======
+    })
+>>>>>>> 7d58883c1b57a9ec320efae0ec275207b8ba9a3a
     this.load.image("tiles2", "character/Anim_Slimes_SpriteSheet.png");
   }
   create() {
@@ -94,7 +101,7 @@ export class TestScene extends SceneBase {
 
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
-    this.gridPhysics = new GridPhysics(player, map);
+    this.gridPhysics = new GridPhysics(player, map, this.children);
     this.gridControls = new GridControls(this.input, this.gridPhysics);
 
     this.plugins.installScenePlugin(

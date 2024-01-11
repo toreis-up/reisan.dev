@@ -259,7 +259,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         this.timelineContent[this.timelineIndex++] as ChoiceContent
       );
     } else if (this.timelineContent[this.timelineIndex].type == ContentType.NEXTTL) {
-      
+
     }
   }
 
