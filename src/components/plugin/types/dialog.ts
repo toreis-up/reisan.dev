@@ -5,7 +5,7 @@ export type Timeline = {
 
 export type TimelineContent =
   | ChatContent
-  | ChoiseContent
+  | ChoiceContent
   | NextTimelineContent
   | SwitchExternalPageContent;
 
@@ -29,7 +29,7 @@ type ChatContent = {
   speakerName?: string,
 }
 
-type ChoiseContent = {
+export type ChoiceContent = {
   type: ContentType.CHOICE;
   choices: Choice[];
   text?: string,

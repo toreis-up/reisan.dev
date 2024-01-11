@@ -9,13 +9,15 @@ export class GridPhysics {
   private moveDirection: Direction = Direction.NONE;
   private lastMoveDirection: Direction = Direction.NONE;
   private lastMoveInputDirection: Direction = Direction.DOWN;
-  private readonly speedPixelsPerSecond: number = TestScene.TILE_SIZE * 6;
+  private speedPixelsPerSecond: number = 0;
   private tileSizePixelsWalked: number = 0;
 
   constructor(
     private player: Player,
     private tileMap: Phaser.Tilemaps.Tilemap
-  ) {}
+  ) {
+    this.speedPixelsPerSecond = tileMap.scene.getTilesize() * 6;
+  }
 
   movePlayer(direction: Direction) {
     this.lastMoveDirection = direction;
@@ -54,7 +56,7 @@ export class GridPhysics {
       this.movePlayerSprite(pixelsToWalkThisUpdate);
       this.updatePlayerTilePos();
     } else {
-      this.movePlayerSprite(TestScene.TILE_SIZE - this.tileSizePixelsWalked);
+      this.movePlayerSprite(this.tileMap.scene.getTilesize() - this.tileSizePixelsWalked);
       this.stopMoving();
     }
   }
@@ -72,12 +74,12 @@ export class GridPhysics {
     const newPlayerPos = this.player.getPosition().add(moveDistance!);
     this.player.setPosition(newPlayerPos);
     this.tileSizePixelsWalked += pixelsToMove;
-    this.tileSizePixelsWalked %= TestScene.TILE_SIZE;
+    this.tileSizePixelsWalked %= this.tileMap.scene.getTilesize();
   }
 
   private willCrossTileBorderThisUpdate(pixelsToWalkThisUpdate: number) {
     return (
-      this.tileSizePixelsWalked + pixelsToWalkThisUpdate >= TestScene.TILE_SIZE
+      this.tileSizePixelsWalked + pixelsToWalkThisUpdate >= this.tileMap.scene.getTilesize()
     );
   }
 

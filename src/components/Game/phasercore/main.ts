@@ -1,7 +1,9 @@
 import Phaser from "phaser";
 import { TestScene } from "../Scene/TestScene";
+import { SkillScene } from "../Scene/SkillScene";
 
 const testScene = new TestScene();
+const skillScene = new SkillScene();
 let game: Phaser.Game;
 
 export const boot = (containerId: string) => {
@@ -16,7 +18,7 @@ export const boot = (containerId: string) => {
     scale: {
       parent: containerId,
     },
-    scene: [testScene],
+    scene: [testScene, skillScene],
     dom: {
       createContainer: true,
     },

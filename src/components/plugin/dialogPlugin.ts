@@ -1,5 +1,11 @@
 import { Scene } from "phaser";
-import { Timeline, TimelineContent } from "./types/dialog";
+import {
+  Choice,
+  ContentType,
+  Timeline,
+  TimelineContent,
+  ChoiceContent,
+} from "./types/dialog";
 
 export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   protected config = {} as DialogConfig;
@@ -10,8 +16,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private dialogText = [] as string[];
   private dialogTextIndex = 0;
   private timedEvent = undefined as unknown as Phaser.Time.TimerEvent;
-  private timelineContent = [] as TimelineContent[]
+  private timelineContent = [] as TimelineContent[];
   private timelineIndex = 0;
+  private timeline = {} as Timeline;
+  private uiLayer: Phaser.GameObjects.Container;
 
   constructor(
     scene: Scene,
@@ -25,6 +33,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     if (!scene.sys.settings.isBooted) {
       scene.sys.events.once("boot", this.boot, this);
     }
+
+    this.uiLayer = scene.add.container(0, 0);
+    this.uiLayer.setVisible(true);
   }
 
   boot() {
@@ -32,7 +43,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
     eventEmitter?.on(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this);
     eventEmitter?.on(Phaser.Scenes.Events.DESTROY, this.destroy, this);
-    eventEmitter?.on('dialogStart', e => this.setTimeline(e), this)
+    eventEmitter?.on("dialogStart", (e) => this.setTimeline(e), this);
     this.systems?.scale.on(
       Phaser.Scale.Events.RESIZE,
       () => this.resize(),
@@ -79,7 +90,11 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
   private _calculateWindowDimensions(width: number, height: number) {
     const x = this.config.padding + this.scene?.cameras.main.scrollX;
-    const y = height - this.config.windowHeight - this.config.padding + this.scene?.cameras.main.scrollY;
+    const y =
+      height -
+      this.config.windowHeight -
+      this.config.padding +
+      this.scene?.cameras.main.scrollY;
     const rectWidth = width - this.config.padding * 2;
     const rectHeight = this.config.windowHeight;
     return { x, y, rectWidth, rectHeight };
@@ -163,13 +178,21 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.text?.style.setWordWrapWidth(dimensions.rectWidth);
   }
 
-  setTimeline(timeline: Timeline) {
+  setTimeline(timeline: Timeline, sceneId = "start") {
     this.resize();
-    this._openWindow()
+    this._openWindow();
     this.timelineIndex = 0;
     this.scene?.input.emit("DISABLE_CONTROL");
-    this.timelineContent = timeline['start'];
+    this.timeline = timeline;
+    this.timelineContent = timeline[sceneId];
+    this.uiLayer = this.uiLayer.removeAll();
+
     this._next();
+  }
+
+  private _setTimeline(sceneId: string) {
+    this.timelineIndex = 0
+    this.timelineContent = this.timeline[sceneId]
   }
 
   private toggleWindow() {
@@ -185,8 +208,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   _openWindow() {
-    if (!this.visible)
-    this.toggleWindow();
+    if (!this.visible) this.toggleWindow();
   }
 
   setText(text: string, animate = true) {
@@ -214,29 +236,101 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private _readyNext() {
     console.log(this.scene?.events);
     // this.scene?.input.once('keydown-SPACE', () => console.log('helllo'), this)
-      this.scene?.input.keyboard.once("keydown-SPACE", this._next, this);
-      const event = this.scene?.input.once("pointerdown", this._next, this);
+    this.scene?.input.keyboard.once("keydown-SPACE", this._next, this);
+    const event = this.scene?.input.once("pointerdown", this._next, this);
     console.log(event);
   }
 
   private _next() {
     // this.scene?.events.off('keydown-SPACE', this._next, this)
-      this.scene?.input.keyboard.off("keydown-SPACE", this._next, this);
-      this.scene?.input.off("pointerdown", this._next, this);
+    this.scene?.input.keyboard.off("keydown-SPACE", this._next, this);
+    this.scene?.input.off("pointerdown", this._next, this);
 
     if (this.timelineIndex >= this.timelineContent.length) {
       this.closeWindow();
       return;
     }
+    if (this.timelineContent[this.timelineIndex].type === ContentType.CHAT)
+      this.setText(this.timelineContent[this.timelineIndex++].text);
+    else if (
+      this.timelineContent[this.timelineIndex].type == ContentType.CHOICE
+    ) {
+      this.setChoice(
+        this.timelineContent[this.timelineIndex++] as ChoiceContent
+      );
+    } else if (this.timelineContent[this.timelineIndex].type == ContentType.NEXTTL) {
+      
+    }
+  }
 
-    this.setText(this.timelineContent[this.timelineIndex++].text);
+  private setChoice(choice: ChoiceContent) {
+    this.setText(choice.text || "");
+    this._setChoice(choice.choices);
+    this._readyNext()
+  }
+
+  private _setChoice(choices: Choice[]) {
+    const buttonHeight = 40,
+      buttonMargin = 40;
+    const { width, height } = this.scene.game.canvas;
+    const buttonGroupHeight =
+      buttonHeight * choices.length + buttonMargin * (choices.length - 1);
+    const buttonGroupOriginY = height / 2 - buttonGroupHeight / 2;
+
+    choices.forEach((choice, index) => {
+      const y =
+        buttonGroupOriginY +
+        buttonHeight * (index + 0.5) +
+        buttonMargin * index;
+
+      // Rectangleでボタンを作成
+      const button = new Phaser.GameObjects.Rectangle(
+        this.scene,
+        width / 2,
+        y,
+        width / 3,
+        buttonHeight,
+        this.config.windowColor,
+        this.config.windowAlpha
+      ).setStrokeStyle(this.config.borderThickness, this.config.borderColor, this.config.windowAlpha);
+      button.setInteractive({
+        useHandCursor: true,
+      });
+
+      this.uiLayer.add(button);
+
+      // ボタンテキストを作成
+      const buttonText = new Phaser.GameObjects.Text(
+        this.scene,
+        width / 2,
+        y,
+        choice.text,
+        {
+          wordWrap: {
+            width: this._getGameWidth()! - this.config.padding * 2 - 25,
+          },
+          fontFamily: "DotGothic16",
+          fontSize: "1.5rem",
+        }
+      ).setOrigin(0.5);
+
+      // ボタンテキストをUIレイヤーに追加
+      this.uiLayer.add(buttonText);
+
+      button.once("pointerdown", () => {
+        this.uiLayer.removeAllListeners();
+        this.uiLayer.removeAll(true);
+        this._setTimeline(choice.nextId);
+        this._next();
+      });
+    });
   }
 
   private _setFullText() {
     this.text?.setText(this.dialogText.join(""));
     // this.scene?.events.off(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, this._setFullText, this)
-      this.scene?.input.keyboard.off("keydown-SPACE", this._setFullText, this);
-      this.scene?.input.off("pointerdown", this._setFullText, this);
+    this.scene?.input.keyboard.off("keydown-SPACE", this._setFullText, this);
+    this.scene?.input.off("pointerdown", this._setFullText, this);
     this.timedEvent?.remove();
     this._readyNext();
   }
@@ -262,7 +356,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this._getGameHeight() -
       this.config.windowHeight -
       this.config.padding +
-      this.scene?.cameras.main.scrollY + 10;
+      this.scene?.cameras.main.scrollY +
+      10;
     this.text = this.scene!.add.text(x, y, text, {
       wordWrap: { width: this._getGameWidth()! - this.config.padding * 2 - 25 },
       fontFamily: "DotGothic16",
@@ -279,7 +374,6 @@ export type ModalOptions = {
   windowColor?: number;
   windowHeight?: number;
   padding?: number;
-  closeBtnColor?: string;
   dialogSpeed?: number;
 };
 
@@ -291,12 +385,10 @@ type DialogConfig = {
   windowColor: number;
   windowHeight: number;
   padding: number;
-  closeBtnColor: string;
   dialogSpeed: number;
   eventCounter: number;
   visible: boolean;
   text?: string;
   dialog?: any;
   graphics?: any;
-  closeBtn?: Phaser.GameObjects.Text;
 };

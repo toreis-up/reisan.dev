@@ -8,8 +8,9 @@ import { ContentType, Timeline } from "@/components/plugin/types/dialog";
 import { TimelinePlugin } from "@/components/plugin/TimelinePlugin";
 import { SceneEventHandler } from "../phasercore/SceneEventHandler";
 import { NPC } from "../class/NPC";
+import { SceneBase } from "./SceneBase";
 
-export class TestScene extends Phaser.Scene {
+export class TestScene extends SceneBase {
   static readonly TILE_SIZE = 32;
   private gridControls!: GridControls;
   private gridPhysics!: GridPhysics;
@@ -31,14 +32,14 @@ export class TestScene extends Phaser.Scene {
     this.load.spritesheet("slime", "character/reisan.png", {
       frameWidth: 32,
       frameHeight: 48,
-    })
+    });
     this.load.image("tiles2", "character/Anim_Slimes_SpriteSheet.png");
   }
   create() {
     const map = this.make.tilemap({ key: "map" });
 
     const tiles = map.addTilesetImage("map", "tiles");
-    const tiles2 = map.addTilesetImage("slime", "tiles2")
+    const tiles2 = map.addTilesetImage("slime", "tiles2");
 
     const layer = map.createLayer(0, tiles!, 0, 0);
     layer?.setDepth(0);
@@ -52,13 +53,37 @@ export class TestScene extends Phaser.Scene {
     const layer4 = map.createLayer(3, tiles2!, 0, 0);
     layer4?.setDepth(3);
 
-    const timelines = [{"start": [
-      { type: ContentType.CHAT, text: "nekodesu konnnitiha hajimemasite matsuodesu"} ,
-      { type: ContentType.CHAT, text: "inudesu"},
-    ]}] as Timeline[]
-    const slimeNPC = new NPC(this, new Phaser.Math.Vector2(5,5), "slime", timelines, 1)
-    const slimeNPCSplite = this.add.existing(slimeNPC)
-    slimeNPCSplite.scale = 2
+    const timelines = [
+      {
+        start: [
+          {
+            type: ContentType.CHAT,
+            text: "nekodesu konnnitiha hajimemasite matsuodesu",
+          },
+          { type: ContentType.CHAT, text: "inudesu" },
+          {
+            type: ContentType.CHOICE,
+            text: "choice?",
+            choices: [
+              { text: "iti", nextId: "iti" },
+              { text: "ni", nextId: "ni" },
+            ],
+          },
+        ],
+        iti: [{ type: ContentType.CHAT, text: "oh you choiced one!" }],
+
+        ni: [{ type: ContentType.CHAT, text: "wwwwooooww you selected two!" }],
+      },
+    ] as Timeline[];
+    const slimeNPC = new NPC(
+      this,
+      new Phaser.Math.Vector2(5, 5),
+      "slime",
+      timelines,
+      1
+    );
+    const slimeNPCSplite = this.add.existing(slimeNPC);
+    slimeNPCSplite.scale = 2;
 
     const playerSprite = this.add.sprite(0, 0, "player");
     playerSprite.setDepth(5);
@@ -84,26 +109,31 @@ export class TestScene extends Phaser.Scene {
       TimelinePlugin,
       "dialog",
       this
-    )
+    );
 
     this.sys.dialogPlugin.init();
     this.sys.timelinePlugin.init();
 
-
-
-    const timeline = {"start": [
-      { type: ContentType.CHAT, text: "nekodesu konnnitiha hajimemasite matsuodesu"} ,
-      { type: ContentType.CHAT, text: "inudesu"},
-    ]} as Timeline;
+    const timeline = {
+      start: [
+        {
+          type: ContentType.CHAT,
+          text: "nekodesu konnnitiha hajimemasite matsuodesu",
+        },
+        { type: ContentType.CHAT, text: "inudesu" },
+      ],
+    } as Timeline;
     // this.sys.dialogPlugin.setText('こんちゃ')
     this.sys.dialogPlugin.setTimeline(timeline);
 
-    const handler = new SceneEventHandler(this, this.sys.dialogPlugin)
+    const handler = new SceneEventHandler(this, this.sys.dialogPlugin);
 
     this.createPlayerAnimation(Direction.UP, 11, 9);
     this.createPlayerAnimation(Direction.DOWN, 0, 2);
     this.createPlayerAnimation(Direction.LEFT, 3, 5);
     this.createPlayerAnimation(Direction.RIGHT, 6, 8);
+
+    this.scene.start("skillScene")
   }
 
   private createPlayerAnimation(
