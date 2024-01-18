@@ -5,9 +5,10 @@ export type Timeline = {
 
 export type TimelineContent =
   | ChatContent
-  | ChoiseContent
+  | ChoiceContent
   | NextTimelineContent
-  | SwitchExternalPageContent;
+  | SwitchExternalPageContent
+  | SwitchSceneContent;
 
 type TimelineId = string;
 
@@ -16,6 +17,7 @@ export enum ContentType {
   'CHOICE' = 'choice',
   'NEXTTL' = 'nextTimeline',
   'EXTERNALURL' = 'externalURL',
+  'SCENE' = 'scene',
 }
 
 export type Choice = {
@@ -29,19 +31,24 @@ type ChatContent = {
   speakerName?: string,
 }
 
-type ChoiseContent = {
+export type SwitchSceneContent = {
+  type: ContentType.SCENE;
+  sceneId: string,
+}
+
+export type ChoiceContent = {
   type: ContentType.CHOICE;
   choices: Choice[];
   text?: string,
   speakerName?: string
 };
 
-type NextTimelineContent = {
+export type NextTimelineContent = {
   type: ContentType.NEXTTL;
   nextId: TimelineId;
 };
 
-type SwitchExternalPageContent = {
+export type SwitchExternalPageContent = {
   type: ContentType.EXTERNALURL;
   url: string;
 };

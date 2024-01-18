@@ -38,7 +38,7 @@ export class GridControls {
       this.gridPhysics.movePlayer(Direction.DOWN);
     } else if (this.directionController.isUp()) {
       this.gridPhysics.movePlayer(Direction.UP);
-    } else if (this.keyEventHandler.isPress('event')) {
+    } else if (this.keyEventHandler.isJustDown('event')) {
       this.gridPhysics.interactionPlayer()
     }
   }

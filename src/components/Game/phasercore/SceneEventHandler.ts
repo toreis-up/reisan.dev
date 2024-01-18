@@ -7,17 +7,17 @@ export class SceneEventHandler {
     // scene.events.on('interactionDispatch', (e:any) => this.eventHandler(e), this)
   }
 
-  eventHandler(e: any) {
-    console.log(e)
-    const timeline = {
-      start: [
-        {
-          type: ContentType.CHAT,
-          text: "ぷるぷる",
-        },
-        { type: ContentType.CHAT, text: "ぼく わるい スライムじゃ ないよ" },
-      ],
-    } as Timeline;
-    this.dialogPlugin.setTimeline(timeline)
-  }
+  // eventHandler(e: any) {
+  //   console.log(e)
+  //   const timeline = {
+  //     start: [
+  //       {
+  //         type: ContentType.CHAT,
+  //         text: "ぷるぷる",
+  //       },
+  //       { type: ContentType.CHAT, text: "ぼく わるい スライムじゃ ないよ" },
+  //     ],
+  //   } as Timeline;
+  //   this.dialogPlugin.setTimeline(timeline)
+  // }
 }
