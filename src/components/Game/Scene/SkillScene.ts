@@ -73,7 +73,6 @@ export class SkillScene extends SceneBase {
     } as Timeline;
 
     console.log(this.scene)
-    this.dialogPlugin.init() // FIXME: initを呼ばないとダイアログ動かない
 
 
     this.cameras.main.setBounds(
@@ -83,6 +82,7 @@ export class SkillScene extends SceneBase {
       layerBase?.displayHeight || 1080);
     this.cameras.main.startFollow(playerSprite);
     this.cameras.main.roundPixels = true;
+    this.dialogPlugin.init()
     this.gridPhysics = new GridPhysics(player, map);
     this.gridControls = new GridControls(this.input, this.gridPhysics);
     this.sys.dialogPlugin.setTimeline(timeline)
