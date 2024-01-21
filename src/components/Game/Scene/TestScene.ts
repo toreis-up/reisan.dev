@@ -113,7 +113,7 @@ export class TestScene extends SceneBase {
 
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
-    this.gridPhysics = new GridPhysics(player, map, this.children);
+    this.gridPhysics = new GridPhysics(player, map);
     this.gridControls = new GridControls(this.input, this.gridPhysics);
 
     // this.plugins.installScenePlugin(
@@ -146,7 +146,7 @@ export class TestScene extends SceneBase {
       ],
     } as Timeline;
 
-    this.dialogPlugin.init() // TODO: initを呼ばないとダイアログ動かない
+    this.dialogPlugin.init()
     this.dialogPlugin.setTimeline(timeline)
 
     this.createPlayerAnimation(Direction.UP, 11, 9);

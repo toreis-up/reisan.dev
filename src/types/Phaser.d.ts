@@ -8,4 +8,8 @@ declare module "phaser" {
       timelinePlugin: TimelinePlugin;
     }
   }
+  interface Scene {
+    dialogPlugin: DialogPlugin;
+    getTilesize: () => number;
+  }
 }

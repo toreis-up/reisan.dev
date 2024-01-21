@@ -33,12 +33,12 @@ export class TimelinePlugin extends Phaser.Plugins.ScenePlugin {
   private _next() {
     // this.scene?.events.off('keydown', this._next, this)
 
-    if (this.timelineIndex >= this.timelineContents.length) {
+    if (this.timelineIndex >= this.timelineContents!.length) {
       this.dialog.closeWindow();
       return;
     }
 
-    const timelineContent = this.timelineContents[this.timelineIndex++];
+    const timelineContent = this.timelineContents![this.timelineIndex++];
 
     switch (timelineContent.type) {
       case ContentType.CHAT:
