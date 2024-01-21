@@ -27,6 +27,7 @@ export class SkillScene extends SceneBase {
   create() {
     const map = this.make.tilemap({ key: "ssmap" })
 
+
     // const sceneBase = map.addTilesetImage("Map", "scenebase");
     const floorAndWallTiles = map.addTilesetImage("indoor", "fandw");
 
@@ -45,7 +46,6 @@ export class SkillScene extends SceneBase {
     console.log(map.widthInPixels, map.heightInPixels)
 
     const player = new Player(playerSprite, new Phaser.Math.Vector2(16, 16));
-
     const canvanTimeline = [
       {
         start: [
@@ -74,7 +74,6 @@ export class SkillScene extends SceneBase {
 
     console.log(this.scene)
     this.dialogPlugin.init() // FIXME: initを呼ばないとダイアログ動かない
-
 
     this.cameras.main.setBounds(
       0,
