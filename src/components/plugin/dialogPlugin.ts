@@ -5,6 +5,8 @@ import {
   Timeline,
   TimelineContent,
   ChoiceContent,
+  NextTimelineContent,
+  SwitchSceneContent,
 } from "./types/dialog";
 
 export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
@@ -33,9 +35,26 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     if (!scene.sys.settings.isBooted) {
       scene.sys.events.once("boot", this.boot, this);
     }
+    console.log(scene);
 
-    this.uiLayer = scene.add.container(0, 0);
-    this.uiLayer.setVisible(true);
+    if (scene.scene.isActive()) {
+      console.log("active");
+      this.uiLayer = scene.add.container(0, 0);
+      this.uiLayer.setVisible(true);
+      this.uiLayer.setDepth(255);
+    } else {
+      console.log("not active");
+      this.systems.events.once(
+        Phaser.Scenes.Events.START,
+        () => {
+          this.uiLayer = scene.add.container(0, 0);
+          this.uiLayer.setVisible(true);
+          this.uiLayer.setDepth(255);
+          console.log(scene);
+        },
+        this
+      );
+    }
   }
 
   boot() {
@@ -43,7 +62,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
     eventEmitter?.on(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this);
     eventEmitter?.on(Phaser.Scenes.Events.DESTROY, this.destroy, this);
-    eventEmitter?.on("dialogStart", (e) => this.setTimeline(e), this);
+    (this.scene?.events.listenerCount("dialogStart") || 0) < 1 ? eventEmitter?.on("dialogStart", (e) => {console.log("event handled");this.setTimeline(e)}, this) : console.log("The listener has already registered. Skip.")
+
     this.systems?.scale.on(
       Phaser.Scale.Events.RESIZE,
       () => this.resize(),
@@ -63,6 +83,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   init(opts?: ModalOptions) {
+    console.log("INIT ISSUED");
     this.config.borderThickness = opts?.borderThickness || 3;
     this.config.borderColor = opts?.borderColor || 0x907748;
     this.config.borderAlpha = opts?.borderAlpha || 1;
@@ -70,7 +91,6 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.config.windowColor = opts?.windowColor || 0x303030;
     this.config.windowHeight = opts?.windowHeight || 150;
     this.config.padding = opts?.padding || 32;
-    this.config.closeBtnColor = opts?.closeBtnColor || "darkgoldenrod";
     this.config.dialogSpeed = opts?.dialogSpeed || 3;
 
     this.config.eventCounter = 0;
@@ -167,8 +187,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
   resize() {
     console.log("called");
-    this._resizeWindow();
-    this._resizeText();
+    if (this.scene?.scene.isActive()) {
+      this._resizeWindow();
+      this._resizeText();
+    }
   }
 
   private _resizeText() {
@@ -185,14 +207,14 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene?.input.emit("DISABLE_CONTROL");
     this.timeline = timeline;
     this.timelineContent = timeline[sceneId];
-    this.uiLayer = this.uiLayer.removeAll();
+    // this.uiLayer?.removeAll();
 
     this._next();
   }
 
   private _setTimeline(sceneId: string) {
-    this.timelineIndex = 0
-    this.timelineContent = this.timeline[sceneId]
+    this.timelineIndex = 0;
+    this.timelineContent = this.timeline[sceneId];
   }
 
   private toggleWindow() {
@@ -203,7 +225,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   closeWindow() {
-    this.toggleWindow();
+    if (this.visible) this.toggleWindow();
     this.scene?.input.emit("ENABLE_CONTROL");
   }
 
@@ -222,23 +244,27 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this._setText(tempText);
 
     if (animate) {
-      this.scene?.input.keyboard.once("keydown-SPACE", this._setFullText, this);
-      this.scene?.input.once("pointerdown", this._setFullText, this);
       this.timedEvent = this.scene?.time.addEvent({
         delay: 150 - this.config.dialogSpeed * 30,
         callback: this._animateText,
         callbackScope: this,
         loop: true,
       });
+      this.scene?.input.keyboard.once("keydown-SPACE", this._setFullText, this);
+      this.scene?.input.once("pointerdown", this._setFullText, this);
     }
   }
 
   private _readyNext() {
     console.log(this.scene?.events);
     // this.scene?.input.once('keydown-SPACE', () => console.log('helllo'), this)
-    this.scene?.input.keyboard.once("keydown-SPACE", this._next, this);
-    const event = this.scene?.input.once("pointerdown", this._next, this);
-    console.log(event);
+    console.log(this.timelineContent[this.timelineIndex - 1]);
+    if (
+      this.timelineContent[this.timelineIndex - 1].type === ContentType.CHAT
+    ) {
+      this.scene?.input.keyboard.once("keydown-SPACE", this._next, this);
+      this.scene?.input.once("pointerdown", this._next, this);
+    }
   }
 
   private _next() {
@@ -251,22 +277,42 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       return;
     }
     if (this.timelineContent[this.timelineIndex].type === ContentType.CHAT)
-      this.setText(this.timelineContent[this.timelineIndex++].text);
+      this.setText(this.timelineContent[this.timelineIndex].text);
     else if (
-      this.timelineContent[this.timelineIndex].type == ContentType.CHOICE
+      this.timelineContent[this.timelineIndex].type === ContentType.CHOICE
     ) {
-      this.setChoice(
-        this.timelineContent[this.timelineIndex++] as ChoiceContent
+      this.setChoice(this.timelineContent[this.timelineIndex] as ChoiceContent);
+    } else if (
+      this.timelineContent[this.timelineIndex].type === ContentType.NEXTTL
+    ) {
+      this.setTimeline(
+        this.timeline,
+        (this.timelineContent[this.timelineIndex] as NextTimelineContent).nextId
       );
-    } else if (this.timelineContent[this.timelineIndex].type == ContentType.NEXTTL) {
-
+      return;
+    } else if (
+      this.timelineContent[this.timelineIndex].type === ContentType.SCENE
+    ) {
+      this.scene?.scene.switch(
+        (this.timelineContent[this.timelineIndex] as SwitchSceneContent).sceneId
+      );
+      this.closeWindow();
+      console.log("returnable");
+      return;
+    } else {
+      console.debug(
+        this.timelineContent[this.timelineIndex].type === ContentType.CHAT
+      );
     }
+
+    this.timelineIndex++;
   }
 
   private setChoice(choice: ChoiceContent) {
     this.setText(choice.text || "");
+    console.log("SET CHOICE");
+    // this._readyNext()
     this._setChoice(choice.choices);
-    this._readyNext()
   }
 
   private _setChoice(choices: Choice[]) {
@@ -292,7 +338,11 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         buttonHeight,
         this.config.windowColor,
         this.config.windowAlpha
-      ).setStrokeStyle(this.config.borderThickness, this.config.borderColor, this.config.windowAlpha);
+      ).setStrokeStyle(
+        this.config.borderThickness,
+        this.config.borderColor,
+        this.config.windowAlpha
+      );
       button.setInteractive({
         useHandCursor: true,
       });
@@ -327,11 +377,11 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _setFullText() {
+    this.timedEvent.remove();
     this.text?.setText(this.dialogText.join(""));
     // this.scene?.events.off(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, this._setFullText, this)
     this.scene?.input.keyboard.off("keydown-SPACE", this._setFullText, this);
     this.scene?.input.off("pointerdown", this._setFullText, this);
-    this.timedEvent?.remove();
     this._readyNext();
   }
 
@@ -341,10 +391,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this.text.text + this.dialogText[this.dialogTextIndex - 1]
     );
     if (this.dialogTextIndex == this.dialogText.length) {
+      this.timedEvent.remove();
       // this.scene?.events.off(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, this._setFullText, this)
       this.scene?.input.keyboard.off("keydown-SPACE", this._setFullText, this);
       this.scene?.input.off("pointerdown", this._setFullText, this);
-      this.timedEvent.remove();
       this._readyNext();
     }
   }

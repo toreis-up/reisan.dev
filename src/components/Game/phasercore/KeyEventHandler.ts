@@ -14,4 +14,8 @@ export class KeyEventHandler {
   isPress(keyName: string): boolean {
     return this.keyHandler?.[keyName].isDown || false
   }
+
+  isJustDown(keyName: string): boolean {
+    return this.keyHandler?.[keyName] ? Phaser.Input.Keyboard.JustDown(this.keyHandler?.[keyName]) : false
+  }
 }

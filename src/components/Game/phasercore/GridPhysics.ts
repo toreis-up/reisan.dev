@@ -1,6 +1,5 @@
 import { Direction } from "./Direction";
 import { Player } from "./Player";
-import { TestScene } from "../Scene/TestScene";
 
 const Vector2 = Phaser.Math.Vector2;
 type Vector2 = Phaser.Math.Vector2;
@@ -123,6 +122,7 @@ export class GridPhysics {
     if (this.hasNoTile(pos)) return true;
     return this.tileMap.layers.some((layer) => {
       const tile = this.tileMap.getTileAt(pos.x, pos.y, false, layer.name);
+      console.log(tile)
       return tile && tile.properties.collides;
     });
   }
@@ -134,10 +134,7 @@ export class GridPhysics {
   }
 
   interactionPlayer() {
-      console.log({
-        scene: this.tileMap.scene,
-        pos: this.tilePosInDirection(this.lastMoveInputDirection),
-      });
+      console.log('interact from gp')
       this.tileMap.scene.events.emit('interactionDispatch', {scene: this.tileMap.scene, pos: this.tilePosInDirection(this.lastMoveInputDirection)})
   }
 }
