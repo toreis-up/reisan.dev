@@ -35,7 +35,6 @@ export class TestScene extends SceneBase {
       frameWidth: 32,
       frameHeight: 32
     })
->>>>>>> 7d58883c1b57a9ec320efae0ec275207b8ba9a3a
     this.load.image("tiles2", "character/Anim_Slimes_SpriteSheet.png");
     // this.load.scenePlugin("dialogPlugin",
     // DialogPlugin,
