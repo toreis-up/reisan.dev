@@ -4,7 +4,6 @@ import { GridControls } from "../phasercore/GridControls";
 import { GridPhysics } from "../phasercore/GridPhysics";
 import { Direction } from "../phasercore/Direction";
 import { ContentType, Timeline } from "@/components/plugin/types/dialog";
-import { SceneEventHandler } from "../phasercore/SceneEventHandler";
 import { NPC } from "../class/NPC";
 import { SceneBase } from "./SceneBase";
 
