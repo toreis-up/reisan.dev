@@ -6,7 +6,7 @@ export class SceneBase extends Phaser.Scene {
     super(sceneConfig);
   }
 
-  getTilesize() {
+  getTilesize = () => {
     return this.TILE_SIZE;
   }
 }
