@@ -25,7 +25,7 @@ export type Choice = {
   nextId: TimelineId,
 }
 
-type ChatContent = {
+export type ChatContent = {
   type: ContentType.CHAT
   text: string,
   speakerName?: string,

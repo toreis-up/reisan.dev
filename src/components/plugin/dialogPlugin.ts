@@ -7,6 +7,7 @@ import {
   ChoiceContent,
   NextTimelineContent,
   SwitchSceneContent,
+  ChatContent,
 } from "./types/dialog";
 
 export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
@@ -17,7 +18,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private closeBtn?: Phaser.GameObjects.Text;
   private dialogText = [] as string[];
   private dialogTextIndex = 0;
-  private timedEvent = undefined as unknown as Phaser.Time.TimerEvent;
+  private timedEvent: undefined | Phaser.Time.TimerEvent;
   private timelineContent = [] as TimelineContent[];
   private timelineIndex = 0;
   private timeline = {} as Timeline;
@@ -54,6 +55,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         },
         this
       );
+      this.uiLayer = {} as Phaser.GameObjects.Container;
     }
   }
 
@@ -62,7 +64,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
     eventEmitter?.on(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this);
     eventEmitter?.on(Phaser.Scenes.Events.DESTROY, this.destroy, this);
-    (this.scene?.events.listenerCount("dialogStart") || 0) < 1 ? eventEmitter?.on("dialogStart", (e) => {console.log("event handled");this.setTimeline(e)}, this) : console.log("The listener has already registered. Skip.")
+    (this.scene?.events.listenerCount("dialogStart") || 0) < 1 ? eventEmitter?.on("dialogStart", (e: Timeline) => {console.log("event handled");this.setTimeline(e)}, this) : console.log("The listener has already registered. Skip.")
 
     this.systems?.scale.on(
       Phaser.Scale.Events.RESIZE,
@@ -109,12 +111,12 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _calculateWindowDimensions(width: number, height: number) {
-    const x = this.config.padding + this.scene?.cameras.main.scrollX;
+    const x = this.config.padding + (this.scene?.cameras.main.scrollX || 0);
     const y =
       height -
       this.config.windowHeight -
       this.config.padding +
-      this.scene?.cameras.main.scrollY;
+      (this.scene?.cameras.main.scrollY || 0);
     const rectWidth = width - this.config.padding * 2;
     const rectHeight = this.config.windowHeight;
     return { x, y, rectWidth, rectHeight };
@@ -249,8 +251,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         callback: this._animateText,
         callbackScope: this,
         loop: true,
-      });
-      this.scene?.input.keyboard.once("keydown-SPACE", this._setFullText, this);
+      }) || {} as Phaser.Time.TimerEvent;
+      this.scene?.input.keyboard?.once("keydown-SPACE", this._setFullText, this);
       this.scene?.input.once("pointerdown", this._setFullText, this);
     }
   }
@@ -262,14 +264,13 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     if (
       this.timelineContent[this.timelineIndex - 1].type === ContentType.CHAT
     ) {
-      this.scene?.input.keyboard.once("keydown-SPACE", this._next, this);
+      this.scene?.input.keyboard?.once("keydown-SPACE", this._next, this);
       this.scene?.input.once("pointerdown", this._next, this);
     }
   }
 
   private _next() {
-    // this.scene?.events.off('keydown-SPACE', this._next, this)
-    this.scene?.input.keyboard.off("keydown-SPACE", this._next, this);
+    this.scene?.input.keyboard?.off("keydown-SPACE", this._next, this);
     this.scene?.input.off("pointerdown", this._next, this);
 
     if (this.timelineIndex >= this.timelineContent.length) {
@@ -277,7 +278,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       return;
     }
     if (this.timelineContent[this.timelineIndex].type === ContentType.CHAT)
-      this.setText(this.timelineContent[this.timelineIndex].text);
+      this.setText((this.timelineContent[this.timelineIndex] as ChatContent).text);
     else if (
       this.timelineContent[this.timelineIndex].type === ContentType.CHOICE
     ) {
@@ -318,7 +319,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private _setChoice(choices: Choice[]) {
     const buttonHeight = 40,
       buttonMargin = 40;
-    const { width, height } = this.scene.game.canvas;
+    const { width, height } = this.scene!.game.canvas;
     const buttonGroupHeight =
       buttonHeight * choices.length + buttonMargin * (choices.length - 1);
     const buttonGroupOriginY = height / 2 - buttonGroupHeight / 2;
@@ -331,7 +332,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
       // Rectangleでボタンを作成
       const button = new Phaser.GameObjects.Rectangle(
-        this.scene,
+        this.scene!,
         width / 2,
         y,
         width / 3,
@@ -351,7 +352,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
       // ボタンテキストを作成
       const buttonText = new Phaser.GameObjects.Text(
-        this.scene,
+        this.scene!,
         width / 2,
         y,
         choice.text,
@@ -377,10 +378,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _setFullText() {
-    this.timedEvent.remove();
+    this.timedEvent?.remove();
     this.text?.setText(this.dialogText.join(""));
-    // this.scene?.events.off(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, this._setFullText, this)
-    this.scene?.input.keyboard.off("keydown-SPACE", this._setFullText, this);
+    this.scene?.input.keyboard?.off("keydown-SPACE", this._setFullText, this);
     this.scene?.input.off("pointerdown", this._setFullText, this);
     this._readyNext();
   }
@@ -391,9 +391,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this.text.text + this.dialogText[this.dialogTextIndex - 1]
     );
     if (this.dialogTextIndex == this.dialogText.length) {
-      this.timedEvent.remove();
-      // this.scene?.events.off(Phaser.Input.Keyboard.Events.ANY_KEY_DOWN, this._setFullText, this)
-      this.scene?.input.keyboard.off("keydown-SPACE", this._setFullText, this);
+      this.timedEvent?.remove();
+      this.scene?.input.keyboard?.off("keydown-SPACE", this._setFullText, this);
       this.scene?.input.off("pointerdown", this._setFullText, this);
       this._readyNext();
     }
@@ -401,12 +400,12 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
   private _setText(text: string) {
     if (this.text) this.text.destroy();
-    const x = this.config.padding + this.scene?.cameras.main.scrollX + 10;
+    const x = this.config.padding + (this.scene?.cameras.main.scrollX || 0) + 10;
     const y =
       this._getGameHeight() -
       this.config.windowHeight -
       this.config.padding +
-      this.scene?.cameras.main.scrollY +
+      (this.scene?.cameras.main.scrollY || 0) +
       10;
     this.text = this.scene!.add.text(x, y, text, {
       wordWrap: { width: this._getGameWidth()! - this.config.padding * 2 - 25 },
