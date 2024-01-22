@@ -1,5 +1,6 @@
 import { TimelinePlugin } from "@/components/plugin/TimelinePlugin";
 import { DialogPlugin } from "@/components/plugin/dialogPlugin";
+import { NPCManagerPlugin } from "@/components/plugin/NPCManagerPlugin"
 
 declare module "phaser" {
   namespace Scenes {
@@ -10,6 +11,7 @@ declare module "phaser" {
   }
   interface Scene {
     dialogPlugin: DialogPlugin;
+    npcManager: NPCManagerPlugin;
     getTilesize: () => number;
   }
 }

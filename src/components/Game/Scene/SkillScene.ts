@@ -73,7 +73,8 @@ export class SkillScene extends SceneBase {
     } as Timeline;
 
     console.log(this.scene)
-
+    this.npcManager.init();
+    this.npcManager.addNPC(canvanNPC)
 
     this.cameras.main.setBounds(
       0,
