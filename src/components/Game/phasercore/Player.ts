@@ -44,4 +44,12 @@ export class Player {
   setTilePos(tilePosition: Phaser.Math.Vector2) {
     this.tilePos = tilePosition.clone();
   }
+
+  private _setDepth(depth: number) {
+    this.sprite.setDepth(depth);
+  }
+
+  updateDepth() {
+    this._setDepth(this.getTilePos().y + 1/2);
+  }
 }

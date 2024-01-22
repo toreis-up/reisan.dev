@@ -43,6 +43,7 @@ export class GridPhysics {
     if (this.isMoving()) {
       this.updatePlayerPosition(delta);
     }
+    this.player.updateDepth();
     this.lastMoveDirection = Direction.NONE;
   }
 
