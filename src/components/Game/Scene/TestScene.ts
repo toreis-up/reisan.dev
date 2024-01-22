@@ -48,16 +48,16 @@ export class TestScene extends SceneBase {
     const tiles2 = map.addTilesetImage("slime", "tiles2");
 
     const layer = map.createLayer(0, tiles!, 0, 0);
-    layer?.setDepth(0);
+    layer?.setDepth(-3);
 
     const layer2 = map.createLayer(1, tiles!, 0, 0);
-    layer2?.setDepth(1);
+    layer2?.setDepth(-2);
 
     const layer3 = map.createLayer(2, tiles!, 0, 0);
-    layer3?.setDepth(2);
+    layer3?.setDepth(-1);
 
     const layer4 = map.createLayer(3, tiles2!, 0, 0);
-    layer4?.setDepth(3);
+    layer4?.setDepth(0);
 
     const timelines = [
       {
