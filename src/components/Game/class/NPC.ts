@@ -33,4 +33,8 @@ export class NPC extends Phaser.GameObjects.Sprite {
     console.log(this.pos)
     this.scene.events.emit('dialogStart', this.timelines[0])
   }
+
+  getTilePosition() {
+    return this.pos
+  }
 }
