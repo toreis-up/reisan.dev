@@ -124,7 +124,7 @@ export class GridPhysics {
     return this.tileMap.layers.some((layer) => {
       const tile = this.tileMap.getTileAt(pos.x, pos.y, false, layer.name);
       console.log(tile)
-      return tile && tile.properties.collides;
+      return tile && (tile.properties.collides || this.isNPCTile(pos));
     });
   }
 
@@ -132,6 +132,10 @@ export class GridPhysics {
     return !this.tileMap.layers.some((layer) => {
       return this.tileMap.hasTileAt(pos.x, pos.y, layer.name);
     });
+  }
+
+  private isNPCTile(pos: Vector2) {
+    return this.tileMap.scene.npcManager.hasNPC(pos)
   }
 
   interactionPlayer() {
