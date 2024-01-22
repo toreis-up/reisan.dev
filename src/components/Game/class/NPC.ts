@@ -1,7 +1,6 @@
 
 import { Timeline } from "@/components/plugin/types/dialog";
 import Phaser, { Scene } from "phaser";
-import { TestScene } from "../Scene/TestScene";
 
 
 export class NPC extends Phaser.GameObjects.Sprite {
@@ -13,8 +12,8 @@ export class NPC extends Phaser.GameObjects.Sprite {
     
     this.setOrigin(0.5, 1);
     this.setPosition(
-      pos.x * TestScene.TILE_SIZE + offsetX,
-      pos.y * TestScene.TILE_SIZE + offsetY
+      pos.x * scene.getTilesize() + offsetX,
+      pos.y * scene.getTilesize() + offsetY
       );
     console.log(this.pos)
     this.scene.events.on('interactionDispatch', (e: {pos:Phaser.Math.Vector2, scene: Phaser.Scene}) => this.interaction(e.pos, e.scene))
