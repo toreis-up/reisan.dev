@@ -146,6 +146,9 @@ export class TestScene extends SceneBase {
       ],
     } as Timeline;
 
+    this.npcManager.init();
+    this.npcManager.addNPC(canvanNPC, slimeNPC)
+    
     this.dialogPlugin.init()
     this.dialogPlugin.setTimeline(timeline)
 
