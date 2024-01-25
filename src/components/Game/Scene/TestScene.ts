@@ -38,11 +38,6 @@ export class TestScene extends SceneBase {
       frameHeight: 32,
     })
     this.load.image('tiles2', 'character/Anim_Slimes_SpriteSheet.png')
-    // this.load.scenePlugin("dialogPlugin",
-    // DialogPlugin,
-    // "dialogPlugin",
-    // 'dialog')
-    // this.load.scenePlugin("timelinePlugin", TimelinePlugin, "timelinePlugin", "timeline")
   }
 
   create() {
@@ -120,23 +115,6 @@ export class TestScene extends SceneBase {
     this.gridPhysics = new GridPhysics(player, map)
     this.gridControls = new GridControls(this.input, this.gridPhysics)
 
-    // this.plugins.installScenePlugin(
-    //   "dialogPlugin",
-    //   DialogPlugin,
-    //   "dialog",
-    //   this
-    // );
-
-    // this.plugins.installScenePlugin(
-    //   "timelinePlugin",
-    //   TimelinePlugin,
-    //   "dialog",
-    //   this
-    // );
-
-    // this.sys.dialogPlugin.init();
-    // this.sys.timelinePlugin.init();
-
     const timeline = {
       start: [
         {
@@ -160,8 +138,6 @@ export class TestScene extends SceneBase {
     this.createPlayerAnimation(Direction.DOWN, 0, 2)
     this.createPlayerAnimation(Direction.LEFT, 3, 5)
     this.createPlayerAnimation(Direction.RIGHT, 6, 8)
-
-    // this.scene.switch("skillScene")
   }
 
   private createPlayerAnimation(

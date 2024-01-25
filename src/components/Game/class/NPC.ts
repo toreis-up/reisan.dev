@@ -20,8 +20,6 @@ export class NPC extends Phaser.GameObjects.Sprite {
   }
 
   interaction(position: Phaser.Math.Vector2, scene: Phaser.Scene) {
-    // console.log('NPC EVENT START')
-    // console.log(position, this.pos)
     if (this.pos.x !== position.x || this.pos.y !== position.y)
       return
 

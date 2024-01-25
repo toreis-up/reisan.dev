@@ -31,8 +31,6 @@ export class TimelinePlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _next() {
-    // this.scene?.events.off('keydown', this._next, this)
-
     if (this.timelineIndex >= this.timelineContents!.length) {
       this.dialog.closeWindow()
       return

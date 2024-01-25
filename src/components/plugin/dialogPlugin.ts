@@ -219,7 +219,6 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene?.input.emit('DISABLE_CONTROL')
     this.timeline = timeline
     this.timelineContent = timeline[sceneId]
-    // this.uiLayer?.removeAll();
 
     this._next()
   }

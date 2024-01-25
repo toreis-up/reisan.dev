@@ -16,10 +16,8 @@ export class SkillScene extends SceneBase {
   }
 
   preload() {
-    // this.load.image("scenebase", "tilemap/map1.png");
     this.load.image('fandw', 'tilemap/inhouse/td_FloorsAndWalls.png')
     this.load.tilemapTiledJSON('ssmap', 'tileset/SkillPage/base.json')
-    // this.load.spritesheet("player", "character/reisan.png");
   }
 
   update(_time: number, delta: number) {
@@ -30,15 +28,11 @@ export class SkillScene extends SceneBase {
   create() {
     const map = this.make.tilemap({ key: 'ssmap' })
 
-    // const sceneBase = map.addTilesetImage("Map", "scenebase");
     const floorAndWallTiles = map.addTilesetImage('indoor', 'fandw')
 
     const layerBase = map.createLayer(0, floorAndWallTiles!, 0, 0)
     layerBase?.setDepth(0)
     layerBase?.setScale(2)
-
-    // const floorAndWallLayer = map.createLayer(1, floorAndWallTiles!, 0, 0);
-    // floorAndWallLayer?.setDepth(1);
 
     const playerSprite = this.add.sprite(0, 0, 'player')
     playerSprite.setDepth(5)
