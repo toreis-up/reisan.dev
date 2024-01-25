@@ -1,5 +1,5 @@
 import type Phaser from 'phaser'
-import { TestScene } from '../Scene/TestScene'
+import { MainScene } from '../Scene/MainScene'
 import type { Direction } from './Direction'
 
 export class Player {
@@ -7,13 +7,13 @@ export class Player {
     private sprite: Phaser.GameObjects.Sprite,
     private tilePos: Phaser.Math.Vector2,
   ) {
-    const offsetX = TestScene.TILE_SIZE / 2
-    const offsetY = TestScene.TILE_SIZE
+    const offsetX = MainScene.TILE_SIZE / 2
+    const offsetY = MainScene.TILE_SIZE
 
     this.sprite.setOrigin(0.5, 1)
     this.sprite.setPosition(
-      tilePos.x * TestScene.TILE_SIZE + offsetX,
-      tilePos.y * TestScene.TILE_SIZE + offsetY,
+      tilePos.x * MainScene.TILE_SIZE + offsetX,
+      tilePos.y * MainScene.TILE_SIZE + offsetY,
     )
     this.sprite.setFrame(1)
   }

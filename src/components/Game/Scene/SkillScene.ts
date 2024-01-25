@@ -48,7 +48,7 @@ export class SkillScene extends SceneBase {
         start: [
           { type: ContentType.CHAT, text: '「Vueが好きです」と書いてある。' },
           { type: ContentType.CHAT, text: 'メインシーンへ移動します。' },
-          { type: ContentType.SCENE, sceneId: 'TestScene' },
+          { type: ContentType.SCENE, sceneId: 'MainScene' },
         ],
       },
     ] as Timeline[]
@@ -64,7 +64,7 @@ export class SkillScene extends SceneBase {
         },
         {
           type: ContentType.SCENE,
-          sceneId: 'TestScene',
+          sceneId: 'MainScene',
         },
       ],
     } as Timeline

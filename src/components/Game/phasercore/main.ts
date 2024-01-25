@@ -1,10 +1,10 @@
 import Phaser from 'phaser'
-import { TestScene } from '../Scene/TestScene'
+import { MainScene } from '../Scene/MainScene'
 import { SkillScene } from '../Scene/SkillScene'
 import { DialogPlugin } from '@/components/plugin/dialogPlugin'
 import { NPCManagerPlugin } from '@/components/plugin/NPCManagerPlugin'
 
-const testScene = new TestScene()
+const testScene = new MainScene()
 const skillScene = new SkillScene()
 
 let game: Phaser.Game

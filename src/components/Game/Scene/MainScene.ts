@@ -8,13 +8,13 @@ import { SceneBase } from './SceneBase'
 import type { Timeline } from '@/components/plugin/types/dialog'
 import { ContentType } from '@/components/plugin/types/dialog'
 
-export class TestScene extends SceneBase {
+export class MainScene extends SceneBase {
   static readonly TILE_SIZE = 32
   private gridControls!: GridControls
   private gridPhysics!: GridPhysics
 
   constructor() {
-    super('TestScene')
+    super('MainScene')
   }
 
   update(_time: number, delta: number) {
