@@ -1,17 +1,17 @@
-import { TimelinePlugin } from "@/components/plugin/TimelinePlugin";
-import { DialogPlugin } from "@/components/plugin/dialogPlugin";
-import { NPCManagerPlugin } from "@/components/plugin/NPCManagerPlugin"
+import type { TimelinePlugin } from '@/components/plugin/TimelinePlugin'
+import type { DialogPlugin } from '@/components/plugin/dialogPlugin'
+import type { NPCManagerPlugin } from '@/components/plugin/NPCManagerPlugin'
 
-declare module "phaser" {
+declare module 'phaser' {
   namespace Scenes {
     interface Systems {
-      dialogPlugin: DialogPlugin;
-      timelinePlugin: TimelinePlugin;
+      dialogPlugin: DialogPlugin
+      timelinePlugin: TimelinePlugin
     }
   }
   interface Scene {
-    dialogPlugin: DialogPlugin;
-    npcManager: NPCManagerPlugin;
-    getTilesize: () => number;
+    dialogPlugin: DialogPlugin
+    npcManager: NPCManagerPlugin
+    getTilesize: () => number
   }
 }

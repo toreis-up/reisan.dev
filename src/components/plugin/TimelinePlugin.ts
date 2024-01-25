@@ -1,52 +1,52 @@
-import { Scene } from "phaser";
-import { ContentType, Timeline, TimelineContent } from "./types/dialog";
-import { DialogPlugin } from "./dialogPlugin";
+import type { Scene } from 'phaser'
+import type { Timeline, TimelineContent } from './types/dialog'
+import { ContentType } from './types/dialog'
+import { DialogPlugin } from './dialogPlugin'
 
 export class TimelinePlugin extends Phaser.Plugins.ScenePlugin {
-  private timelineIndex = 0;
-  private timelineContents?: TimelineContent[];
-  private dialog: DialogPlugin;
+  private timelineIndex = 0
+  private timelineContents?: TimelineContent[]
+  private dialog: DialogPlugin
 
   constructor(
     scene: Scene,
     pluginManager: Phaser.Plugins.PluginManager,
-    pluginKey: string
+    pluginKey: string,
   ) {
-    super(scene, pluginManager, pluginKey);
-    this.scene = scene;
-    this.systems = scene.sys;
+    super(scene, pluginManager, pluginKey)
+    this.scene = scene
+    this.systems = scene.sys
 
-    if (!scene.sys.settings.isBooted) {
-      scene.sys.events.once("boot", this.boot, this);
-    }
+    if (!scene.sys.settings.isBooted)
+      scene.sys.events.once('boot', this.boot, this)
 
     this.dialog = new DialogPlugin(scene, pluginManager, pluginKey)
   }
 
   setTimeline(timeline: Timeline) {
-    this.timelineIndex = 0;
-    this.systems?.events.emit("DISABLE_CONTROL");
-    this.timelineContents = timeline["start"];
-    this._next();
+    this.timelineIndex = 0
+    this.systems?.events.emit('DISABLE_CONTROL')
+    this.timelineContents = timeline['start']
+    this._next()
   }
 
   private _next() {
     // this.scene?.events.off('keydown', this._next, this)
 
     if (this.timelineIndex >= this.timelineContents!.length) {
-      this.dialog.closeWindow();
-      return;
+      this.dialog.closeWindow()
+      return
     }
 
-    const timelineContent = this.timelineContents![this.timelineIndex++];
+    const timelineContent = this.timelineContents![this.timelineIndex++]
 
     switch (timelineContent.type) {
       case ContentType.CHAT:
         this.dialog.setText(timelineContent.text)
-        break;
+        break
 
       default:
-        return;
+        return
     }
 
     this._next()
