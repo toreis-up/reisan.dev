@@ -1,14 +1,14 @@
-import Phaser from 'phaser';
+import Phaser from 'phaser'
 
-type Keys = {[keyof: string]: number}
-type Keyset = {[keyof: string]: Phaser.Input.Keyboard.Key}
+interface Keys { [keyof: string]: number }
+interface Keyset { [keyof: string]: Phaser.Input.Keyboard.Key }
 
 export class KeyEventHandler {
-  private keyHandler?: Keyset;
+  private keyHandler?: Keyset
   constructor(private input: Phaser.Input.InputPlugin, private keys: Keys) {
     this.keyHandler = this.input.keyboard?.addKeys({
-      ...keys
-    }) as Keyset;
+      ...keys,
+    }) as Keyset
   }
 
   isPress(keyName: string): boolean {

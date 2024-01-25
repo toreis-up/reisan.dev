@@ -7,10 +7,10 @@ export const usePhaserStore = defineStore('phaser', {
   }),
   actions: {
     setGameInstance(gameInstance: Phaser.Game) {
-      this.gameInstance = gameInstance;
+      this.gameInstance = gameInstance
     },
     freeGameInstance() {
-      this.gameInstance = null;
-    }
-  }
+      this.gameInstance = null
+    },
+  },
 })
