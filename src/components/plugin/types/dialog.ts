@@ -9,6 +9,7 @@ export type TimelineContent =
   | NextTimelineContent
   | SwitchExternalPageContent
   | SwitchSceneContent
+  | PictureContent
 
 type TimelineId = string
 
@@ -18,6 +19,7 @@ export enum ContentType {
   'NEXTTL' = 'nextTimeline',
   'EXTERNALURL' = 'externalURL',
   'SCENE' = 'scene',
+  'PICTURE' = 'picture',
 }
 
 export interface Choice {
@@ -51,4 +53,9 @@ export interface NextTimelineContent {
 export interface SwitchExternalPageContent {
   type: ContentType.EXTERNALURL
   url: string
+}
+
+export interface PictureContent {
+  type: ContentType.PICTURE
+  path: string // assets/dialogからの相対パス
 }
