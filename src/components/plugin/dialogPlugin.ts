@@ -4,6 +4,7 @@ import type {
   Choice,
   ChoiceContent,
   NextTimelineContent,
+  PictureContent,
   SwitchSceneContent,
   Timeline,
   TimelineContent,
@@ -319,6 +320,12 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       console.log('returnable')
       return
     }
+    else if (
+      this.timelineContent[this.timelineIndex].type === ContentType.PICTURE
+    ) {
+      this.showPicture((this.timelineContent[this.timelineIndex] as PictureContent).path)
+      this._readyNext()
+    }
     else {
       console.debug(
         this.timelineContent[this.timelineIndex].type === ContentType.CHAT,
@@ -326,6 +333,22 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     }
 
     this.timelineIndex++
+  }
+
+  private showPicture(imagePath: string) {
+    const { width, height } = this.scene!.game.canvas
+    this.scene?.load.image(imagePath, `dialog/${imagePath}`)
+    const imgObj = this.scene?.add.image(width / 2, height / 2, imagePath)
+
+    imgObj?.on(`REMOVE_${imagePath}`, () => imgObj.destroy(), this)
+
+    if (!this.scene?.textures.exists(imagePath)) {
+      this.scene?.load.once(Phaser.Loader.Events.COMPLETE, () => {
+        imgObj?.setTexture(imagePath)
+        this.uiLayer.add(imgObj!)
+      })
+      this.scene?.load.start()
+    }
   }
 
   private setChoice(choice: ChoiceContent) {
