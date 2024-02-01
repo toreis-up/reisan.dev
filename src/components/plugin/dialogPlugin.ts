@@ -4,6 +4,7 @@ import type {
   Choice,
   ChoiceContent,
   NextTimelineContent,
+  PictureContent,
   SwitchSceneContent,
   Timeline,
   TimelineContent,
@@ -272,10 +273,13 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     }
   }
 
-  private _readyNext() {
+  private _readyNext(skipInteract = false) {
     console.log(this.scene?.events)
     // this.scene?.input.once('keydown-SPACE', () => console.log('helllo'), this)
     console.log(this.timelineContent[this.timelineIndex - 1])
+    if (skipInteract)
+      setTimeout(() => this._next())
+
     if (
       this.timelineContent[this.timelineIndex - 1].type === ContentType.CHAT
     ) {
@@ -319,6 +323,18 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       console.log('returnable')
       return
     }
+    else if (
+      this.timelineContent[this.timelineIndex].type === ContentType.PICTURE
+    ) {
+      this.showPicture((this.timelineContent[this.timelineIndex] as PictureContent).path)
+      this._readyNext(true)
+    }
+    else if (
+      this.timelineContent[this.timelineIndex].type === ContentType.REM_PICTURE
+    ) {
+      this.removePicture((this.timelineContent[this.timelineIndex] as PictureContent).path)
+      this._readyNext(true)
+    }
     else {
       console.debug(
         this.timelineContent[this.timelineIndex].type === ContentType.CHAT,
@@ -326,6 +342,32 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     }
 
     this.timelineIndex++
+  }
+
+  private showPicture(imagePath: string) {
+    const { width, height } = this.scene!.game.canvas
+    this.scene?.load.image(imagePath, `dialog/${imagePath}`)
+    const imgObj = this.scene?.add.image(width / 2, height / 2, imagePath)
+
+    if (!imgObj)
+      return
+
+    this.uiLayer.once(`REMOVE_${imagePath}`, () => {
+      this.uiLayer.remove(imgObj)
+      imgObj.destroy()
+    }, this)
+
+    if (!this.scene?.textures.exists(imagePath)) {
+      this.scene?.load.once(Phaser.Loader.Events.COMPLETE, () => {
+        imgObj?.setTexture(imagePath)
+        this.uiLayer.add(imgObj!)
+      })
+      this.scene?.load.start()
+    }
+  }
+
+  private removePicture(imagePath: string) {
+    this.uiLayer.emit(`REMOVE_${imagePath}`)
   }
 
   private setChoice(choice: ChoiceContent) {
