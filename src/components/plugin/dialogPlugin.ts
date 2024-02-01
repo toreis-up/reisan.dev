@@ -345,9 +345,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private showPicture(imagePath: string) {
-    const { width, height } = this.scene!.game.canvas
+    const { width: canvasWidth, height: canvasHeight } = this.scene!.game.canvas
     this.scene?.load.image(imagePath, `dialog/${imagePath}`)
-    const imgObj = this.scene?.add.image(width / 2, height / 2, imagePath)
+    const imgObj = this.scene?.add.image(canvasWidth / 2, canvasHeight / 2, imagePath)
 
     if (!imgObj)
       return
