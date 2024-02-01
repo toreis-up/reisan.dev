@@ -340,7 +340,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene?.load.image(imagePath, `dialog/${imagePath}`)
     const imgObj = this.scene?.add.image(width / 2, height / 2, imagePath)
 
-    imgObj?.on(`REMOVE_${imagePath}`, () => imgObj.destroy(), this)
+    this.uiLayer.once(`REMOVE_${imagePath}`, () => {
+      this.uiLayer.remove(imgObj)
+      imgObj.destroy()
+    }, this)
 
     if (!this.scene?.textures.exists(imagePath)) {
       this.scene?.load.once(Phaser.Loader.Events.COMPLETE, () => {
@@ -349,6 +352,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       })
       this.scene?.load.start()
     }
+  }
+
+  private removePicture(imagePath: string) {
+    this.uiLayer.emit(`REMOVE_${imagePath}`)
   }
 
   private setChoice(choice: ChoiceContent) {
