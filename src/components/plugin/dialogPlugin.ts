@@ -273,10 +273,13 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     }
   }
 
-  private _readyNext() {
+  private _readyNext(skipInteract = false) {
     console.log(this.scene?.events)
     // this.scene?.input.once('keydown-SPACE', () => console.log('helllo'), this)
     console.log(this.timelineContent[this.timelineIndex - 1])
+    if (skipInteract)
+      setTimeout(() => this._next())
+
     if (
       this.timelineContent[this.timelineIndex - 1].type === ContentType.CHAT
     ) {
