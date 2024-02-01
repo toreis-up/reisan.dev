@@ -344,10 +344,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.timelineIndex++
   }
 
-  private showPicture(imagePath: string) {
-    const { width, height } = this.scene!.game.canvas
+  private showPicture(imagePath: string, windowRatio = 75) {
+    const { width: canvasWidth, height: canvasHeight } = this.scene!.game.canvas
     this.scene?.load.image(imagePath, `dialog/${imagePath}`)
-    const imgObj = this.scene?.add.image(width / 2, height / 2, imagePath)
+    const imgObj = this.scene?.add.image(canvasWidth / 2, canvasHeight / 2, imagePath)
 
     if (!imgObj)
       return
@@ -360,6 +360,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     if (!this.scene?.textures.exists(imagePath)) {
       this.scene?.load.once(Phaser.Loader.Events.COMPLETE, () => {
         imgObj?.setTexture(imagePath)
+        const { width: imageWidth, height: imageHeight } = imgObj
+        const widthExpandScale = canvasWidth * windowRatio / imageWidth / 100
+        const heightExpandScale = canvasHeight * windowRatio / imageHeight / 100
+        imgObj.scale = widthExpandScale < heightExpandScale ? widthExpandScale : heightExpandScale
         this.uiLayer.add(imgObj!)
       })
       this.scene?.load.start()
