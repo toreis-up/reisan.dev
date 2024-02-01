@@ -349,6 +349,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene?.load.image(imagePath, `dialog/${imagePath}`)
     const imgObj = this.scene?.add.image(width / 2, height / 2, imagePath)
 
+    if (!imgObj)
+      return
+
     this.uiLayer.once(`REMOVE_${imagePath}`, () => {
       this.uiLayer.remove(imgObj)
       imgObj.destroy()
