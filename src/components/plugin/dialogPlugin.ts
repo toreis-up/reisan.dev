@@ -327,7 +327,13 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this.timelineContent[this.timelineIndex].type === ContentType.PICTURE
     ) {
       this.showPicture((this.timelineContent[this.timelineIndex] as PictureContent).path)
-      this._readyNext()
+      this._readyNext(true)
+    }
+    else if (
+      this.timelineContent[this.timelineIndex].type === ContentType.REM_PICTURE
+    ) {
+      this.removePicture((this.timelineContent[this.timelineIndex] as PictureContent).path)
+      this._readyNext(true)
     }
     else {
       console.debug(
