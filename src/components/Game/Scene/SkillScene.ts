@@ -55,7 +55,7 @@ export class SkillScene extends SceneBase {
       },
     ] as Timeline[]
     this.npcManager.init()
-    // const canvanNPC = new NPC(this, new Phaser.Math.Vector2(15, 15), 'canvan', canvanTimeline)
+    const canvanNPC = new NPC(this, new Phaser.Math.Vector2(13, 15), 'canvan', canvanTimeline)
 
     const skills = [{ skillName: 'vue' }, { skillName: 'nuxt' }] as Skill[]
 
@@ -67,8 +67,8 @@ export class SkillScene extends SceneBase {
       this.npcManager.addNPC(sCanvanNPC)
     })
 
-    // const canvanNPCSplite = this.add.existing(canvanNPC)
-    // canvanNPCSplite.scale = 2
+    const canvanNPCSplite = this.add.existing(canvanNPC)
+    canvanNPCSplite.scale = 2
 
     const timeline = {
       start: [
@@ -85,7 +85,7 @@ export class SkillScene extends SceneBase {
 
     console.log(this.scene)
 
-    // this.npcManager.addNPC(canvanNPC)
+    this.npcManager.addNPC(canvanNPC)
 
     this.cameras.main.setBounds(
       0,
