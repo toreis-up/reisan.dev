@@ -228,6 +228,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private _setTimeline(sceneId: string) {
     this.timelineIndex = 0
     this.timelineContent = this.timeline[sceneId]
+
+    // eslint-disable-next-line eqeqeq
+    if (this.timelineContent == undefined)
+      this.closeWindow()
   }
 
   private toggleWindow() {

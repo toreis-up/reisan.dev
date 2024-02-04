@@ -3,6 +3,7 @@ import { GridControls } from '../phasercore/GridControls'
 import { GridPhysics } from '../phasercore/GridPhysics'
 import { Player } from '../phasercore/Player'
 import { SceneBase } from './SceneBase'
+import { CanvanNPC } from './SkillSceneNPC/canvanNPC'
 import type { Skill } from '@/types/Skill'
 import { ContentType } from '@/components/plugin/types/dialog'
 import type { Timeline } from '@/components/plugin/types/dialog'
@@ -11,7 +12,6 @@ export class SkillScene extends SceneBase {
   TILE_SIZE: number = 32
   private gridControls!: GridControls
   private gridPhysics!: GridPhysics
-  private skills = [{ skillName: 'vue' }, { skillName: 'nuxt' }] as Skill[]
 
   constructor() {
     super('skillScene')
@@ -45,17 +45,12 @@ export class SkillScene extends SceneBase {
 
     const player = new Player(playerSprite, new Phaser.Math.Vector2(16, 16))
 
-    const canvanTimeline = [
-      {
-        start: [
-          { type: ContentType.CHAT, text: '「Vueが好きです」と書いてある。' },
-          { type: ContentType.CHAT, text: 'メインシーンへ移動します。' },
-          { type: ContentType.SCENE, sceneId: 'TestScene' },
-        ],
-      },
-    ] as Timeline[]
+    const canvanNPC = new CanvanNPC(this)
+    const canvanNPCSprite = this.add.existing(canvanNPC)
+    canvanNPCSprite.setScale(2)
+
     this.npcManager.init()
-    const canvanNPC = new NPC(this, new Phaser.Math.Vector2(13, 15), 'canvan', canvanTimeline)
+    this.npcManager.addNPC(canvanNPC)
 
     const skills = [{ skillName: 'vue' }, { skillName: 'nuxt' }] as Skill[]
 
@@ -67,25 +62,20 @@ export class SkillScene extends SceneBase {
       this.npcManager.addNPC(sCanvanNPC)
     })
 
-    const canvanNPCSplite = this.add.existing(canvanNPC)
-    canvanNPCSplite.scale = 2
-
     const timeline = {
       start: [
         {
           type: ContentType.CHAT,
-          text: 'nekodesu konnnitiha hajimemasite matsuodesu',
+          text: 'とれいすのスキルが見れるよ',
         },
         {
-          type: ContentType.SCENE,
-          sceneId: 'TestScene',
+          type: ContentType.CHAT,
+          text: '全部のスキルが書いてあるかはわからんけど…',
         },
       ],
     } as Timeline
 
     console.log(this.scene)
-
-    this.npcManager.addNPC(canvanNPC)
 
     this.cameras.main.setBounds(
       0,
