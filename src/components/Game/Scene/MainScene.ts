@@ -3,11 +3,11 @@ import { Player } from '../phasercore/Player'
 import { GridControls } from '../phasercore/GridControls'
 import { GridPhysics } from '../phasercore/GridPhysics'
 import { Direction } from '../phasercore/Direction'
-import { NPC } from '../class/NPC'
 import { SceneBase } from './SceneBase'
+import { NPC_Reisan } from './MainSceneNPC/reisanNPC'
+import { CanvanNPC } from './MainSceneNPC/canvanNPC'
 import type { Timeline } from '@/components/plugin/types/dialog'
 import { ContentType } from '@/components/plugin/types/dialog'
-import { NPC_Reisan } from './MainSceneNPC/reisanNPC'
 
 export class MainScene extends SceneBase {
   static readonly TILE_SIZE = 32
@@ -69,16 +69,7 @@ export class MainScene extends SceneBase {
     this.cameras.main.roundPixels = true
     const player = new Player(playerSprite, new Phaser.Math.Vector2(6, 6))
 
-    const canvanTimeline = [
-      {
-        start: [
-          { type: ContentType.CHAT, text: '「Vueが好きです」と書いてある。' },
-          { type: ContentType.CHAT, text: 'シーン飛びます' },
-          { type: ContentType.SCENE, sceneId: 'skillScene' },
-        ],
-      },
-    ] as Timeline[]
-    const canvanNPC = new NPC(this, new Phaser.Math.Vector2(10, 5), 'canvan', canvanTimeline)
+    const canvanNPC = new CanvanNPC(this)
     const canvanNPCSplite = this.add.existing(canvanNPC)
     canvanNPCSplite.scale = 2
 
