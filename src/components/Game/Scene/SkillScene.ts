@@ -3,6 +3,7 @@ import { GridControls } from '../phasercore/GridControls'
 import { GridPhysics } from '../phasercore/GridPhysics'
 import { Player } from '../phasercore/Player'
 import { SceneBase } from './SceneBase'
+import type { Skill } from '@/types/Skill'
 import { ContentType } from '@/components/plugin/types/dialog'
 import type { Timeline } from '@/components/plugin/types/dialog'
 
@@ -10,6 +11,7 @@ export class SkillScene extends SceneBase {
   TILE_SIZE: number = 32
   private gridControls!: GridControls
   private gridPhysics!: GridPhysics
+  private skills = [{ skillName: 'vue' }, { skillName: 'nuxt' }] as Skill[]
 
   constructor() {
     super('skillScene')
@@ -52,7 +54,19 @@ export class SkillScene extends SceneBase {
         ],
       },
     ] as Timeline[]
-    const canvanNPC = new NPC(this, new Phaser.Math.Vector2(15, 15), 'canvan', canvanTimeline)
+    this.npcManager.init()
+    const canvanNPC = new NPC(this, new Phaser.Math.Vector2(13, 15), 'canvan', canvanTimeline)
+
+    const skills = [{ skillName: 'vue' }, { skillName: 'nuxt' }] as Skill[]
+
+    skills.forEach((skill, idx) => {
+      const timeline = generateTimelineBySkill(skill)
+      const sCanvanNPC = new NPC(this, new Phaser.Math.Vector2(15 + 2 * idx, 15), 'canvan', timeline)
+      const sCanvanNPCSplite = this.add.existing(sCanvanNPC)
+      sCanvanNPCSplite.scale = 2
+      this.npcManager.addNPC(sCanvanNPC)
+    })
+
     const canvanNPCSplite = this.add.existing(canvanNPC)
     canvanNPCSplite.scale = 2
 
@@ -70,7 +84,7 @@ export class SkillScene extends SceneBase {
     } as Timeline
 
     console.log(this.scene)
-    this.npcManager.init()
+
     this.npcManager.addNPC(canvanNPC)
 
     this.cameras.main.setBounds(
@@ -85,4 +99,8 @@ export class SkillScene extends SceneBase {
     this.gridControls = new GridControls(this.input, this.gridPhysics)
     this.sys.dialogPlugin.setTimeline(timeline)
   }
+}
+
+function generateTimelineBySkill(skill: Skill): Timeline[] {
+  return [{ start: [{ type: ContentType.CHAT, text: `${skill.skillName}と書いてある。` }, { type: ContentType.PICTURE, path: `${skill.skillName}.png` }, { type: ContentType.CHAT, text: `いいよね。${skill.skillName}` }, { type: ContentType.REM_PICTURE, path: `${skill.skillName}.png` }] }] as Timeline[]
 }
