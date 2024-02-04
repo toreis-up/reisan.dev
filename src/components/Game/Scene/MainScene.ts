@@ -37,14 +37,12 @@ export class MainScene extends SceneBase {
       frameWidth: 32,
       frameHeight: 32,
     })
-    this.load.image('tiles2', 'character/Anim_Slimes_SpriteSheet.png')
   }
 
   create() {
     const map = this.make.tilemap({ key: 'map' })
 
     const tiles = map.addTilesetImage('map', 'tiles')
-    const tiles2 = map.addTilesetImage('slime', 'tiles2')
 
     const layer = map.createLayer(0, tiles!, 0, 0)
     layer?.setDepth(-3)
@@ -55,7 +53,7 @@ export class MainScene extends SceneBase {
     const layer3 = map.createLayer(2, tiles!, 0, 0)
     layer3?.setDepth(-1)
 
-    const layer4 = map.createLayer(3, tiles2!, 0, 0)
+    const layer4 = map.createLayer(3, tiles!, 0, 0)
     layer4?.setDepth(0)
 
     const timelines = [
