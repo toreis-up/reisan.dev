@@ -12,7 +12,6 @@ export class SkillScene extends SceneBase {
   TILE_SIZE: number = 32
   private gridControls!: GridControls
   private gridPhysics!: GridPhysics
-  private skills = [{ skillName: 'vue' }, { skillName: 'nuxt' }] as Skill[]
 
   constructor() {
     super('skillScene')
