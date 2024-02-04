@@ -3,14 +3,6 @@ import { NPC } from '../../class/NPC'
 import type { Timeline } from '@/components/plugin/types/dialog'
 import { ContentType } from '@/components/plugin/types/dialog'
 
-export class NPC_Reisan extends NPC {
-  constructor(
-    scene: Scene,
-  ) {
-    super(scene, new Phaser.Math.Vector2(5, 5), 'npc1_reisan', timelines, 1)
-  }
-}
-
 const timelines = [
   {
     start: [
@@ -33,3 +25,10 @@ const timelines = [
     no: [{ type: ContentType.CHAT, text: 'ほなドッペルゲンガーと違うかー。' }],
   },
 ] as Timeline[]
+export class NPC_Reisan extends NPC {
+  constructor(
+    scene: Scene,
+  ) {
+    super(scene, new Phaser.Math.Vector2(5, 5), 'npc1_reisan', timelines, 1)
+  }
+}

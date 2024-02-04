@@ -3,10 +3,10 @@ import { GridControls } from '../phasercore/GridControls'
 import { GridPhysics } from '../phasercore/GridPhysics'
 import { Player } from '../phasercore/Player'
 import { SceneBase } from './SceneBase'
+import { CanvanNPC } from './SkillSceneNPC/canvanNPC'
 import type { Skill } from '@/types/Skill'
 import { ContentType } from '@/components/plugin/types/dialog'
 import type { Timeline } from '@/components/plugin/types/dialog'
-import { CanvanNPC } from './SkillSceneNPC/canvanNPC'
 
 export class SkillScene extends SceneBase {
   TILE_SIZE: number = 32
@@ -67,11 +67,11 @@ export class SkillScene extends SceneBase {
       start: [
         {
           type: ContentType.CHAT,
-          text: "とれいすのスキルが見れるよ",
+          text: 'とれいすのスキルが見れるよ',
         },
         {
           type: ContentType.CHAT,
-          text: "全部のスキルが書いてあるかはわからんけど…",
+          text: '全部のスキルが書いてあるかはわからんけど…',
         },
       ],
     } as Timeline

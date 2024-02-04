@@ -3,12 +3,6 @@ import { NPC } from '../../class/NPC'
 import type { Timeline } from '@/components/plugin/types/dialog'
 import { ContentType } from '@/components/plugin/types/dialog'
 
-export class CanvanNPC extends NPC {
-  constructor(scene: Scene) {
-    super(scene, new Phaser.Math.Vector2(8, 15), 'canvan', canvanTimeline, 1)
-  }
-}
-
 const canvanTimeline = [
   {
     start: [
@@ -23,3 +17,8 @@ const canvanTimeline = [
     ],
   },
 ] as Timeline[]
+export class CanvanNPC extends NPC {
+  constructor(scene: Scene) {
+    super(scene, new Phaser.Math.Vector2(8, 15), 'canvan', canvanTimeline, 1)
+  }
+}
