@@ -1,6 +1,18 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+import PhaserContainer from './PhaserContainer.vue'
+
+export default defineComponent({
+  name: 'GameContainer',
+  components: {
+    PhaserContainer,
+  },
+})
+</script>
+
 <template>
   <Suspense>
-    <phaser-container />
+    <PhaserContainer />
 
     <template #fallback>
       <div>
@@ -9,15 +21,3 @@
     </template>
   </Suspense>
 </template>
-
-<script lang="ts">
-import PhaserContainer from './PhaserContainer.vue'
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'game-container',
-  components: {
-    PhaserContainer
-  }
-})
-</script>

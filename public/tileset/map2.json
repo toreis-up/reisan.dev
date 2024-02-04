@@ -103,8 +103,59 @@
          "width":60,
          "x":0,
          "y":0
+        }, 
+        {
+         "data":[269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 270, 269, 270, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 270, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 270, 270, 269, 269, 269, 269,
+            269, 269, 269, 269, 269, 270, 270, 269, 269, 269, 269, 270, 269, 269, 269, 269, 269, 269, 269, 269, 270, 269, 269, 269, 269, 269, 269, 269, 269, 269, 270, 270, 270, 270, 270, 270, 269, 269, 269, 269, 269, 270, 270, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 270, 269,
+            269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 270, 270, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 270, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 269, 270, 270, 270, 270, 269, 269, 269, 269, 269, 269, 269, 270,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":40,
+         "id":5,
+         "name":"Wall",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":60,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":3,
+ "nextlayerid":6,
  "nextobjectid":1,
  "orientation":"orthogonal",
  "renderorder":"right-down",
@@ -130,6 +181,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -139,6 +195,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -148,6 +209,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -157,6 +223,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -166,6 +237,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -175,6 +251,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -184,6 +265,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -193,6 +279,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -202,6 +293,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -211,6 +307,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -220,6 +321,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -229,6 +335,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -238,6 +349,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -247,6 +363,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -256,6 +377,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -265,6 +391,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -272,6 +403,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -283,6 +419,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -292,6 +433,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -301,6 +447,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -310,6 +461,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -317,6 +473,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -328,6 +489,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -337,6 +503,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -346,6 +517,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -355,6 +531,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -362,6 +543,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -373,6 +559,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -382,6 +573,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -391,6 +587,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -400,6 +601,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -409,6 +615,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -418,6 +629,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -425,6 +641,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -436,6 +657,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -445,6 +671,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -454,6 +685,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -463,6 +699,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -470,6 +711,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -481,6 +727,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -490,6 +741,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -499,6 +755,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -508,6 +769,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -515,6 +781,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -526,6 +797,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -535,6 +811,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -544,6 +825,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -553,6 +839,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -562,6 +853,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -571,6 +867,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -580,6 +881,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -589,6 +895,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -598,6 +909,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -607,6 +923,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -616,6 +937,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -625,6 +951,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -634,6 +965,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -643,6 +979,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -652,6 +993,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -661,6 +1007,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 },
             
@@ -671,6 +1022,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -678,6 +1034,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -689,6 +1050,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -698,6 +1064,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -707,6 +1078,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -716,6 +1092,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -723,6 +1104,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -734,6 +1120,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -743,6 +1134,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -752,6 +1148,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -761,6 +1162,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -768,6 +1174,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -779,6 +1190,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -788,6 +1204,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -797,6 +1218,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -806,6 +1232,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -815,6 +1246,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -824,6 +1260,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -831,6 +1272,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -842,6 +1288,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -851,6 +1302,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -860,6 +1316,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -869,6 +1330,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -876,6 +1342,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -887,6 +1358,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -896,6 +1372,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -905,6 +1386,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -914,6 +1400,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -921,6 +1412,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -932,6 +1428,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -941,6 +1442,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -950,6 +1456,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -959,6 +1470,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -968,6 +1484,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -977,6 +1498,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -986,6 +1512,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -995,6 +1526,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1004,6 +1540,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1013,6 +1554,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1022,6 +1568,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1031,6 +1582,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1040,6 +1596,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1049,6 +1610,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1058,6 +1624,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1067,6 +1638,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1076,6 +1652,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1083,6 +1664,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1094,6 +1680,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1103,6 +1694,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1112,6 +1708,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1121,6 +1722,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1128,6 +1734,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1139,6 +1750,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1148,6 +1764,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1157,6 +1778,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1166,6 +1792,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1173,6 +1804,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1184,6 +1820,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1193,6 +1834,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1202,6 +1848,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 },
             
@@ -1212,6 +1863,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1221,6 +1877,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1230,6 +1891,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1237,6 +1903,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1248,6 +1919,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1257,6 +1933,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1266,6 +1947,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1275,6 +1961,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1282,6 +1973,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1293,6 +1989,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1302,6 +2003,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1311,6 +2017,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1320,6 +2031,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1327,6 +2043,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1338,6 +2059,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1347,6 +2073,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1356,6 +2087,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1365,6 +2101,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1374,6 +2115,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1383,6 +2129,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1392,6 +2143,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1401,6 +2157,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1410,6 +2171,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1419,6 +2185,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1428,6 +2199,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1437,6 +2213,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1446,6 +2227,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1455,6 +2241,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1464,6 +2255,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1473,6 +2269,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1482,6 +2283,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1489,6 +2295,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1500,6 +2311,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1509,6 +2325,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1518,6 +2339,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1527,6 +2353,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1534,6 +2365,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1545,6 +2381,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1554,6 +2395,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1563,6 +2409,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1572,6 +2423,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1579,6 +2435,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1590,6 +2451,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1599,6 +2465,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1608,6 +2479,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1617,6 +2493,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1626,6 +2507,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1635,6 +2521,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1642,6 +2533,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1653,6 +2549,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1662,6 +2563,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1671,6 +2577,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1680,6 +2591,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1687,6 +2603,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1698,6 +2619,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1707,6 +2633,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1716,6 +2647,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1725,6 +2661,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1734,6 +2675,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1741,6 +2687,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1753,6 +2704,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1762,6 +2718,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1771,6 +2732,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1780,6 +2746,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1789,6 +2760,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1798,6 +2774,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1807,6 +2788,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1816,6 +2802,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1825,6 +2816,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1834,6 +2830,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1843,6 +2844,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1852,6 +2858,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1861,6 +2872,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1870,6 +2886,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1879,6 +2900,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1888,6 +2914,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1895,6 +2926,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1906,6 +2942,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1915,6 +2956,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1924,6 +2970,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1933,6 +2984,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1940,6 +2996,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1951,6 +3012,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1960,6 +3026,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1969,6 +3040,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1978,6 +3054,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -1985,6 +3066,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -1996,6 +3082,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2005,6 +3096,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2014,6 +3110,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2023,6 +3124,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2032,6 +3138,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2041,6 +3152,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2048,6 +3164,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2059,6 +3180,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2068,6 +3194,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2077,6 +3208,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2086,6 +3222,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2093,6 +3234,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2104,6 +3250,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2113,6 +3264,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2122,6 +3278,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2131,6 +3292,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2138,6 +3304,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2149,6 +3320,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2158,6 +3334,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2167,6 +3348,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2176,6 +3362,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2185,6 +3376,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2194,6 +3390,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2201,6 +3402,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2212,6 +3418,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2219,6 +3430,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2230,6 +3446,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2237,6 +3458,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2248,6 +3474,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2257,6 +3488,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2266,6 +3502,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2275,6 +3516,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2284,6 +3530,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 },
             
@@ -2294,6 +3545,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2301,6 +3557,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2312,6 +3573,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2321,6 +3587,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2330,6 +3601,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2337,6 +3613,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2348,6 +3629,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2355,6 +3641,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2366,6 +3657,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2373,6 +3669,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2384,6 +3685,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2391,6 +3697,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2402,6 +3713,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2411,6 +3727,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2420,6 +3741,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2429,6 +3755,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2438,6 +3769,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2447,6 +3783,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2454,6 +3795,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2465,6 +3811,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2472,6 +3823,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2483,6 +3839,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2490,6 +3851,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2501,6 +3867,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2508,6 +3879,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2519,6 +3895,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2528,6 +3909,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2537,6 +3923,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2546,6 +3937,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2555,6 +3951,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2564,6 +3965,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2573,6 +3979,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2582,6 +3993,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2591,6 +4007,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2600,6 +4021,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2609,6 +4035,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2618,6 +4049,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2627,6 +4063,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2636,6 +4077,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2645,6 +4091,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2654,6 +4105,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2663,6 +4119,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2672,6 +4133,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2681,6 +4147,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2690,6 +4161,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2699,6 +4175,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2706,6 +4187,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2717,6 +4203,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2726,6 +4217,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2735,6 +4231,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2744,6 +4245,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2751,6 +4257,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2762,6 +4273,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2771,6 +4287,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2780,6 +4301,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2789,6 +4315,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2796,6 +4327,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2807,6 +4343,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2816,6 +4357,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2825,6 +4371,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 },
             
@@ -2835,6 +4386,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2844,6 +4400,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2853,6 +4414,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2860,6 +4426,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2871,6 +4442,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2880,6 +4456,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2889,6 +4470,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2898,6 +4484,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2905,6 +4496,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2916,6 +4512,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2925,6 +4526,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2934,6 +4540,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2943,6 +4554,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2950,6 +4566,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -2961,6 +4582,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2970,6 +4596,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2979,6 +4610,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2988,6 +4624,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -2997,6 +4638,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3006,6 +4652,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3015,6 +4666,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3024,6 +4680,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3033,6 +4694,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3042,6 +4708,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3051,6 +4722,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3058,6 +4734,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3069,6 +4750,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3076,6 +4762,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3087,6 +4778,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3094,6 +4790,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3105,6 +4806,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3112,6 +4818,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3123,6 +4834,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3132,6 +4848,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3141,6 +4862,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3150,6 +4876,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3157,6 +4888,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3168,6 +4904,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3177,6 +4918,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3186,6 +4932,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3193,6 +4944,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3204,6 +4960,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3211,6 +4972,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3222,6 +4988,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3229,6 +5000,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3240,6 +5016,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3249,6 +5030,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3258,6 +5044,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3265,6 +5056,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3276,6 +5072,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3285,6 +5086,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3294,6 +5100,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3303,6 +5114,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3310,6 +5126,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3321,6 +5142,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3328,6 +5154,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3339,6 +5170,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3346,6 +5182,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
@@ -3357,6 +5198,11 @@
                          "name":"collides",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
+                         "type":"bool",
+                         "value":false
                         }]
                 }, 
                 {
@@ -3364,6 +5210,11 @@
                  "properties":[
                         {
                          "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"isTalkable",
                          "type":"bool",
                          "value":false
                         }]
