@@ -7,6 +7,7 @@ import { NPC } from '../class/NPC'
 import { SceneBase } from './SceneBase'
 import type { Timeline } from '@/components/plugin/types/dialog'
 import { ContentType } from '@/components/plugin/types/dialog'
+import { NPC_Reisan } from './MainSceneNPC/reisanNPC'
 
 export class MainScene extends SceneBase {
   static readonly TILE_SIZE = 32
@@ -29,7 +30,7 @@ export class MainScene extends SceneBase {
       frameWidth: 32,
       frameHeight: 48,
     })
-    this.load.spritesheet('slime', 'character/reisan.png', {
+    this.load.spritesheet('npc1_reisan', 'character/reisan.png', {
       frameWidth: 32,
       frameHeight: 48,
     })
@@ -56,37 +57,10 @@ export class MainScene extends SceneBase {
     const layer4 = map.createLayer(3, tiles!, 0, 0)
     layer4?.setDepth(0)
 
-    const timelines = [
-      {
-        start: [
-          {
-            type: ContentType.CHAT,
-            text: 'nekodesu konnnitiha hajimemasite matsuodesu',
-          },
-          { type: ContentType.CHAT, text: 'inudesu' },
-          {
-            type: ContentType.CHOICE,
-            text: 'choice?',
-            choices: [
-              { text: 'iti', nextId: 'iti' },
-              { text: 'ni', nextId: 'ni' },
-            ],
-          },
-        ],
-        iti: [{ type: ContentType.CHAT, text: 'oh you choiced one!' }],
+    const reisanNPC = new NPC_Reisan(this)
 
-        ni: [{ type: ContentType.CHAT, text: 'wwwwooooww you selected two!' }],
-      },
-    ] as Timeline[]
-    const slimeNPC = new NPC(
-      this,
-      new Phaser.Math.Vector2(5, 5),
-      'slime',
-      timelines,
-      1,
-    )
-    const slimeNPCSplite = this.add.existing(slimeNPC)
-    slimeNPCSplite.scale = 2
+    const reisanNPCSprite = this.add.existing(reisanNPC)
+    reisanNPCSprite.scale = 2
 
     const playerSprite = this.add.sprite(0, 0, 'player')
     playerSprite.setDepth(5)
@@ -117,17 +91,21 @@ export class MainScene extends SceneBase {
       start: [
         {
           type: ContentType.CHAT,
-          text: 'nekodesu konnnitiha hajimemasite matsuodesu',
+          text: 'とれいすさんのポートフォリオへようこそ！（クリックか「スペースキー」で進む）',
         },
-        { type: ContentType.CHAT, text: 'inudesu' },
         {
-          type: ContentType.SCENE, sceneId: 'skillScene',
+          type: ContentType.CHAT,
+          text: 'まだまだ実装中だけど、色々見ていってね :)',
+        },
+        {
+          type: ContentType.CHAT,
+          text: 'Eキーで話しかけたり、看板を見たりできるよ！',
         },
       ],
     } as Timeline
 
     this.npcManager.init()
-    this.npcManager.addNPC(canvanNPC, slimeNPC)
+    this.npcManager.addNPC(canvanNPC, reisanNPC)
 
     this.dialogPlugin.init()
     this.dialogPlugin.setTimeline(timeline)
