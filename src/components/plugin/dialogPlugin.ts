@@ -5,6 +5,7 @@ import type {
   ChoiceContent,
   NextTimelineContent,
   PictureContent,
+  SwitchExternalPageContent,
   SwitchSceneContent,
   Timeline,
   TimelineContent,
@@ -339,6 +340,21 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this.removePicture((this.timelineContent[this.timelineIndex] as PictureContent).path)
       this._readyNext(true)
     }
+    else if (
+      this.timelineContent[this.timelineIndex].type === ContentType.EXTERNALURL
+    ) {
+      const url = (this.timelineContent[this.timelineIndex] as SwitchExternalPageContent)
+        .url
+      const externalWindow = window.open(
+        url,
+        '_blank',
+      )
+
+      if (externalWindow && externalWindow.focus)
+        externalWindow.focus()
+      else if (!externalWindow)
+        window.location.href = url
+    }
     else {
       console.debug(
         this.timelineContent[this.timelineIndex].type === ContentType.CHAT,
@@ -350,10 +366,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
   private showPicture(imagePath: string, windowRatio = 75) {
     const { width: canvasWidth, height: canvasHeight } = this.scene!.game.canvas
-    const { scrollX: cameraX, scrollY: cameraY} = this.scene!.cameras.main
+    const { scrollX: cameraX, scrollY: cameraY } = this.scene!.cameras.main
     this.scene?.load.image(imagePath, `dialog/${imagePath}`)
     const imgObj = this.scene?.add.image(canvasWidth / 2 + cameraX, canvasHeight / 2 + cameraY, imagePath)
-    imgObj?.setDepth(255);
+    imgObj?.setDepth(255)
 
     if (!imgObj)
       return
