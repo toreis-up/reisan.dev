@@ -1,3 +1,4 @@
+/* UNUSED
 import type { Scene } from 'phaser'
 import type { Timeline, TimelineContent } from './types/dialog'
 import { ContentType } from './types/dialog'
@@ -50,3 +51,4 @@ export class TimelinePlugin extends Phaser.Plugins.ScenePlugin {
     this._next()
   }
 }
+*/

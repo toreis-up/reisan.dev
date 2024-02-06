@@ -6,8 +6,17 @@ import { ContentType } from '@/components/plugin/types/dialog'
 const canvanTimeline = [
   {
     start: [
-      { type: ContentType.CHAT, text: '「Vueが好きです」と書いてある。' },
-      { type: ContentType.CHAT, text: 'シーン飛びます' },
+      { type: ContentType.CHAT, text: '何が見たいですか？' },
+      {
+        type: ContentType.CHOICE,
+        text: '見たいものを選んでください',
+        choices: [
+          { text: 'スキル', nextId: 'skillScene' },
+          { text: '別に…' },
+        ],
+      },
+    ],
+    skillScene: [
       { type: ContentType.SCENE, sceneId: 'skillScene' },
     ],
   },

@@ -36,6 +36,8 @@ export class SkillScene extends SceneBase {
     layerBase?.setDepth(0)
     layerBase?.setScale(2)
 
+    this.cameras.main.setBackgroundColor(0x111)
+
     const playerSprite = this.add.sprite(0, 0, 'player')
     playerSprite.setDepth(5)
     playerSprite.scale = 2
@@ -52,7 +54,7 @@ export class SkillScene extends SceneBase {
     this.npcManager.init()
     this.npcManager.addNPC(canvanNPC)
 
-    const skills = [{ skillName: 'vue' }, { skillName: 'nuxt' }] as Skill[]
+    const skills = [{ skillName: 'Vue' }, { skillName: 'Nuxt' }] as Skill[]
 
     skills.forEach((skill, idx) => {
       const timeline = generateTimelineBySkill(skill)
@@ -92,5 +94,5 @@ export class SkillScene extends SceneBase {
 }
 
 function generateTimelineBySkill(skill: Skill): Timeline[] {
-  return [{ start: [{ type: ContentType.CHAT, text: `${skill.skillName}と書いてある。` }, { type: ContentType.PICTURE, path: `${skill.skillName}.png` }, { type: ContentType.CHAT, text: `いいよね。${skill.skillName}` }, { type: ContentType.REM_PICTURE, path: `${skill.skillName}.png` }] }] as Timeline[]
+  return [{ start: [{ type: ContentType.CHAT, text: `「${skill.skillName}が触れます」と書いてある。` }, { type: ContentType.PICTURE, path: `${skill.skillName}.png` }, { type: ContentType.CHAT, text: `いいよね。${skill.skillName}` }, { type: ContentType.REM_PICTURE, path: `${skill.skillName}.png` }] }] as Timeline[]
 }

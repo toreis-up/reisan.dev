@@ -1,4 +1,4 @@
-import type { TimelinePlugin } from '@/components/plugin/TimelinePlugin'
+// import type { TimelinePlugin } from '@/components/plugin/TimelinePlugin'
 import type { DialogPlugin } from '@/components/plugin/dialogPlugin'
 import type { NPCManagerPlugin } from '@/components/plugin/NPCManagerPlugin'
 
@@ -6,7 +6,7 @@ declare module 'phaser' {
   namespace Scenes {
     interface Systems {
       dialogPlugin: DialogPlugin
-      timelinePlugin: TimelinePlugin
+      // timelinePlugin: TimelinePlugin
     }
   }
   interface Scene {
