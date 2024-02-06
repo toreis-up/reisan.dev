@@ -36,6 +36,8 @@ export class SkillScene extends SceneBase {
     layerBase?.setDepth(0)
     layerBase?.setScale(2)
 
+    this.cameras.main.setBackgroundColor(0x111)
+
     const playerSprite = this.add.sprite(0, 0, 'player')
     playerSprite.setDepth(5)
     playerSprite.scale = 2
