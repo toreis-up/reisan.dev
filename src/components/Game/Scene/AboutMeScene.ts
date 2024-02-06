@@ -3,7 +3,7 @@ import { SceneBase } from './SceneBase'
 
 export class AboutMeScene extends SceneBase {
   private menuControls!: EscMenuControls
-  private uiLayer: Phaser.GameObjects.Container
+  private aboutMeUiLayer: Phaser.GameObjects.Container
 
   constructor() {
     super('aboutMeScene')
@@ -13,8 +13,8 @@ export class AboutMeScene extends SceneBase {
     this.menuControls.update()
   }
 
-  create(scene?: Phaser.Scene) {
-    this.uiLayer = this.add.container(0, 0)
-    this.menuControls = new EscMenuControls(scene?.input || this.input)
+  create(scene: Phaser.Scene) {
+    this.aboutMeUiLayer = this.add.container(0, 0)
+    this.menuControls = new EscMenuControls(scene.input, this)
   }
 }

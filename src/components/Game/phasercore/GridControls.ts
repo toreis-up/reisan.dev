@@ -24,6 +24,7 @@ export class GridControls {
   update() {
     if (this.keyEventHandler.isJustDown('Esc')) {
       this.disable()
+      this.input.scene.scene.pause()
       this.input.scene.scene.run('aboutMeScene', this.input.scene)
     }
     if (!this.isEnabled)
