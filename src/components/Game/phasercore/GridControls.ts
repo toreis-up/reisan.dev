@@ -8,27 +8,32 @@ export class GridControls {
   private keyEventHandler: KeyEventHandler
   private isEnabled: boolean = true
   constructor(
-    input: Phaser.Input.InputPlugin,
+    private input: Phaser.Input.InputPlugin,
     private gridPhysics: GridPhysics,
   ) {
     this.directionController = new DirectionHandler(input)
     this.keyEventHandler = new KeyEventHandler(input, {
       event: Phaser.Input.Keyboard.KeyCodes.E,
+      Esc: Phaser.Input.Keyboard.KeyCodes.ESC,
     })
 
-    input.on(
-      'DISABLE_CONTROL',
-      () => this.disable(),
-      this,
-    )
-    input.on(
-      'ENABLE_CONTROL',
-      () => this.enable(),
-      this,
-    )
+    input.on('DISABLE_CONTROL', () => this.disable(), this)
+    input.on('ENABLE_CONTROL', () => this.enable(), this)
+    input.on('ENTER_LICENSE', () => this.enterLicense(), this)
+  }
+
+  private enterLicense() {
+    this.disable()
+    this.input.scene.scene.pause()
+    this.input.scene.scene.run('licenseScene', this.input.scene)
   }
 
   update() {
+    if (this.keyEventHandler.isJustDown('Esc')) {
+      this.disable()
+      this.input.scene.scene.pause()
+      this.input.scene.scene.run('aboutMeScene', this.input.scene)
+    }
     if (!this.isEnabled)
       return
     if (this.directionController.isLeft())

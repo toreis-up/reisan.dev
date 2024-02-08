@@ -1,11 +1,15 @@
 import Phaser from 'phaser'
 import { MainScene } from '../Scene/MainScene'
 import { SkillScene } from '../Scene/SkillScene'
+import { AboutMeScene } from '../Scene/AboutMeScene'
+import { LicenseScene } from '../Scene/LicenceScene'
 import { DialogPlugin } from '@/components/plugin/dialogPlugin'
 import { NPCManagerPlugin } from '@/components/plugin/NPCManagerPlugin'
 
 const testScene = new MainScene()
 const skillScene = new SkillScene()
+const aboutMeScene = new AboutMeScene()
+const licenseScene = new LicenseScene()
 
 let game: Phaser.Game
 
@@ -21,7 +25,7 @@ export function boot(containerId: string) {
     scale: {
       parent: containerId,
     },
-    scene: [testScene, skillScene],
+    scene: [testScene, skillScene, aboutMeScene, licenseScene],
     dom: {
       createContainer: true,
     },
