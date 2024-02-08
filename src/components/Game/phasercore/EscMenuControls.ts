@@ -18,4 +18,9 @@ export default class EscMenuControls {
       this.menuScene.scene.resume(this.calledScene)
     }
   }
+
+  updateCalledByScene(scene: Phaser.Scene) {
+    this.calledScene = scene
+    this.input = scene.input
+  }
 }

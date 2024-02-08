@@ -37,7 +37,14 @@ export class AboutMeScene extends SceneBase {
     this.menuControls.update()
   }
 
+  private updateCalledByScene(scene: Phaser.Scene) {
+    this.menuControls.updateCalledByScene(scene)
+  }
+
   create(scene: Phaser.Scene) {
+    this.sys.events.on(Phaser.Scenes.Events.WAKE, (_thisScene: Phaser.Scene, ...args: Phaser.Scene[]) => {
+      this.updateCalledByScene(args[0])
+    })
     this.aboutMeUiLayer = this.add.container(0, 0)
     this.menuControls = new EscMenuControls(scene.input, this)
 
