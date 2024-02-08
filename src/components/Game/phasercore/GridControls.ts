@@ -19,6 +19,13 @@ export class GridControls {
 
     input.on('DISABLE_CONTROL', () => this.disable(), this)
     input.on('ENABLE_CONTROL', () => this.enable(), this)
+    input.on('ENTER_LICENSE', () => this.enterLicense(), this)
+  }
+
+  private enterLicense() {
+    this.disable()
+    this.input.scene.scene.pause()
+    this.input.scene.scene.run('licenseScene', this.input.scene)
   }
 
   update() {
