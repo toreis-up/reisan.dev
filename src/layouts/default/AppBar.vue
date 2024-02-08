@@ -4,7 +4,8 @@ import { usePhaserStore } from '@/store/phaser'
 const phaserStore = usePhaserStore()
 function openLicense() {
   const currentScenes = phaserStore.gameInstance?.scene.getScenes()
-  currentScenes[0].input.emit('ENTER_LICENSE')
+  if (currentScenes)
+    currentScenes[0].input.emit('ENTER_LICENSE')
 }
 </script>
 
