@@ -2,14 +2,14 @@ import Phaser from 'phaser'
 
 export class DirectionHandler {
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
-  private keys?: WASDKeys
+  private keys?: MovementKeys
   constructor(private input: Phaser.Input.InputPlugin) {
     this.keys = this.input.keyboard?.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
       down: Phaser.Input.Keyboard.KeyCodes.S,
       left: Phaser.Input.Keyboard.KeyCodes.A,
       right: Phaser.Input.Keyboard.KeyCodes.D,
-    }) as WASDKeys | undefined
+    }) as MovementKeys | undefined
     this.cursors = input.keyboard?.createCursorKeys()
   }
 
@@ -30,7 +30,7 @@ export class DirectionHandler {
   }
 }
 
-interface WASDKeys {
+interface MovementKeys {
   up: Phaser.Input.Keyboard.Key
   right: Phaser.Input.Keyboard.Key
   left: Phaser.Input.Keyboard.Key
