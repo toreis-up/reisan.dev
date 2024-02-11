@@ -411,16 +411,21 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       = buttonHeight * choices.length + buttonMargin * (choices.length - 1)
     const buttonGroupOriginY = height / 2 - buttonGroupHeight / 2
 
+    const { scrollX: cameraX, scrollY: cameraY } = this.scene!.cameras.main
+
+    const x = cameraX + width / 2
+
     choices.forEach((choice, index) => {
       const y
         = buttonGroupOriginY
         + buttonHeight * (index + 0.5)
         + buttonMargin * index
+        + cameraY
 
       // Rectangleでボタンを作成
       const button = new Phaser.GameObjects.Rectangle(
         this.scene!,
-        width / 2,
+        x,
         y,
         width / 3,
         buttonHeight,
@@ -440,7 +445,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       // ボタンテキストを作成
       const buttonText = new Phaser.GameObjects.Text(
         this.scene!,
-        width / 2,
+        x,
         y,
         choice.text,
         {
