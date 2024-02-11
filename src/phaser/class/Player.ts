@@ -1,6 +1,6 @@
 import type Phaser from 'phaser'
-import { MainScene } from '../Scene/MainScene'
-import type { Direction } from './Direction'
+import { MainScene } from '@/phaser/Scene/MainScene'
+import type { Direction } from '@/phaser/core/Direction'
 
 export class Player {
   constructor(

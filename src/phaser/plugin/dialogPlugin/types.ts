@@ -1,5 +1,5 @@
 export interface Timeline {
-  'start': TimelineContent[]
+  start: TimelineContent[]
   [id: TimelineId]: TimelineContent[]
 }
 
@@ -9,8 +9,8 @@ export type TimelineContent =
   | NextTimelineContent
   | SwitchExternalPageContent
   | SwitchSceneContent
-  | PictureContent
-  | RemovePictureContent
+  | ShowPictureContent
+  | HidePictureContent
 
 type TimelineId = string
 
@@ -20,8 +20,8 @@ export enum ContentType {
   'NEXTTL' = 'nextTimeline',
   'EXTERNALURL' = 'externalURL',
   'SCENE' = 'scene',
-  'PICTURE' = 'picture',
-  'REM_PICTURE' = 'removePicture',
+  'SHOW_PICTURE' = 'showPicture',
+  'HIDE_PICTURE' = 'hidePicture',
 }
 
 export interface Choice {
@@ -57,12 +57,12 @@ export interface SwitchExternalPageContent {
   url: string
 }
 
-export interface PictureContent {
-  type: ContentType.PICTURE
+export interface ShowPictureContent {
+  type: ContentType.SHOW_PICTURE
   path: string // assets/dialogからの相対パス
 }
 
-export interface RemovePictureContent {
-  type: ContentType.REM_PICTURE
+export interface HidePictureContent {
+  type: ContentType.HIDE_PICTURE
   path: string
 }

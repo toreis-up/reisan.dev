@@ -1,5 +1,5 @@
 import type { Scene } from 'phaser'
-import type { NPC } from '../Game/class/NPC'
+import type { NPC } from '@/phaser/class/NPC'
 
 type Vector2 = Phaser.Math.Vector2
 

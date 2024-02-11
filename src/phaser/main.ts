@@ -1,10 +1,10 @@
 import Phaser from 'phaser'
-import { MainScene } from '../Scene/MainScene'
-import { SkillScene } from '../Scene/SkillScene'
-import { AboutMeScene } from '../Scene/AboutMeScene'
-import { LicenseScene } from '../Scene/LicenceScene'
-import { DialogPlugin } from '@/components/plugin/dialogPlugin'
-import { NPCManagerPlugin } from '@/components/plugin/NPCManagerPlugin'
+import { MainScene } from '@/phaser/Scene/MainScene'
+import { SkillScene } from '@/phaser/Scene/SkillScene'
+import { AboutMeScene } from '@/phaser/Scene/AboutMeScene'
+import { LicenseScene } from '@/phaser/Scene/LicenceScene'
+import { DialogPlugin } from '@/phaser/plugin/dialogPlugin'
+import { NPCManagerPlugin } from '@/phaser/plugin/NPCManagerPlugin'
 
 const testScene = new MainScene()
 const skillScene = new SkillScene()
@@ -31,8 +31,24 @@ export function boot(containerId: string) {
     },
     canvasStyle: 'display: block; width: 100%; height: 100%;',
     plugins: {
-      scene: [{ plugin: DialogPlugin, key: 'dialogPlugin', mapping: 'dialogPlugin', systemKey: 'dialogPlugin', sceneKey: 'dialogScenePlugin', start: true } as Phaser.Types.Core.PluginObjectItem,
-        { plugin: NPCManagerPlugin, key: 'npcManager', mapping: 'npcManager', systemKey: 'npcManager', sceneKey: 'npcManagerPlugin', start: true }],
+      scene: [
+        {
+          plugin: DialogPlugin,
+          key: 'dialogPlugin',
+          mapping: 'dialogPlugin',
+          systemKey: 'dialogPlugin',
+          sceneKey: 'dialogScenePlugin',
+          start: true,
+        } as Phaser.Types.Core.PluginObjectItem,
+        {
+          plugin: NPCManagerPlugin,
+          key: 'npcManager',
+          mapping: 'npcManager',
+          systemKey: 'npcManager',
+          sceneKey: 'npcManagerPlugin',
+          start: true,
+        },
+      ],
     },
   }
 
