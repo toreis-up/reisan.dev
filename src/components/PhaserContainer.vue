@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { boot } from './phasercore/main'
+import { boot } from '@/phaser/main'
 import { usePhaserStore } from '@/store/phaser'
 
 const phaserStore = usePhaserStore()
@@ -20,7 +20,8 @@ export default defineComponent({
   },
   mounted() {
     console.log('Hi! Its loaded!')
-    if (this.gameInstance == null) {
+    // eslint-disable-next-line eqeqeq
+    if (this.gameInstance == undefined) {
       const newGameInstance = boot(this.containerId)
       phaserStore.setGameInstance(newGameInstance)
     }
@@ -42,3 +43,4 @@ export default defineComponent({
   height: 100%;
 }
 </style>
+../../phaser/phasercore/main

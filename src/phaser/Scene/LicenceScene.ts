@@ -1,5 +1,5 @@
-import EscMenuControls from '../phasercore/EscMenuControls'
 import { SceneBase } from './SceneBase'
+import EscMenuControls from '@/phaser/core/EscMenuControls'
 
 const licenseText = `
 ASSETS LICENCE (Escキーで閉じる)
@@ -34,9 +34,12 @@ export class LicenseScene extends SceneBase {
   }
 
   create(scene: Phaser.Scene) {
-    this.sys.events.on(Phaser.Scenes.Events.WAKE, (_thisScene: Phaser.Scene, ...args: Phaser.Scene[]) => {
-      this.updateCalledByScene(args[0])
-    })
+    this.sys.events.on(
+      Phaser.Scenes.Events.WAKE,
+      (_thisScene: Phaser.Scene, ...args: Phaser.Scene[]) => {
+        this.updateCalledByScene(args[0])
+      },
+    )
     this.licenseUiLayer = this.add.container(0, 0)
     this.menuControls = new EscMenuControls(scene.input, this)
 
@@ -58,7 +61,7 @@ export class LicenseScene extends SceneBase {
 
     const dialog = new Phaser.GameObjects.Rectangle(
       this,
-      (width / 2) + this.scene.scene.cameras.main.scrollX,
+      width / 2 + this.scene.scene.cameras.main.scrollX,
       height / 2 + this.scene.scene.cameras.main.scrollY,
       (width / 7) * 5,
       (height / 6) * 5,
@@ -77,7 +80,7 @@ export class LicenseScene extends SceneBase {
         fontFamily: 'DotGothic16',
         fontSize: '1.5rem',
         lineSpacing: 16,
-        wordWrap: { width: width / 7 * 5 - 25 },
+        wordWrap: { width: (width / 7) * 5 - 25 },
       },
     )
 

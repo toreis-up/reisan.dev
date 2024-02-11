@@ -1,7 +1,7 @@
 import type { Scene } from 'phaser'
-import { NPC } from '../../class/NPC'
-import type { Timeline } from '@/components/plugin/dialogPlugin'
-import { ContentType } from '@/components/plugin/dialogPlugin'
+import { NPC } from '@/phaser/class/NPC'
+import type { Timeline } from '@/phaser/plugin/dialogPlugin'
+import { ContentType } from '@/phaser/plugin/dialogPlugin'
 
 const canvanTimeline = [
   {
@@ -10,15 +10,10 @@ const canvanTimeline = [
       {
         type: ContentType.CHOICE,
         text: '見たいものを選んでください',
-        choices: [
-          { text: 'スキル', nextId: 'skillScene' },
-          { text: '別に…' },
-        ],
+        choices: [{ text: 'スキル', nextId: 'skillScene' }, { text: '別に…' }],
       },
     ],
-    skillScene: [
-      { type: ContentType.SCENE, sceneId: 'skillScene' },
-    ],
+    skillScene: [{ type: ContentType.SCENE, sceneId: 'skillScene' }],
   },
 ] as Timeline[]
 

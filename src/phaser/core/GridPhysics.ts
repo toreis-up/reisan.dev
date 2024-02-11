@@ -1,5 +1,5 @@
+import type { Player } from '../class/Player'
 import { Direction } from './Direction'
-import type { Player } from './Player'
 
 const Vector2_C = Phaser.Math.Vector2
 type Vector2 = Phaser.Math.Vector2
@@ -25,8 +25,7 @@ export class GridPhysics {
     this.lastMoveInputDirection = direction
     if (this.isBlockingDirection(direction))
       this.player.stopAnimation(direction)
-    else
-      this.startMoving(direction)
+    else this.startMoving(direction)
   }
 
   private isMoving(): boolean {
@@ -58,7 +57,9 @@ export class GridPhysics {
       this.updatePlayerTilePos()
     }
     else {
-      this.movePlayerSprite(this.tileMap.scene.getTilesize() - this.tileSizePixelsWalked)
+      this.movePlayerSprite(
+        this.tileMap.scene.getTilesize() - this.tileSizePixelsWalked,
+      )
       this.stopMoving()
     }
   }
@@ -81,7 +82,8 @@ export class GridPhysics {
 
   private willCrossTileBorderThisUpdate(pixelsToWalkThisUpdate: number) {
     return (
-      this.tileSizePixelsWalked + pixelsToWalkThisUpdate >= this.tileMap.scene.getTilesize()
+      this.tileSizePixelsWalked + pixelsToWalkThisUpdate
+      >= this.tileMap.scene.getTilesize()
     )
   }
 
@@ -143,6 +145,9 @@ export class GridPhysics {
 
   interactionPlayer() {
     console.log('interact from gp')
-    this.tileMap.scene.events.emit('interactionDispatch', { scene: this.tileMap.scene, pos: this.tilePosInDirection(this.lastMoveInputDirection) })
+    this.tileMap.scene.events.emit('interactionDispatch', {
+      scene: this.tileMap.scene,
+      pos: this.tilePosInDirection(this.lastMoveInputDirection),
+    })
   }
 }

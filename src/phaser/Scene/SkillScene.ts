@@ -1,12 +1,12 @@
-import { NPC } from '../class/NPC'
-import { GridControls } from '../phasercore/GridControls'
-import { GridPhysics } from '../phasercore/GridPhysics'
-import { Player } from '../phasercore/Player'
 import { SceneBase } from './SceneBase'
 import { CanvanNPC } from './SkillSceneNPC/canvanNPC'
+import { NPC } from '@/phaser/class/NPC'
+import { GridControls } from '@/phaser/core/GridControls'
+import { GridPhysics } from '@/phaser/core/GridPhysics'
+import { Player } from '@/phaser/class/Player'
 import type { Skill } from '@/types/Skill'
-import { ContentType } from '@/components/plugin/dialogPlugin'
-import type { Timeline } from '@/components/plugin/dialogPlugin'
+import { ContentType } from '@/phaser/plugin/dialogPlugin'
+import type { Timeline } from '@/phaser/plugin/dialogPlugin'
 
 export class SkillScene extends SceneBase {
   TILE_SIZE: number = 32
@@ -58,7 +58,12 @@ export class SkillScene extends SceneBase {
 
     skills.forEach((skill, idx) => {
       const timeline = generateTimelineBySkill(skill)
-      const sCanvanNPC = new NPC(this, new Phaser.Math.Vector2(15 + 2 * idx, 15), 'canvan', timeline)
+      const sCanvanNPC = new NPC(
+        this,
+        new Phaser.Math.Vector2(15 + 2 * idx, 15),
+        'canvan',
+        timeline,
+      )
       const sCanvanNPCSplite = this.add.existing(sCanvanNPC)
       sCanvanNPCSplite.scale = 2
       this.npcManager.addNPC(sCanvanNPC)
@@ -83,7 +88,8 @@ export class SkillScene extends SceneBase {
       0,
       0,
       layerBase?.displayWidth || 1920,
-      layerBase?.displayHeight || 1080)
+      layerBase?.displayHeight || 1080,
+    )
     this.cameras.main.startFollow(playerSprite)
     this.cameras.main.roundPixels = true
     this.dialogPlugin.init()
@@ -94,5 +100,17 @@ export class SkillScene extends SceneBase {
 }
 
 function generateTimelineBySkill(skill: Skill): Timeline[] {
-  return [{ start: [{ type: ContentType.CHAT, text: `「${skill.skillName}が触れます」と書いてある。` }, { type: ContentType.PICTURE, path: `${skill.skillName}.png` }, { type: ContentType.CHAT, text: `いいよね。${skill.skillName}` }, { type: ContentType.REM_PICTURE, path: `${skill.skillName}.png` }] }] as Timeline[]
+  return [
+    {
+      start: [
+        {
+          type: ContentType.CHAT,
+          text: `「${skill.skillName}が触れます」と書いてある。`,
+        },
+        { type: ContentType.PICTURE, path: `${skill.skillName}.png` },
+        { type: ContentType.CHAT, text: `いいよね。${skill.skillName}` },
+        { type: ContentType.REM_PICTURE, path: `${skill.skillName}.png` },
+      ],
+    },
+  ] as Timeline[]
 }

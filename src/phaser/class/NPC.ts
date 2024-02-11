@@ -1,6 +1,6 @@
 import type { Scene } from 'phaser'
 import Phaser from 'phaser'
-import type { Timeline } from '@/components/plugin/dialogPlugin'
+import type { Timeline } from '@/phaser/plugin/dialogPlugin'
 
 export class NPC extends Phaser.GameObjects.Sprite {
   constructor(scene: Scene, private pos: Phaser.Math.Vector2, texture: string | Phaser.Textures.Texture, private timelines: Timeline[], frame?: string | number) {
