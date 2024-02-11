@@ -1,5 +1,5 @@
 export interface Timeline {
-  'start': TimelineContent[]
+  start: TimelineContent[]
   [id: TimelineId]: TimelineContent[]
 }
 

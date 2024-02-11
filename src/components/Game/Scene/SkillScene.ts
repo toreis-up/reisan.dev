@@ -5,8 +5,8 @@ import { Player } from '../phasercore/Player'
 import { SceneBase } from './SceneBase'
 import { CanvanNPC } from './SkillSceneNPC/canvanNPC'
 import type { Skill } from '@/types/Skill'
-import { ContentType } from '@/components/plugin/types/dialog'
-import type { Timeline } from '@/components/plugin/types/dialog'
+import { ContentType } from '@/components/plugin/dialogPlugin'
+import type { Timeline } from '@/components/plugin/dialogPlugin'
 
 export class SkillScene extends SceneBase {
   TILE_SIZE: number = 32

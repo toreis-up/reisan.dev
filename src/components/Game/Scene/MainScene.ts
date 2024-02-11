@@ -6,8 +6,8 @@ import { Direction } from '../phasercore/Direction'
 import { SceneBase } from './SceneBase'
 import { NPC_Reisan } from './MainSceneNPC/reisanNPC'
 import { CanvanNPC } from './MainSceneNPC/canvanNPC'
-import type { Timeline } from '@/components/plugin/types/dialog'
-import { ContentType } from '@/components/plugin/types/dialog'
+import type { Timeline } from '@/components/plugin/dialogPlugin'
+import { ContentType } from '@/components/plugin/dialogPlugin'
 
 export class MainScene extends SceneBase {
   static readonly TILE_SIZE = 32

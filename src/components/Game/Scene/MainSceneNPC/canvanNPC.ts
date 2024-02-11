@@ -1,7 +1,7 @@
 import type { Scene } from 'phaser'
 import { NPC } from '../../class/NPC'
-import type { Timeline } from '@/components/plugin/types/dialog'
-import { ContentType } from '@/components/plugin/types/dialog'
+import type { Timeline } from '@/components/plugin/dialogPlugin'
+import { ContentType } from '@/components/plugin/dialogPlugin'
 
 const canvanTimeline = [
   {
