@@ -1,13 +1,12 @@
 import type { Scene } from 'phaser'
 import type {
+  ChatContent,
   Choice,
   ChoiceContent,
   Timeline,
   TimelineContent,
 } from '.'
-import {
-  ContentType,
-} from '.'
+import { ContentType } from '.'
 
 export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   protected config = {} as DialogConfig
@@ -63,10 +62,14 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     eventEmitter?.on(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this)
     eventEmitter?.on(Phaser.Scenes.Events.DESTROY, this.destroy, this);
     (this.scene?.events.listenerCount('dialogStart') || 0) < 1
-      ? eventEmitter?.on('dialogStart', (e: Timeline) => {
-        console.log('event handled')
-        this.setTimeline(e)
-      }, this)
+      ? eventEmitter?.on(
+        'dialogStart',
+        (e: Timeline) => {
+          console.log('event handled')
+          this.setTimeline(e)
+        },
+        this,
+      )
       : console.log('The listener has already registered. Skip.')
 
     this.systems?.scale.on(
@@ -244,7 +247,11 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this.toggleWindow()
   }
 
-  setText(text: string, animate = true) {
+  private setTextByContent(content: ChatContent) {
+    this.setText(content.text)
+  }
+
+  private setText(text: string, animate = true) {
     this.dialogTextIndex = 0
     this.dialogText = text.split('')
     if (this.timedEvent)
@@ -256,13 +263,18 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this._setText(tempText)
 
     if (animate) {
-      this.timedEvent = this.scene?.time.addEvent({
-        delay: 150 - this.config.dialogSpeed * 30,
-        callback: this._animateText,
-        callbackScope: this,
-        loop: true,
-      }) || {} as Phaser.Time.TimerEvent
-      this.scene?.input.keyboard?.once('keydown-SPACE', this._setFullText, this)
+      this.timedEvent
+        = this.scene?.time.addEvent({
+          delay: 150 - this.config.dialogSpeed * 30,
+          callback: this._animateText,
+          callbackScope: this,
+          loop: true,
+        }) || ({} as Phaser.Time.TimerEvent)
+      this.scene?.input.keyboard?.once(
+        'keydown-SPACE',
+        this._setFullText,
+        this,
+      )
       this.scene?.input.once('pointerdown', this._setFullText, this)
     }
   }
@@ -290,20 +302,20 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     const currentTimelineContent = this.timelineContent[this.timelineIndex]
     switch (currentTimelineContent.type) {
       case ContentType.CHAT:
-        this.setText(currentTimelineContent.text)
+        this.setTextByContent(currentTimelineContent)
         break
       case ContentType.CHOICE:
-        this.setChoice(currentTimelineContent) // ??: is arg type correct?
+        this.setChoiceByContent(currentTimelineContent) // ??: is arg type correct?
         break
       case ContentType.NEXTTL:
-        this.setTimeline(this.timeline, currentTimelineContent.nextId)
+        this._setTimeline(currentTimelineContent.nextId)
         return
-      case ContentType.PICTURE:
+      case ContentType.SHOW_PICTURE:
         this.showPicture(currentTimelineContent.path)
         this._readyNext(true)
         break
-      case ContentType.REM_PICTURE:
-        this.removePicture(currentTimelineContent.path)
+      case ContentType.HIDE_PICTURE:
+        this.hidePicture(currentTimelineContent.path)
         this._readyNext(true)
         break
       case ContentType.SCENE:
@@ -312,10 +324,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         return
       case ContentType.EXTERNALURL: {
         const url = currentTimelineContent.url
-        const externalWindow = window.open(
-          url,
-          '_blank',
-        )
+        const externalWindow = window.open(url, '_blank')
 
         if (externalWindow && externalWindow.focus)
           externalWindow.focus()
@@ -332,38 +341,51 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private showPicture(imagePath: string, windowRatio = 75) {
-    const { width: canvasWidth, height: canvasHeight } = this.scene!.game.canvas
+    const { width: canvasWidth, height: canvasHeight }
+      = this.scene!.game.canvas
     const { scrollX: cameraX, scrollY: cameraY } = this.scene!.cameras.main
     this.scene?.load.image(imagePath, `dialog/${imagePath.toLowerCase()}`)
-    const imgObj = this.scene?.add.image(canvasWidth / 2 + cameraX, canvasHeight / 2 + cameraY, imagePath)
+    const imgObj = this.scene?.add.image(
+      canvasWidth / 2 + cameraX,
+      canvasHeight / 2 + cameraY,
+      imagePath,
+    )
     imgObj?.setDepth(255)
 
     if (!imgObj)
       return
 
-    this.uiLayer.once(`REMOVE_${imagePath}`, () => {
-      this.uiLayer.remove(imgObj)
-      imgObj.destroy()
-    }, this)
+    this.uiLayer.once(
+      `REMOVE_${imagePath}`,
+      () => {
+        this.uiLayer.remove(imgObj)
+        imgObj.destroy()
+      },
+      this,
+    )
 
     if (!this.scene?.textures.exists(imagePath)) {
       this.scene?.load.once(Phaser.Loader.Events.COMPLETE, () => {
         imgObj?.setTexture(imagePath)
         const { width: imageWidth, height: imageHeight } = imgObj
-        const widthExpandScale = canvasWidth * windowRatio / imageWidth / 100
-        const heightExpandScale = canvasHeight * windowRatio / imageHeight / 100
-        imgObj.scale = widthExpandScale < heightExpandScale ? widthExpandScale : heightExpandScale
+        const widthExpandScale = (canvasWidth * windowRatio) / imageWidth / 100
+        const heightExpandScale
+          = (canvasHeight * windowRatio) / imageHeight / 100
+        imgObj.scale
+          = widthExpandScale < heightExpandScale
+            ? widthExpandScale
+            : heightExpandScale
         this.uiLayer.add(imgObj!)
       })
       this.scene?.load.start()
     }
   }
 
-  private removePicture(imagePath: string) {
+  private hidePicture(imagePath: string) {
     this.uiLayer.emit(`REMOVE_${imagePath}`)
   }
 
-  private setChoice(choice: ChoiceContent) {
+  setChoiceByContent(choice: ChoiceContent) {
     this.setText(choice.text || '')
     this._setChoice(choice.choices)
   }
@@ -378,10 +400,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
     const { scrollX: cameraX, scrollY: cameraY } = this.scene!.cameras.main
 
-    const x = cameraX + width / 2
+    const offsetX = cameraX + width / 2
 
     choices.forEach((choice, index) => {
-      const y
+      const offsetY
         = buttonGroupOriginY
         + buttonHeight * (index + 0.5)
         + buttonMargin * index
@@ -390,8 +412,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       // Rectangleでボタンを作成
       const button = new Phaser.GameObjects.Rectangle(
         this.scene!,
-        x,
-        y,
+        offsetX,
+        offsetY,
         width / 3,
         buttonHeight,
         this.config.windowColor,
@@ -410,8 +432,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       // ボタンテキストを作成
       const buttonText = new Phaser.GameObjects.Text(
         this.scene!,
-        x,
-        y,
+        offsetX,
+        offsetY,
         choice.text,
         {
           wordWrap: {
@@ -436,7 +458,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
 
   private _setFullText() {
     this.timedEvent?.remove()
-    this.text?.setText(this.dialogText.join(''))
+    this._setText(this.dialogText.join(''))
     this.scene?.input.keyboard?.off('keydown-SPACE', this._setFullText, this)
     this.scene?.input.off('pointerdown', this._setFullText, this)
     this._readyNext()
@@ -458,7 +480,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private _setText(text: string) {
     if (this.text)
       this.text.destroy()
-    const x = this.config.padding + (this.scene?.cameras.main.scrollX || 0) + 10
+    const x
+      = this.config.padding + (this.scene?.cameras.main.scrollX || 0) + 10
     const y
       = this._getGameHeight()
       - this.config.windowHeight

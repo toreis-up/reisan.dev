@@ -107,9 +107,9 @@ function generateTimelineBySkill(skill: Skill): Timeline[] {
           type: ContentType.CHAT,
           text: `「${skill.skillName}が触れます」と書いてある。`,
         },
-        { type: ContentType.PICTURE, path: `${skill.skillName}.png` },
+        { type: ContentType.SHOW_PICTURE, path: `${skill.skillName}.png` },
         { type: ContentType.CHAT, text: `いいよね。${skill.skillName}` },
-        { type: ContentType.REM_PICTURE, path: `${skill.skillName}.png` },
+        { type: ContentType.HIDE_PICTURE, path: `${skill.skillName}.png` },
       ],
     },
   ] as Timeline[]
