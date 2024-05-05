@@ -1,11 +1,8 @@
 import type { Scene } from 'phaser'
 import type {
-  ChatContent,
-  Choice,
-  ChoiceContent,
-  Timeline,
   TimelineContent,
-} from '.'
+} from '../../class/Timeline/types'
+import type { ChatContentType, Choice, ChoiceContentType, HidePictureContentType, NextTimelineContentType, ShowPictureContentType, SwitchSceneContentType, Timeline } from '.'
 import { ContentType } from '.'
 
 export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
@@ -217,13 +214,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this._next()
   }
 
-  private _setTimeline(sceneId: string) {
+  private _setTimeline(sceneId?: string) {
     this.timelineIndex = 0
-    this.timelineContent = this.timeline[sceneId]
-
-    // eslint-disable-next-line eqeqeq
-    if (this.timelineContent == undefined)
-      this.closeWindow()
+    this.timelineContent = this.timeline[sceneId ?? '']
   }
 
   private toggleWindow() {
@@ -247,7 +240,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this.toggleWindow()
   }
 
-  private setTextByContent(content: ChatContent) {
+  public setTextByContent(content: ChatContentType) {
     this.setText(content.text)
   }
 
@@ -284,7 +277,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       setTimeout(() => this._next()) // to execute function without stack
 
     if (
-      this.timelineContent[this.timelineIndex - 1].type === ContentType.CHAT
+      this.timelineContent[this.timelineIndex - 1]?.type === ContentType.CHAT
     ) {
       this.scene?.input.keyboard?.once('keydown-SPACE', this._next, this)
       this.scene?.input.once('pointerdown', this._next, this)
@@ -300,44 +293,30 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       return
     }
     const currentTimelineContent = this.timelineContent[this.timelineIndex]
-    switch (currentTimelineContent.type) {
-      case ContentType.CHAT:
-        this.setTextByContent(currentTimelineContent)
-        break
-      case ContentType.CHOICE:
-        this.setChoiceByContent(currentTimelineContent) // ??: is arg type correct?
-        break
-      case ContentType.NEXTTL:
-        this._setTimeline(currentTimelineContent.nextId)
-        return
-      case ContentType.SHOW_PICTURE:
-        this.showPicture(currentTimelineContent.path)
-        this._readyNext(true)
-        break
-      case ContentType.HIDE_PICTURE:
-        this.hidePicture(currentTimelineContent.path)
-        this._readyNext(true)
-        break
-      case ContentType.SCENE:
-        this.scene?.scene.switch(currentTimelineContent.sceneId)
-        this.closeWindow()
-        return
-      case ContentType.EXTERNALURL: {
-        const url = currentTimelineContent.url
-        const externalWindow = window.open(url, '_blank')
+    console.debug(currentTimelineContent)
 
-        if (externalWindow && externalWindow.focus)
-          externalWindow.focus()
-        else if (!externalWindow)
-          window.location.href = url
-        break
-      }
-      default:
-        console.error('Not implemented: ', currentTimelineContent)
-        break
-    }
+    currentTimelineContent.process()
 
     this.timelineIndex++
+  }
+
+  public setTimelineByContent(content: NextTimelineContentType) {
+    this._setTimeline(content.nextId)
+  }
+
+  public setShowPictureByContent(content: ShowPictureContentType) {
+    this.showPicture(content.path)
+    this._readyNext(true)
+  }
+
+  public setHidePictureByContent(content: HidePictureContentType) {
+    this.hidePicture(content.path)
+    this._readyNext(true)
+  }
+
+  public setSceneByContent(content: SwitchSceneContentType) {
+    this.scene?.scene.switch(content.sceneId)
+    this.closeWindow()
   }
 
   private showPicture(imagePath: string, windowRatio = 75) {
@@ -381,11 +360,11 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     }
   }
 
-  private hidePicture(imagePath: string) {
+  public hidePicture(imagePath: string) {
     this.uiLayer.emit(`REMOVE_${imagePath}`)
   }
 
-  setChoiceByContent(choice: ChoiceContent) {
+  public setChoiceByContent(choice: ChoiceContentType) {
     this.setText(choice.text || '')
     this._setChoice(choice.choices)
   }
@@ -452,7 +431,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         this.uiLayer.removeAllListeners()
         this.uiLayer.removeAll(true)
         this._setTimeline(choice.nextId)
-        this._next()
+        // eslint-disable-next-line eqeqeq
+        if (this.timelineContent == undefined)
+          this.closeWindow()
+        else this._next()
       })
     })
   }

@@ -1,16 +1,9 @@
+import type { TimelineContent } from '@/phaser/class/Timeline/types'
+
 export interface Timeline {
   start: TimelineContent[]
   [id: TimelineId]: TimelineContent[]
 }
-
-export type TimelineContent =
-  | ChatContent
-  | ChoiceContent
-  | NextTimelineContent
-  | SwitchExternalPageContent
-  | SwitchSceneContent
-  | ShowPictureContent
-  | HidePictureContent
 
 type TimelineId = string
 
@@ -26,43 +19,36 @@ export enum ContentType {
 
 export interface Choice {
   text: string
-  nextId: TimelineId
+  nextId?: TimelineId
 }
 
-export interface ChatContent {
-  type: ContentType.CHAT
+export interface ChatContentType {
   text: string
   speakerName?: string
 }
 
-export interface SwitchSceneContent {
-  type: ContentType.SCENE
+export interface SwitchSceneContentType {
   sceneId: string
 }
 
-export interface ChoiceContent {
-  type: ContentType.CHOICE
+export interface ChoiceContentType {
   choices: Choice[]
   text?: string
   speakerName?: string
 }
 
-export interface NextTimelineContent {
-  type: ContentType.NEXTTL
+export interface NextTimelineContentType {
   nextId: TimelineId
 }
 
-export interface SwitchExternalPageContent {
-  type: ContentType.EXTERNALURL
+export interface ExternalPageContentType {
   url: string
 }
 
-export interface ShowPictureContent {
-  type: ContentType.SHOW_PICTURE
+export interface ShowPictureContentType {
   path: string // assets/dialogからの相対パス
 }
 
-export interface HidePictureContent {
-  type: ContentType.HIDE_PICTURE
+export interface HidePictureContentType {
   path: string
 }
