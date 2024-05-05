@@ -1,15 +1,8 @@
 import type { Scene } from 'phaser'
 import type {
-  ChatContentType,
-  Choice,
-  ChoiceContentType,
-  HidePictureContentType,
-  NextTimelineContentType,
-  ShowPictureContentType,
-  SwitchSceneContentType,
-  Timeline,
   TimelineContent,
-} from '.'
+} from '../../class/Timeline/types'
+import type { ChatContentType, Choice, ChoiceContentType, HidePictureContentType, NextTimelineContentType, ShowPictureContentType, SwitchSceneContentType, Timeline } from '.'
 import { ContentType } from '.'
 
 export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
@@ -305,42 +298,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     }
     const currentTimelineContent = this.timelineContent[this.timelineIndex]
     console.debug(currentTimelineContent)
-    switch (currentTimelineContent.type) {
-      case ContentType.CHAT:
-        this.setTextByContent(currentTimelineContent)
-        break
-      case ContentType.CHOICE:
-        this.setChoiceByContent(currentTimelineContent) // ??: is arg type correct?
-        break
-      case ContentType.NEXTTL:
-        this._setTimeline(currentTimelineContent.nextId)
-        return
-      case ContentType.SHOW_PICTURE:
-        this.showPicture(currentTimelineContent.path)
-        this._readyNext(true)
-        break
-      case ContentType.HIDE_PICTURE:
-        this.hidePicture(currentTimelineContent.path)
-        this._readyNext(true)
-        break
-      case ContentType.SCENE:
-        this.closeWindow()
-        this.scene?.scene.switch(currentTimelineContent.sceneId)
-        return
-      case ContentType.EXTERNALURL: {
-        const url = currentTimelineContent.url
-        const externalWindow = window.open(url, '_blank')
 
-        if (externalWindow && externalWindow.focus)
-          externalWindow.focus()
-        else if (!externalWindow)
-          window.location.href = url
-        break
-      }
-      default:
-        console.error('Not implemented: ', currentTimelineContent)
-        break
-    }
+    currentTimelineContent.process()
 
     this.timelineIndex++
   }
@@ -475,7 +434,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         this.uiLayer.removeAllListeners()
         this.uiLayer.removeAll(true)
         this._setTimeline(choice.nextId)
-        this._next()
+        // eslint-disable-next-line eqeqeq
+        if (this.timelineContent == undefined)
+          this.closeWindow()
+        else this._next()
       })
     })
   }
