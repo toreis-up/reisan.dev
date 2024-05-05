@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import { ChatContent } from '../class/Timeline/types'
 import { SceneBase } from './SceneBase'
 import { NPC_Reisan } from './MainSceneNPC/reisanNPC'
 import { CanvanNPC } from './MainSceneNPC/canvanNPC'
@@ -7,7 +8,6 @@ import { GridControls } from '@/phaser/core/GridControls'
 import { GridPhysics } from '@/phaser/core/GridPhysics'
 import { Direction } from '@/phaser/core/Direction'
 import type { Timeline } from '@/phaser/plugin/dialogPlugin'
-import { ContentType } from '@/phaser/plugin/dialogPlugin'
 
 export class MainScene extends SceneBase {
   static readonly TILE_SIZE = 32
@@ -80,18 +80,15 @@ export class MainScene extends SceneBase {
 
     const timeline = {
       start: [
-        {
-          type: ContentType.CHAT,
+        new ChatContent(this.dialogPlugin, {
           text: 'とれいすさんのポートフォリオへようこそ！（クリックか「スペースキー」で進む）',
-        },
-        {
-          type: ContentType.CHAT,
+        }),
+        new ChatContent(this.dialogPlugin, {
           text: 'まだまだ実装中だけど、色々見ていってね :)',
-        },
-        {
-          type: ContentType.CHAT,
+        }),
+        new ChatContent(this.dialogPlugin, {
           text: 'Eキーで話しかけたり、看板を見たりできるよ！',
-        },
+        }),
       ],
     } as Timeline
 

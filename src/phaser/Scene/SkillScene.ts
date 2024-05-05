@@ -1,3 +1,4 @@
+import { ChatContent, HidePictureContent, ShowPictureContent } from '../class/Timeline/types'
 import { SceneBase } from './SceneBase'
 import { CanvanNPC } from './SkillSceneNPC/canvanNPC'
 import { NPC } from '@/phaser/class/NPC'
@@ -5,8 +6,7 @@ import { GridControls } from '@/phaser/core/GridControls'
 import { GridPhysics } from '@/phaser/core/GridPhysics'
 import { Player } from '@/phaser/class/Player'
 import type { Skill } from '@/types/Skill'
-import { ContentType } from '@/phaser/plugin/dialogPlugin'
-import type { Timeline } from '@/phaser/plugin/dialogPlugin'
+import type { DialogPlugin, Timeline } from '@/phaser/plugin/dialogPlugin'
 
 export class SkillScene extends SceneBase {
   TILE_SIZE: number = 32
@@ -57,7 +57,7 @@ export class SkillScene extends SceneBase {
     const skills = [{ skillName: 'Vue' }, { skillName: 'Nuxt' }] as Skill[]
 
     skills.forEach((skill, idx) => {
-      const timeline = generateTimelineBySkill(skill)
+      const timeline = generateTimelineBySkill(this.dialogPlugin, skill)
       const sCanvanNPC = new NPC(
         this,
         new Phaser.Math.Vector2(15 + 2 * idx, 15),
@@ -71,14 +71,12 @@ export class SkillScene extends SceneBase {
 
     const timeline = {
       start: [
-        {
-          type: ContentType.CHAT,
+        new ChatContent(this.dialogPlugin, {
           text: 'とれいすのスキルが見れるよ',
-        },
-        {
-          type: ContentType.CHAT,
+        }),
+        new ChatContent(this.dialogPlugin, {
           text: '全部のスキルが書いてあるかはわからんけど…',
-        },
+        }),
       ],
     } as Timeline
 
@@ -99,17 +97,22 @@ export class SkillScene extends SceneBase {
   }
 }
 
-function generateTimelineBySkill(skill: Skill): Timeline[] {
+function generateTimelineBySkill(dialogPlugin: DialogPlugin, skill: Skill): Timeline[] {
   return [
     {
       start: [
-        {
-          type: ContentType.CHAT,
+        new ChatContent(dialogPlugin, {
           text: `「${skill.skillName}が触れます」と書いてある。`,
-        },
-        { type: ContentType.SHOW_PICTURE, path: `${skill.skillName}.png` },
-        { type: ContentType.CHAT, text: `いいよね。${skill.skillName}` },
-        { type: ContentType.HIDE_PICTURE, path: `${skill.skillName}.png` },
+        }),
+        new ShowPictureContent(dialogPlugin, {
+          path: `${skill.skillName}.png`,
+        }),
+        new ChatContent(dialogPlugin, {
+          text: `いいよね。${skill.skillName}`,
+        }),
+        new HidePictureContent(dialogPlugin, {
+          path: `${skill.skillName}.png`,
+        }),
       ],
     },
   ] as Timeline[]

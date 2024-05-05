@@ -1,24 +1,29 @@
 import type { Scene } from 'phaser'
 import { NPC } from '@/phaser/class/NPC'
-import type { Timeline } from '@/phaser/plugin/dialogPlugin'
-import { ContentType } from '@/phaser/plugin/dialogPlugin'
+import type { DialogPlugin, Timeline } from '@/phaser/plugin/dialogPlugin'
+import { ChatContent, ChoiceContent, SwitchSceneContent } from '@/phaser/class/Timeline/types'
 
-const canvanTimeline = [
-  {
-    start: [
-      { type: ContentType.CHAT, text: '何が見たいですか？' },
-      {
-        type: ContentType.CHOICE,
-        text: '見たいものを選んでください',
-        choices: [{ text: 'スキル', nextId: 'skillScene' }, { text: '別に…' }],
-      },
-    ],
-    skillScene: [{ type: ContentType.SCENE, sceneId: 'skillScene' }],
-  },
-] as Timeline[]
+function canvanTimeline(dialogPlugin: DialogPlugin) {
+  return [
+    {
+      start: [
+        new ChatContent(dialogPlugin, {
+          text: '何が見たいですか？',
+        }),
+        new ChoiceContent(dialogPlugin, {
+          text: '見たいものを選んでください',
+          choices: [{ text: 'スキル', nextId: 'skillScene' }, { text: '別に…' }],
+        }),
+      ],
+      skillScene: [new SwitchSceneContent(dialogPlugin, {
+        sceneId: 'skillScene',
+      })],
+    },
+  ] as Timeline[]
+}
 
 export class CanvanNPC extends NPC {
   constructor(scene: Scene) {
-    super(scene, new Phaser.Math.Vector2(10, 5), 'canvan', canvanTimeline, 1)
+    super(scene, new Phaser.Math.Vector2(10, 5), 'canvan', canvanTimeline(scene.dialogPlugin), 1)
   }
 }
