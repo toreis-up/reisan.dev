@@ -1,8 +1,12 @@
 import type { Scene } from 'phaser'
 import type {
-  ChatContent,
+  ChatContentType,
   Choice,
-  ChoiceContent,
+  ChoiceContentType,
+  HidePictureContentType,
+  NextTimelineContentType,
+  ShowPictureContentType,
+  SwitchSceneContentType,
   Timeline,
   TimelineContent,
 } from '.'
@@ -247,7 +251,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this.toggleWindow()
   }
 
-  private setTextByContent(content: ChatContent) {
+  public setTextByContent(content: ChatContentType) {
     this.setText(content.text)
   }
 
@@ -300,6 +304,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       return
     }
     const currentTimelineContent = this.timelineContent[this.timelineIndex]
+    console.debug(currentTimelineContent)
     switch (currentTimelineContent.type) {
       case ContentType.CHAT:
         this.setTextByContent(currentTimelineContent)
@@ -319,8 +324,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         this._readyNext(true)
         break
       case ContentType.SCENE:
-        this.scene?.scene.switch(currentTimelineContent.sceneId)
         this.closeWindow()
+        this.scene?.scene.switch(currentTimelineContent.sceneId)
         return
       case ContentType.EXTERNALURL: {
         const url = currentTimelineContent.url
@@ -338,6 +343,25 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     }
 
     this.timelineIndex++
+  }
+
+  public setTimelineByContent(content: NextTimelineContentType) {
+    this._setTimeline(content.nextId)
+  }
+
+  public setShowPictureByContent(content: ShowPictureContentType) {
+    this.showPicture(content.path)
+    this._readyNext(true)
+  }
+
+  public setHidePictureByContent(content: HidePictureContentType) {
+    this.hidePicture(content.path)
+    this._readyNext(true)
+  }
+
+  public setSceneByContent(content: SwitchSceneContentType) {
+    this.scene?.scene.switch(content.sceneId)
+    this.closeWindow()
   }
 
   private showPicture(imagePath: string, windowRatio = 75) {
@@ -381,11 +405,11 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     }
   }
 
-  private hidePicture(imagePath: string) {
+  public hidePicture(imagePath: string) {
     this.uiLayer.emit(`REMOVE_${imagePath}`)
   }
 
-  setChoiceByContent(choice: ChoiceContent) {
+  public setChoiceByContent(choice: ChoiceContentType) {
     this.setText(choice.text || '')
     this._setChoice(choice.choices)
   }

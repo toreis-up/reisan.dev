@@ -4,13 +4,13 @@ export interface Timeline {
 }
 
 export type TimelineContent =
-  | ChatContent
-  | ChoiceContent
-  | NextTimelineContent
-  | SwitchExternalPageContent
-  | SwitchSceneContent
-  | ShowPictureContent
-  | HidePictureContent
+  | ChatContentType
+  | ChoiceContentType
+  | NextTimelineContentType
+  | ExternalPageContentType
+  | SwitchSceneContentType
+  | ShowPictureContentType
+  | HidePictureContentType
 
 type TimelineId = string
 
@@ -29,40 +29,40 @@ export interface Choice {
   nextId: TimelineId
 }
 
-export interface ChatContent {
+export interface ChatContentType {
   type: ContentType.CHAT
   text: string
   speakerName?: string
 }
 
-export interface SwitchSceneContent {
+export interface SwitchSceneContentType {
   type: ContentType.SCENE
   sceneId: string
 }
 
-export interface ChoiceContent {
+export interface ChoiceContentType {
   type: ContentType.CHOICE
   choices: Choice[]
   text?: string
   speakerName?: string
 }
 
-export interface NextTimelineContent {
+export interface NextTimelineContentType {
   type: ContentType.NEXTTL
   nextId: TimelineId
 }
 
-export interface SwitchExternalPageContent {
+export interface ExternalPageContentType {
   type: ContentType.EXTERNALURL
   url: string
 }
 
-export interface ShowPictureContent {
+export interface ShowPictureContentType {
   type: ContentType.SHOW_PICTURE
   path: string // assets/dialogからの相対パス
 }
 
-export interface HidePictureContent {
+export interface HidePictureContentType {
   type: ContentType.HIDE_PICTURE
   path: string
 }
