@@ -277,7 +277,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       setTimeout(() => this._next()) // to execute function without stack
 
     if (
-      this.timelineContent[this.timelineIndex - 1]?.type === ContentType.CHAT
+      this.timelineContent ? this.timelineContent[this.timelineIndex - 1].type === ContentType.CHAT : false
     ) {
       this.scene?.input.keyboard?.once('keydown-SPACE', this._next, this)
       this.scene?.input.once('pointerdown', this._next, this)
