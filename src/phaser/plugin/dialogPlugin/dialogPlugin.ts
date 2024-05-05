@@ -448,6 +448,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       this.uiLayer.add(buttonText)
 
       button.once('pointerdown', () => {
+        this._setFullText()
         this.uiLayer.removeAllListeners()
         this.uiLayer.removeAll(true)
         this._setTimeline(choice.nextId)
