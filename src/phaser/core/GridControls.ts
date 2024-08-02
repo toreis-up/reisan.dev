@@ -7,6 +7,7 @@ export class GridControls {
   private directionController
   private keyEventHandler: KeyEventHandler
   private isEnabled: boolean = true
+  private prevEnabledStat: boolean = false
   constructor(
     private input: Phaser.Input.InputPlugin,
     private gridPhysics: GridPhysics,
@@ -20,6 +21,7 @@ export class GridControls {
     input.on('DISABLE_CONTROL', () => this.disable(), this)
     input.on('ENABLE_CONTROL', () => this.enable(), this)
     input.on('ENTER_LICENSE', () => this.enterLicense(), this)
+    input.on('RESUME_CONTROL', () => this.resume(), this)
   }
 
   private enterLicense() {
@@ -30,7 +32,7 @@ export class GridControls {
 
   update() {
     if (this.keyEventHandler.isJustDown('Esc')) {
-      this.disable()
+      this.pause()
       this.input.scene.scene.pause()
       this.input.scene.scene.run('aboutMeScene', this.input.scene)
     }
@@ -54,5 +56,14 @@ export class GridControls {
 
   enable() {
     this.isEnabled = true
+  }
+
+  pause() {
+    this.prevEnabledStat = this.isEnabled
+    this.disable()
+  }
+
+  resume() {
+    this.isEnabled = this.prevEnabledStat
   }
 }

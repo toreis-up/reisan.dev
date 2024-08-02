@@ -13,7 +13,7 @@ export default class EscMenuControls {
 
   update() {
     if (this.keyEventHandler.isJustDown('Esc')) {
-      this.input.emit('ENABLE_CONTROL')
+      this.input.emit('RESUME_CONTROL')
       this.menuScene.scene.sleep()
       this.menuScene.scene.resume(this.calledScene)
     }
