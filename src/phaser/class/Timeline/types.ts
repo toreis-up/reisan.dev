@@ -7,9 +7,9 @@ import type {
   NextTimelineContentType,
   ShowPictureContentType,
   SwitchSceneContentType,
-} from '@/phaser/plugin/dialogPlugin'
+} from '#/plugin/dialogPlugin'
 
-import { ContentType } from '@/phaser/plugin/dialogPlugin'
+import { ContentType } from '#/plugin/dialogPlugin'
 
 export interface TimelineContent {
   type: string

@@ -1,5 +1,5 @@
-import { SceneBase } from './SceneBase'
-import EscMenuControls from '@/phaser/core/EscMenuControls'
+import { SceneBase } from '#/class/Scene'
+import EscMenuControls from '#/core/EscMenuControls'
 
 const licenseText = `
 ASSETS LICENCE (Escキーで閉じる)

@@ -1,13 +1,13 @@
 import Phaser from 'phaser'
-import { ChatContent } from '../class/Timeline/types'
-import { SceneBase } from './SceneBase'
-import { NPC_Reisan } from './MainSceneNPC/reisanNPC'
-import { CanvanNPC } from './MainSceneNPC/canvanNPC'
-import { Player } from '@/phaser/class/Player'
-import { GridControls } from '@/phaser/core/GridControls'
-import { GridPhysics } from '@/phaser/core/GridPhysics'
-import { Direction } from '@/phaser/core/Direction'
-import type { Timeline } from '@/phaser/plugin/dialogPlugin'
+import { ReisanNPC } from './npc/reisanNPC'
+import { CanvanNPC } from './npc/canvanNPC'
+import { ChatContent } from '#/class/Timeline/types'
+import { SceneBase } from '#/class/Scene'
+import { Player } from '#/class/Player'
+import { GridControls } from '#/core/GridControls'
+import { GridPhysics } from '#/core/GridPhysics'
+import { Direction } from '#/core/Direction'
+import type { Timeline } from '#/plugin/dialogPlugin'
 
 export class MainScene extends SceneBase {
   static readonly TILE_SIZE = 32
@@ -57,7 +57,7 @@ export class MainScene extends SceneBase {
     const layer4 = map.createLayer(3, tiles!, 0, 0)
     layer4?.setDepth(0)
 
-    const reisanNPC = new NPC_Reisan(this)
+    const reisanNPC = new ReisanNPC(this)
 
     const reisanNPCSprite = this.add.existing(reisanNPC)
     reisanNPCSprite.scale = 2

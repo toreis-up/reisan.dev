@@ -1,12 +1,12 @@
-import { ChatContent, HidePictureContent, ShowPictureContent } from '../class/Timeline/types'
-import { SceneBase } from './SceneBase'
-import { CanvanNPC } from './SkillSceneNPC/canvanNPC'
-import { NPC } from '@/phaser/class/NPC'
-import { GridControls } from '@/phaser/core/GridControls'
-import { GridPhysics } from '@/phaser/core/GridPhysics'
-import { Player } from '@/phaser/class/Player'
+import { ChatContent, HidePictureContent, ShowPictureContent } from '../../class/Timeline/types'
+import { CanvanNPC } from './npc/canvanNPC'
+import { SceneBase } from '#/class/Scene'
+import { NPC } from '#/class/NPC'
+import { GridControls } from '#/core/GridControls'
+import { GridPhysics } from '#/core/GridPhysics'
+import { Player } from '#/class/Player'
 import type { Skill } from '@/types/Skill'
-import type { DialogPlugin, Timeline } from '@/phaser/plugin/dialogPlugin'
+import type { DialogPlugin, Timeline } from '#/plugin/dialogPlugin'
 
 export class SkillScene extends SceneBase {
   TILE_SIZE: number = 32
