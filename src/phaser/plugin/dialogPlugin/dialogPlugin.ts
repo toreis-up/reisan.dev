@@ -472,7 +472,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       + (this.scene?.cameras.main.scrollY || 0)
       + 10
     this.text = this.scene!.add.text(x, y, text, {
-      wordWrap: { width: this._getGameWidth()! - this.config.padding * 2 - 25 },
+      wordWrap: {
+          width: this._getGameWidth()! - this.config.padding * 2 - 25,
+          useAdvancedWrap: true
+        },
       fontFamily: 'DotGothic16',
       fontSize: '1.5rem',
     })
