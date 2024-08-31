@@ -197,6 +197,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _resizeText() {
+    const newPos = this._calculateTextPosition()
+    this.text?.setX(newPos.x)
+    this.text?.setY(newPos.y)
     this.text?.style.setWordWrapWidth(this._calculateTextWrapWidth(), true)
   }
 
@@ -460,15 +463,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private _setText(text: string) {
     if (this.text)
       this.text.destroy()
-    const x
-      = this.config.padding + (this.scene?.cameras.main.scrollX || 0) + 10
-    const y
-      = this._getGameHeight()
-      - this.config.windowHeight
-      - this.config.padding
-      + (this.scene?.cameras.main.scrollY || 0)
-      + 10
-    this.text = this.scene!.add.text(x, y, text, {
+    const pos = this._calculateTextPosition()
+    this.text = this.scene!.add.text(pos.x, pos.y, text, {
       wordWrap: {
           width: this._calculateTextWrapWidth(),
           useAdvancedWrap: true
@@ -481,6 +477,24 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private _calculateTextWrapWidth() {
     return this._getGameWidth()! - this.config.padding * 2 - 25
   }
+
+  private _calculateTextPosition() {
+    const pos: TextPosition = {
+      x: this.config.padding + (this.scene?.cameras.main.scrollX || 0) + 10,
+      y: this._getGameHeight()
+          - this.config.windowHeight
+          - this.config.padding
+          + (this.scene?.cameras.main.scrollY || 0)
+          + 10
+    }
+
+    return pos
+  }
+}
+
+type TextPosition = {
+  x: number
+  y: number
 }
 
 export interface ModalOptions {
