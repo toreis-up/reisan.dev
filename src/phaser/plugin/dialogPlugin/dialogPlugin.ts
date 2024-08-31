@@ -197,10 +197,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _resizeText() {
-    const gameHeight = this._getGameHeight()
-    const gameWidth = this._getGameWidth()
-    const dimensions = this._calculateWindowDimensions(gameWidth, gameHeight)
-    this.text?.style.setWordWrapWidth(dimensions.rectWidth)
+    this.text?.style.setWordWrapWidth(this._calculateTextWrapWidth(), true)
   }
 
   setTimeline(timeline: Timeline, sceneId = 'start') {
@@ -473,12 +470,16 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       + 10
     this.text = this.scene!.add.text(x, y, text, {
       wordWrap: {
-          width: this._getGameWidth()! - this.config.padding * 2 - 25,
+          width: this._calculateTextWrapWidth(),
           useAdvancedWrap: true
         },
       fontFamily: 'DotGothic16',
       fontSize: '1.5rem',
     })
+  }
+
+  private _calculateTextWrapWidth() {
+    return this._getGameWidth()! - this.config.padding * 2 - 25
   }
 }
 
