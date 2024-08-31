@@ -1,10 +1,10 @@
 import Phaser from 'phaser'
-import { MainScene } from '@/phaser/Scene/MainScene'
-import { SkillScene } from '@/phaser/Scene/SkillScene'
-import { AboutMeScene } from '@/phaser/Scene/AboutMeScene'
-import { LicenseScene } from '@/phaser/Scene/LicenceScene'
-import { DialogPlugin } from '@/phaser/plugin/dialogPlugin'
-import { NPCManagerPlugin } from '@/phaser/plugin/NPCManagerPlugin'
+import { MainScene } from '#/scene/main'
+import { SkillScene } from '#/scene/skill'
+import { AboutMeScene } from '#/scene/aboutme'
+import { LicenseScene } from '#/scene/license'
+import { DialogPlugin } from '#/plugin/dialogPlugin'
+import { NPCManagerPlugin } from '#/plugin/NPCManagerPlugin'
 
 const testScene = new MainScene()
 const skillScene = new SkillScene()

@@ -1,5 +1,5 @@
-import { SceneBase } from './SceneBase'
-import EscMenuControls from '@/phaser/core/EscMenuControls'
+import { SceneBase } from '#/class/Scene'
+import EscMenuControls from '#/core/EscMenuControls'
 
 const today = new Date()
 const birthday = new Date(2005, 3 - 1, 18) // month is index

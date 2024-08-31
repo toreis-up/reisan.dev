@@ -1,7 +1,7 @@
 import type { Scene } from 'phaser'
-import { NPC } from '@/phaser/class/NPC'
-import type { DialogPlugin, Timeline } from '@/phaser/plugin/dialogPlugin'
-import { ChatContent, ChoiceContent } from '@/phaser/class/Timeline/types'
+import { NPC } from '#/class/NPC'
+import type { DialogPlugin, Timeline } from '#/plugin/dialogPlugin'
+import { ChatContent, ChoiceContent } from '#/class/Timeline/types'
 
 function timelines(dialogPlugin: DialogPlugin) {
   return [
@@ -29,7 +29,7 @@ function timelines(dialogPlugin: DialogPlugin) {
     },
   ] as Timeline[]
 }
-export class NPC_Reisan extends NPC {
+export class ReisanNPC extends NPC {
   constructor(scene: Scene) {
     super(scene, new Phaser.Math.Vector2(5, 5), 'npc1_reisan', timelines(scene.dialogPlugin), 1)
   }

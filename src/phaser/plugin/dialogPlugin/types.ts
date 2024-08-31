@@ -1,4 +1,4 @@
-import type { TimelineContent } from '@/phaser/class/Timeline/types'
+import type { TimelineContent } from '#/class/Timeline/types'
 
 export interface Timeline {
   start: TimelineContent[]

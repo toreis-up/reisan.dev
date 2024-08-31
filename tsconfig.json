@@ -18,6 +18,7 @@
       "vuetify"
     ],
     "paths": {
+      "#/*": ["src/phaser/*"],
       "@/*": ["src/*"]
     },
   },
