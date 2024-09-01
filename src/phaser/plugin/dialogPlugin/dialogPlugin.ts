@@ -153,7 +153,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     const gameWidth = this._getGameWidth()
     const dimensions = this._calculateWindowDimensions(gameWidth, gameHeight)
     this.graphics = this.windowManager.get(this.scene)
-    this.graphics.setVisible(true)
+    this.graphics.setVisible(this.visible)
     this.graphics?.setDepth(0)
 
     this._createOuterWindow(
