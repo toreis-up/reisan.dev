@@ -75,10 +75,8 @@ export class MainScene extends SceneBase {
       ],
     } as Timeline
 
-    this.npcManager.init()
     this.npcManager.addNPC(canvanNPC, reisanNPC)
 
-    this.dialogPlugin.init()
     this.dialogPlugin.setTimeline(timeline)
 
     this.createPlayerAnimation(Direction.UP, 11, 9)
