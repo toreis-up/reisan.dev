@@ -20,6 +20,7 @@ VUE LOGO:  © Evan You (https://github.com/vuejs/art) 2016.
 export class LicenseScene extends SceneBase {
   private menuControls!: EscMenuControls
   private licenseUiLayer!: Phaser.GameObjects.Container
+  dialogDisabled = true
 
   constructor() {
     super('licenseScene')
