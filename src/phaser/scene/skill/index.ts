@@ -33,7 +33,7 @@ export class SkillScene extends SceneBase {
     const floorAndWallTiles = map.addTilesetImage('indoor', 'fandw')
 
     const layerBase = map.createLayer(0, floorAndWallTiles!, 0, 0)
-    layerBase?.setDepth(0)
+    layerBase?.setDepth(-1)
     layerBase?.setScale(2)
 
     this.cameras.main.setBackgroundColor(0x111)
@@ -51,7 +51,6 @@ export class SkillScene extends SceneBase {
     const canvanNPCSprite = this.add.existing(canvanNPC)
     canvanNPCSprite.setScale(2)
 
-    this.npcManager.init()
     this.npcManager.addNPC(canvanNPC)
 
     const skills = [{ skillName: 'Vue' }, { skillName: 'Nuxt' }] as Skill[]
@@ -90,10 +89,9 @@ export class SkillScene extends SceneBase {
     )
     this.cameras.main.startFollow(playerSprite)
     this.cameras.main.roundPixels = true
-    this.dialogPlugin.init()
     this.gridPhysics = new GridPhysics(player, map)
     this.gridControls = new GridControls(this.input, this.gridPhysics)
-    this.sys.dialogPlugin.setTimeline(timeline)
+    this.dialogPlugin.setTimeline(timeline)
   }
 }
 

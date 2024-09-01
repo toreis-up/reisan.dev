@@ -23,7 +23,7 @@ const dialogText = `名前：とれいす（toreis）
 
 学校：National Institute of Technology,
 　　　Kisarazu College
-所属：情報工学科 4年
+所属：情報工学科 5年
 `
 /* eslint-enable */
 
@@ -31,6 +31,7 @@ export class AboutMeScene extends SceneBase {
   private menuControls!: EscMenuControls
   private aboutMeUiLayer!: Phaser.GameObjects.Container
   private playerSprite?: Phaser.GameObjects.Sprite
+  dialogDisabled = true
 
   constructor() {
     super('aboutMeScene')

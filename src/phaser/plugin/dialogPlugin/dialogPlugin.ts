@@ -2,6 +2,7 @@ import type { Scene } from 'phaser'
 import type {
   TimelineContent,
 } from '../../class/Timeline/types'
+import WindowManager from './dialogWindowManager.ts'
 import type { ChatContentType, Choice, ChoiceContentType, HidePictureContentType, NextTimelineContentType, ShowPictureContentType, SwitchSceneContentType, Timeline } from '.'
 import { ContentType } from '.'
 
@@ -18,6 +19,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private timelineIndex = 0
   private timeline = {} as Timeline
   private uiLayer: Phaser.GameObjects.Container
+  private windowManager: WindowManager
 
   constructor(
     scene: Scene,
@@ -25,8 +27,6 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     pluginKey: string,
   ) {
     super(scene, pluginManager, pluginKey)
-    this.scene = scene
-    this.systems = scene.sys
 
     if (!scene.sys.settings.isBooted)
       scene.sys.events.once('boot', this.boot, this)
@@ -54,8 +54,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   boot() {
+    this.init() // FIXME: initのロジックを統合するべきか?
     const eventEmitter = this.systems?.events
-
+    this.windowManager = WindowManager.getInstance()
     eventEmitter?.on(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this)
     eventEmitter?.on(Phaser.Scenes.Events.DESTROY, this.destroy, this);
     (this.scene?.events.listenerCount('dialogStart') || 0) < 1
@@ -74,6 +75,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       () => this.resize(),
       this,
     )
+    this._createWindow()
   }
 
   shutdown() {
@@ -90,7 +92,6 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   init(opts?: ModalOptions) {
-    console.debug('dialog init called')
     this.config.borderThickness = opts?.borderThickness || 3
     this.config.borderColor = opts?.borderColor || 0x907748
     this.config.borderAlpha = opts?.borderAlpha || 1
@@ -99,8 +100,6 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.config.windowHeight = opts?.windowHeight || 150
     this.config.padding = opts?.padding || 32
     this.config.dialogSpeed = opts?.dialogSpeed || 3
-
-    this._createWindow()
   }
 
   private _getGameWidth() {
@@ -148,10 +147,13 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _createWindow() {
+    if (this.scene.dialogDisabled)
+      return
     const gameHeight = this._getGameHeight()
     const gameWidth = this._getGameWidth()
     const dimensions = this._calculateWindowDimensions(gameWidth, gameHeight)
-    this.graphics = this.scene?.add.graphics()
+    this.graphics = this.windowManager.get(this.scene)
+    this.graphics.setVisible(true)
     this.graphics?.setDepth(0)
 
     this._createOuterWindow(
@@ -169,31 +171,14 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _resizeWindow() {
-    const gameHeight = this._getGameHeight()
-    const gameWidth = this._getGameWidth()
-    const dimensions = this._calculateWindowDimensions(gameWidth, gameHeight)
-
     this.graphics?.clear()
-    this._createOuterWindow(
-      dimensions.x,
-      dimensions.y,
-      dimensions.rectWidth,
-      dimensions.rectHeight,
-    )
-    this._createInnerWindow(
-      dimensions.x,
-      dimensions.y,
-      dimensions.rectWidth,
-      dimensions.rectHeight,
-    )
+    this._createWindow()
   }
 
   resize() {
     console.debug('Resizing dialog')
-    if (this.scene?.scene.isActive()) {
-      this._resizeWindow()
-      this._resizeText()
-    }
+    this._resizeWindow()
+    this._resizeText()
   }
 
   private _resizeText() {
@@ -210,7 +195,6 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     this.scene?.input.emit('DISABLE_CONTROL')
     this.timeline = timeline
     this.timelineContent = timeline[sceneId]
-
     this._next()
   }
 
@@ -466,9 +450,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     const pos = this._calculateTextPosition()
     this.text = this.scene!.add.text(pos.x, pos.y, text, {
       wordWrap: {
-          width: this._calculateTextWrapWidth(),
-          useAdvancedWrap: true
-        },
+        width: this._calculateTextWrapWidth(),
+        useAdvancedWrap: true,
+      },
       fontFamily: 'DotGothic16',
       fontSize: '1.5rem',
     })
@@ -485,14 +469,14 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
           - this.config.windowHeight
           - this.config.padding
           + (this.scene?.cameras.main.scrollY || 0)
-          + 10
+          + 10,
     }
 
     return pos
   }
 }
 
-type TextPosition = {
+interface TextPosition {
   x: number
   y: number
 }

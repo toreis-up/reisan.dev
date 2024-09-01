@@ -23,23 +23,6 @@ export class MainScene extends SceneBase {
     this.gridPhysics.update(delta)
   }
 
-  preload() {
-    this.load.image('tiles', 'tilemap/map1.png')
-    this.load.tilemapTiledJSON('map', 'tileset/map2.json')
-    this.load.spritesheet('player', 'character/reisan.png', {
-      frameWidth: 32,
-      frameHeight: 48,
-    })
-    this.load.spritesheet('npc1_reisan', 'character/reisan.png', {
-      frameWidth: 32,
-      frameHeight: 48,
-    })
-    this.load.spritesheet('canvan', 'character/canvan.png', {
-      frameWidth: 32,
-      frameHeight: 32,
-    })
-  }
-
   create() {
     const map = this.make.tilemap({ key: 'map' })
 
@@ -92,10 +75,8 @@ export class MainScene extends SceneBase {
       ],
     } as Timeline
 
-    this.npcManager.init()
     this.npcManager.addNPC(canvanNPC, reisanNPC)
 
-    this.dialogPlugin.init()
     this.dialogPlugin.setTimeline(timeline)
 
     this.createPlayerAnimation(Direction.UP, 11, 9)
