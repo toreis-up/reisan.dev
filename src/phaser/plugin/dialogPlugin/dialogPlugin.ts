@@ -54,6 +54,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   boot() {
+    if (this.scene.dialogDisabled)
+      return
     this.init() // FIXME: initのロジックを統合するべきか?
     const eventEmitter = this.systems?.events
     this.windowManager = WindowManager.getInstance()
@@ -69,7 +71,6 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         this,
       )
       : console.log('The listener has already registered. Skip.')
-
     this.systems?.scale.on(
       Phaser.Scale.Events.RESIZE,
       () => this.resize(),
