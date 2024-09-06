@@ -48,8 +48,8 @@ export class MainScene extends SceneBase {
     const playerSprite = this.add.sprite(0, 0, 'player')
     playerSprite.setDepth(5)
     playerSprite.scale = 2
-    this.cameras.main.startFollow(playerSprite)
     this.cameras.main.roundPixels = true
+    this.cameras.main.startFollow(playerSprite)
     const player = new Player(playerSprite, new Phaser.Math.Vector2(6, 6))
 
     const canvanNPC = new CanvanNPC(this)
@@ -77,12 +77,15 @@ export class MainScene extends SceneBase {
 
     this.npcManager.addNPC(canvanNPC, reisanNPC)
 
-    this.dialogPlugin.setTimeline(timeline)
-
     this.createPlayerAnimation(Direction.UP, 11, 9)
     this.createPlayerAnimation(Direction.DOWN, 0, 2)
     this.createPlayerAnimation(Direction.LEFT, 3, 5)
     this.createPlayerAnimation(Direction.RIGHT, 6, 8)
+
+    setTimeout((_e) => {
+      console.debug('FIRE!!!!', _e)
+      this.dialogPlugin.setTimeline(timeline)
+    }, 0)
   }
 
   private createPlayerAnimation(
