@@ -1,3 +1,3 @@
 export * from './types'
 export * from './dialogPlugin'
-export * from './dialogWindowManager'
+export { default } from './dialogWindowManager'

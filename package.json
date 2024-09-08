@@ -10,6 +10,16 @@
     "lint": "eslint src/**/*.{ts,vue} --ignore-path .gitignore",
     "lintfix": "eslint src/**/*.{ts,vue} --fix --ignore-path .gitignore"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,vue}": [
+      "eslint"
+    ]
+  },
   "dependencies": {
     "@mdi/font": "7.4.47",
     "core-js": "^3.38.0",
@@ -31,6 +41,8 @@
     "@vue/eslint-config-typescript": "^13.0.0",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.27.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.10",
     "sass": "^1.77.8",
     "typescript": "^5.5.4",
     "unplugin-fonts": "^1.1.1",

@@ -13,5 +13,6 @@ declare module 'phaser' {
     dialogPlugin: DialogPlugin
     npcManager: NPCManagerPlugin
     getTilesize: () => number
+    dialogDisabled: boolean
   }
 }

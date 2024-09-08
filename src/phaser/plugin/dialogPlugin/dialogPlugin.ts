@@ -2,7 +2,7 @@ import type { Scene } from 'phaser'
 import type {
   TimelineContent,
 } from '../../class/Timeline/types'
-import WindowManager from './dialogWindowManager.ts'
+import WindowManager from './dialogWindowManager'
 import type { ChatContentType, Choice, ChoiceContentType, HidePictureContentType, NextTimelineContentType, ShowPictureContentType, SwitchSceneContentType, Timeline } from '.'
 import { ContentType } from '.'
 
@@ -39,7 +39,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     }
     else {
       console.debug('scene is not active')
-      this.systems.events.once(
+      this.systems?.events.once(
         Phaser.Scenes.Events.START,
         () => {
           this.uiLayer = scene.add.container(0, 0)
@@ -51,14 +51,14 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       )
       this.uiLayer = {} as Phaser.GameObjects.Container
     }
+    this.windowManager = WindowManager.getInstance()
   }
 
   boot() {
-    if (this.scene.dialogDisabled)
+    if (this.scene != null && this.scene.dialogDisabled)
       return
     this.init() // FIXME: initのロジックを統合するべきか?
     const eventEmitter = this.systems?.events
-    this.windowManager = WindowManager.getInstance()
     eventEmitter?.on(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this)
     eventEmitter?.on(Phaser.Scenes.Events.DESTROY, this.destroy, this);
     (this.scene?.events.listenerCount('dialogStart') || 0) < 1
@@ -148,13 +148,13 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   }
 
   private _createWindow() {
-    if (this.scene.dialogDisabled)
+    if (this.scene?.dialogDisabled)
       return
     const gameHeight = this._getGameHeight()
     const gameWidth = this._getGameWidth()
     const dimensions = this._calculateWindowDimensions(gameWidth, gameHeight)
     this.graphics = this.windowManager.get(this.scene)
-    this.graphics.setVisible(this.visible)
+    this.graphics?.setVisible(this.visible)
     this.graphics?.setDepth(0)
 
     this._createOuterWindow(
