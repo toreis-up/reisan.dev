@@ -1,5 +1,5 @@
 import type Phaser from 'phaser'
-import type Dict from '~/types/utils'
+import type { Dict } from '@/types/utils'
 
 // TODO: Re-implement with usual class
 export default class WindowPool {
@@ -17,13 +17,15 @@ export default class WindowPool {
     return this._instance
   }
 
-  get(scene: Phaser.Scene) {
+  get(scene: Phaser.Scene | null) {
+    if (!scene)
+      return null
     const sceneName = this._getSceneNameByScene(scene)
     const obj = this._pool[sceneName] ?? this.create(scene)
     return obj
   }
 
-  create(scene: Phaer.Scene) {
+  create(scene: Phaser.Scene) {
     const newGraphic = scene.add.graphics().setDepth(0)
     const sceneName = this._getSceneNameByScene(scene)
     this._pool[sceneName] = newGraphic
