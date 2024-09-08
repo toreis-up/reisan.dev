@@ -4,18 +4,66 @@ import { Direction } from './Direction'
 const Vector2_C = Phaser.Math.Vector2
 type Vector2 = Phaser.Math.Vector2
 
+type Block = 1
+type Path = 0
+
+type MapElm = Block | Path
+
 export class GridPhysics {
   private moveDirection: Direction = Direction.NONE
   private lastMoveDirection: Direction = Direction.NONE
   private lastMoveInputDirection: Direction = Direction.DOWN
   private speedPixelsPerSecond: number = 0
   private tileSizePixelsWalked: number = 0
+  private mapMaze: MapElm[][]
 
   constructor(
     private player: Player,
     private tileMap: Phaser.Tilemaps.Tilemap,
   ) {
     this.speedPixelsPerSecond = tileMap.scene.getTilesize() * 6
+
+    this.mapMaze = this.genMapPath(tileMap)
+  }
+
+  private gen2DArray<T>(x: number, y: number, val: T) {
+    return [...Array(y)].map(_ => Array<T>(x).fill(val))
+  }
+
+  private genMapPath(tilemap: Phaser.Tilemaps.Tilemap) {
+    const mapMaze = this.gen2DArray<MapElm>(tilemap.width, tilemap.height, 1)
+    const mapTiles = this.tileAllLayer(tilemap)
+    mapTiles.forEach((xTiles, yIdx) => {
+      xTiles.forEach((layers, xIdx) => {
+        mapMaze[yIdx][xIdx] = layers.map((tile) => {
+          return tile.index === -1 || !(tile.properties.collides || this.isNPCTile({ x: xIdx, y: yIdx } as Vector2)) ? 0 : 1
+        }).every(v => v === 0)
+          ? 0
+          : 1
+      })
+    })
+
+    return mapMaze
+  }
+
+  private tileAllLayer(tilemap: Phaser.Tilemaps.Tilemap) {
+    const tiles: Array<Array<Array<Phaser.Tilemaps.Tile>>> = this.gen2DArray<Phaser.Tilemaps.Tile[]>(tilemap.width, tilemap.height, [])
+    tilemap.layers.forEach((layer) => {
+      layer.data.forEach((xTiles) => {
+        xTiles.forEach((tile) => {
+          tiles[tile.y][tile.x] = tiles[tile.y][tile.x].concat([tile])
+        })
+      })
+    })
+
+    return tiles
+  }
+
+  moveTo(pos: Vector2) {
+  }
+
+  private findPath(origin: Vector2, dist: Vector2) {
+
   }
 
   movePlayer(direction: Direction) {
