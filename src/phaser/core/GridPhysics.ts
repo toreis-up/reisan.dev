@@ -1,5 +1,6 @@
 import type { Player } from '../class/Player'
 import { Direction } from './Direction'
+import { BiDirectionalMap } from '@/utils'
 
 const Vector2_C = Phaser.Math.Vector2
 type Vector2 = Phaser.Math.Vector2
@@ -16,11 +17,19 @@ export class GridPhysics {
   private speedPixelsPerSecond: number = 0
   private tileSizePixelsWalked: number = 0
   private mapMaze: MapElm[][]
+  private moveDirectionVectorsMap = new BiDirectionalMap<Direction, Vector2>()
 
   constructor(
     private player: Player,
     private tileMap: Phaser.Tilemaps.Tilemap,
   ) {
+    this.moveDirectionVectorsMap
+      .set(Direction.LEFT, Vector2_C.LEFT)
+      .set(Direction.RIGHT, Vector2_C.RIGHT)
+      .set(Direction.UP, Vector2_C.UP)
+      .set(Direction.DOWN, Vector2_C.DOWN)
+      .set(Direction.NONE, Vector2_C.ZERO)
+
     this.speedPixelsPerSecond = tileMap.scene.getTilesize() * 6
 
     this.mapMaze = this.genMapPath(tileMap)
@@ -59,11 +68,65 @@ export class GridPhysics {
     return tiles
   }
 
-  moveTo(pos: Vector2) {
+  async moveTo(pos: Vector2) {
+    const paths = this.findPath(this.player.getTilePos(), pos)
+    if (!paths.isSuccess)
+      return
+    for (const dir of paths.path!)
+      await this.movePlayerAsync(this.moveDirectionVectorsMap.getByValue(dir)!)
+  }
+
+  async movePlayerAsync(direction: Direction) {
+    return new Promise((resolve) => {
+      const intervalId = setInterval(() => {
+        if (!this.isMoving()) {
+          this.movePlayer(direction)
+          clearInterval(intervalId)
+          resolve()
+        }
+      }, this.tileMap.scene.getTilesize())
+    })
   }
 
   private findPath(origin: Vector2, dist: Vector2) {
+    const directions = [
+      Vector2_C.RIGHT, // 右
+      Vector2_C.LEFT, // 左
+      Vector2_C.DOWN, // 下
+      Vector2_C.UP, // 上
+    ]
 
+    const rows = this.tileMap.height
+    const cols = this.tileMap.width
+
+    const inBounds = (point: Vector2): boolean =>
+      point.x >= 0 && point.x < cols && point.y >= 0 && point.y < rows
+
+    const visited: boolean[][] = Array.from({ length: rows }, () => Array(cols).fill(false))
+    const queue: { point: Vector2; path: Vector2[] }[] = [{ point: origin, path: [] }]
+
+    visited[origin.y][origin.x] = true
+
+    while (queue.length > 0) {
+      const { point, path } = queue.shift()!
+
+      // ゴールに到達した場合
+      if (point.x === dist.x && point.y === dist.y)
+        return { isSuccess: true, path }
+
+      // 4方向に移動
+      for (const dir of directions) {
+        const nextPoint: Vector2 = { x: point.x + dir.x, y: point.y + dir.y }
+
+        if (inBounds(nextPoint) && !this.mapMaze[nextPoint.y][nextPoint.x] && !visited[nextPoint.y][nextPoint.x]) {
+          visited[nextPoint.y][nextPoint.x] = true
+          queue.push({ point: nextPoint, path: [...path, dir] })
+        }
+      }
+    }
+
+    // ゴールにたどり着けなかった場合
+    return { isSuccess: false, path: null }
   }
 
   movePlayer(direction: Direction) {
@@ -120,7 +183,7 @@ export class GridPhysics {
   }
 
   private movePlayerSprite(pixelsToMove: number) {
-    const directionVec = this.moveDirectionVectors[this.moveDirection]?.clone()
+    const directionVec = this.moveDirectionVectorsMap.getByKey(this.moveDirection)?.clone()
     const moveDistance = directionVec?.multiply(new Vector2_C(pixelsToMove))
     const newPlayerPos = this.player.getPosition().add(moveDistance!)
     this.player.setPosition(newPlayerPos)
@@ -145,21 +208,11 @@ export class GridPhysics {
     return this.speedPixelsPerSecond * deltaInSeconds
   }
 
-  private moveDirectionVectors: {
-    [key in Direction]: Vector2;
-  } = {
-      [Direction.LEFT]: Vector2_C.LEFT,
-      [Direction.DOWN]: Vector2_C.DOWN,
-      [Direction.RIGHT]: Vector2_C.RIGHT,
-      [Direction.UP]: Vector2_C.UP,
-      [Direction.NONE]: Vector2_C.ZERO,
-    }
-
   private updatePlayerTilePos() {
     this.player.setTilePos(
       this.player
         .getTilePos()
-        .add(this.moveDirectionVectors[this.moveDirection]!),
+        .add(this.moveDirectionVectorsMap.getByKey(this.moveDirection)!),
     )
   }
 
@@ -168,7 +221,7 @@ export class GridPhysics {
   }
 
   private tilePosInDirection(direction: Direction): Vector2 {
-    return this.player.getTilePos().add(this.moveDirectionVectors[direction]!)
+    return this.player.getTilePos().add(this.moveDirectionVectorsMap.getByKey(direction)!)
   }
 
   private hasBlockingTile(pos: Vector2) {
