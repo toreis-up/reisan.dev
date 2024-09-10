@@ -1,4 +1,4 @@
-class BiDirectionalMap<K extends object, V extends object> {
+class BiDirectionalMap<K, V> {
   private keyToValue = new Map<K, V>()
   private valueToKey = new Map<V, K>()
 
