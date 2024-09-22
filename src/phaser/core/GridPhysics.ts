@@ -69,11 +69,24 @@ export class GridPhysics {
   }
 
   async moveTo(pos: Vector2) {
+    console.debug('called me with', pos)
     const paths = this.findPath(this.player.getTilePos(), pos)
     if (!paths.isSuccess)
-      return
+      return Promise.reject(new Error('Cant find the path')) // TODO: Error const
     for (const dir of paths.path!)
       await this.movePlayerAsync(this.moveDirectionVectorsMap.getByValue(dir)!)
+    await this.waitUntilFinishMoveAsync()
+  }
+
+  async waitUntilFinishMoveAsync() {
+    return new Promise((resolve) => {
+      const intervalId = setInterval(() => {
+        if (!this.isMoving()) {
+          clearInterval(intervalId)
+          resolve(undefined)
+        }
+      }, this.tileMap.scene.getTilesize())
+    })
   }
 
   async movePlayerAsync(direction: Direction) {
@@ -82,7 +95,7 @@ export class GridPhysics {
         if (!this.isMoving()) {
           this.movePlayer(direction)
           clearInterval(intervalId)
-          resolve()
+          resolve(undefined)
         }
       }, this.tileMap.scene.getTilesize())
     })
@@ -116,7 +129,7 @@ export class GridPhysics {
 
       // 4方向に移動
       for (const dir of directions) {
-        const nextPoint: Vector2 = { x: point.x + dir.x, y: point.y + dir.y }
+        const nextPoint: Vector2 = { x: point.x + dir.x, y: point.y + dir.y } as Vector2
 
         if (inBounds(nextPoint) && !this.mapMaze[nextPoint.y][nextPoint.x] && !visited[nextPoint.y][nextPoint.x]) {
           visited[nextPoint.y][nextPoint.x] = true

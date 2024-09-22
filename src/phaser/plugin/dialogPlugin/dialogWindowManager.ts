@@ -19,7 +19,7 @@ export default class WindowPool {
 
   get(scene: Phaser.Scene | null) {
     if (!scene)
-      return null
+      return undefined
     const sceneName = this._getSceneNameByScene(scene)
     const obj = this._pool[sceneName] ?? this.create(scene)
     return obj
