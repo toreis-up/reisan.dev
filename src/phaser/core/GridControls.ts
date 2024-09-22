@@ -26,7 +26,9 @@ export class GridControls {
   }
 
   private enterLicense() {
-    this.disable()
+    if (this.input.scene.scene.key === 'licenseScene')
+      return
+    this.pause()
     this.input.scene.scene.pause()
     this.input.scene.scene.run('licenseScene', this.input.scene)
   }
