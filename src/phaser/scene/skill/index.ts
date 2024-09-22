@@ -1,4 +1,4 @@
-import { ChatContent, HidePictureContent, ShowPictureContent } from '../../class/Timeline/types'
+import { ChatContent } from '../../class/Timeline/types'
 import { CanvanNPC } from './npc/canvanNPC'
 import { SceneBase } from '#/class/Scene'
 import { NPC } from '#/class/NPC'
@@ -102,14 +102,8 @@ function generateTimelineBySkill(dialogPlugin: DialogPlugin, skill: Skill): Time
         new ChatContent(dialogPlugin, {
           text: `「${skill.skillName}が触れます」と書いてある。`,
         }),
-        new ShowPictureContent(dialogPlugin, {
-          path: `${skill.skillName}.png`,
-        }),
         new ChatContent(dialogPlugin, {
           text: `いいよね。${skill.skillName}`,
-        }),
-        new HidePictureContent(dialogPlugin, {
-          path: `${skill.skillName}.png`,
         }),
       ],
     },

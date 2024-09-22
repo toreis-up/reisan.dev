@@ -11,10 +11,6 @@ MAP BASE:\tUses the "16x16 RPG Tileset" by hilau
 \t\tat https://opengameart.org/content/16x16-game-assets.
 \t\tand "LPC Thatched-roof Cottage" by bluecarrot16
 \t\tat https://opengameart.org/content/lpc-thatched-roof-cottage.
-
-VUE LOGO:  © Evan You (https://github.com/vuejs/art) 2016.
-\t\tLicensed under CC BY-SA 4.0
-
 `
 
 export class LicenseScene extends SceneBase {
