@@ -1,12 +1,12 @@
-<script lang="ts" setup>
-import Game from '@/components/Game.vue'
+<script lang="ts">
+
 </script>
 
 <template>
   <div>
-    <Game />
+    なにもないったら
   </div>
+  <router-link to="/portfolio">
+    ぽとふぉいく
+  </router-link>
 </template>
-
-<style lang="scss" scoped>
-</style>
