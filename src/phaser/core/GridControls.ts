@@ -22,12 +22,30 @@ export class GridControls {
     input.on('ENABLE_CONTROL', () => this.enable(), this)
     input.on('ENTER_LICENSE', () => this.enterLicense(), this)
     input.on('RESUME_CONTROL', () => this.resume(), this)
+    input.on('pointerdown', pointer => this.handleTouch(pointer), this)
   }
 
   private enterLicense() {
     this.disable()
     this.input.scene.scene.pause()
     this.input.scene.scene.run('licenseScene', this.input.scene)
+  }
+
+  private async handleTouch(pointer: Phaser.Input.Pointer) {
+    if (!this.isEnabled)
+      return
+    this.disable()
+    await this.gridPhysics.moveTo({
+      x: Math.floor(pointer.worldX / this.input.scene.getTilesize()),
+      y: Math.floor(pointer.worldY / this.input.scene.getTilesize()),
+    } as Phaser.Math.Vector2)
+      .catch(() => {})
+      .finally(() => {
+        this.enable()
+      })
+      .then(() => {
+        this.gridPhysics.interactionPlayer()
+      })
   }
 
   update() {

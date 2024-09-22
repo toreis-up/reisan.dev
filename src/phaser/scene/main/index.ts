@@ -58,6 +58,8 @@ export class MainScene extends SceneBase {
 
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
 
+    this.npcManager.addNPC(canvanNPC, reisanNPC)
+
     this.gridPhysics = new GridPhysics(player, map)
     this.gridControls = new GridControls(this.input, this.gridPhysics)
 
@@ -74,8 +76,6 @@ export class MainScene extends SceneBase {
         }),
       ],
     } as Timeline
-
-    this.npcManager.addNPC(canvanNPC, reisanNPC)
 
     this.createPlayerAnimation(Direction.UP, 11, 9)
     this.createPlayerAnimation(Direction.DOWN, 0, 2)
