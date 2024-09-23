@@ -20,7 +20,7 @@ function openLicense() {
           mdi-github
         </v-icon>
       </v-btn>
-      <v-tooltip>
+      <v-tooltip v-if="$route.meta.showLicense">
         <template #[`activator`]="{ props }">
           <v-btn v-bind="props" icon @click="openLicense">
             <v-icon size="x-large">

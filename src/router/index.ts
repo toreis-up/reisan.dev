@@ -18,6 +18,9 @@ const routes = [
         path: 'portfolio',
         name: 'Portfolio',
         component: () => import('@/views/Portfolio.vue'),
+        meta: {
+          showLicense: true,
+        },
       },
       {
         path: 'card',
