@@ -13,6 +13,9 @@ export default defineConfig({
   plugins: [
     vue({
       template: { transformAssetUrls },
+      script: {
+        propsDestructure: true, // https://zenn.dev/nanase_t/articles/f02f9499050112
+      },
       ...templateCompilerOptions,
     }),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin

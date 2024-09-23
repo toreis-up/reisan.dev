@@ -1,0 +1,31 @@
+{
+  "front": [
+    {
+      "position": [-0.8,-0.5,1],
+      "text": "Shosei Yoshikawa",
+      "fontSize": 16
+    },
+    {
+      "position": [-0.15,-1.2, 1],
+      "text": "National Institute of Technology, Kisarazu College",
+      "fontSize": 7
+    },
+    {
+      "position": [-0.725,-1.55, 1],
+      "text": "Dept. of Information and Computer Engineering, 5th Grade",
+      "fontSize": 5
+    }
+  ],
+  "back": [
+    {
+      "position": [0,-0.5,1],
+      "text": "とれいす",
+      "fontSize": 16
+    },
+    {
+      "position": [-0.15,-1.2, 1],
+      "text": "なんでもやってなんでもハマってなんでも飽きる。",
+      "fontSize": 8
+    }
+  ]
+}
