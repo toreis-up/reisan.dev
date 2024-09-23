@@ -1,7 +1,11 @@
 <script lang="ts" setup>
 import { TresCanvas } from '@tresjs/core'
-import { OrbitControls, RoundedBox, Text3D } from '@tresjs/cientos'
-import { shallowRef } from 'vue'
+import { OrbitControls, Stars } from '@tresjs/cientos'
+import { computed, shallowRef } from 'vue'
+import cardInfo from '../../public/card/card.json'
+import Base from './cardComponents/Base.vue'
+import FrontText from './cardComponents/FrontText.vue'
+import BackText from './cardComponents/BackText.vue'
 
 const frontwardRef = shallowRef()
 const backwardRef = shallowRef()
@@ -9,46 +13,51 @@ const backwardRef = shallowRef()
 const intervalId = setInterval(() => {
   if (backwardRef.value) {
     clearInterval(intervalId)
-    backwardRef.value.rotation.y = 3.14
+    backwardRef.value.rotation.y = Math.PI
   }
 }, 1)
+
+const autoRotate = computed(() => {
+  return process.env.NODE_ENV !== 'development'
+})
 </script>
 
 <template>
-  <TresCanvas window-size>
-    <TresPerspectiveCamera :position="[3, 3, 20]" :look-at="[0, 0, 0]" />
+  <TresCanvas window-size clear-color="#1B263B">
+    <TresPerspectiveCamera :position="[0, 0, 20]" :look-at="[0, 0, 0]" />
+    <Stars
+      :size="0.5"
+      :size-attenuation="true"
+    />
     <OrbitControls
       :enable-zoom="false"
-      :auto-rotate="true"
+      :auto-rotate="autoRotate"
     />
-    <RoundedBox :position="[0, 0, 0]" :args="[9.1, 5.5, 0.1, 10, 1]" color="white" />
+    <TresAmbientLight
+      color="#ffffff"
+    />
+    <TresGroup>
+      <Base />
+    </TresGroup>
     <Suspense>
       <TresGroup>
         <TresGroup ref="frontwardRef">
-          <Text3D
-            :position="[0, 0, 1]"
-            text="toreis"
-            font="fonts/Inter_Regular.json"
-            :bevel-enabled="false"
-            :bevel-segments="1"
-            center
-            height="0.05"
-          >
-            <TresMeshToonMaterial />
-          </Text3D>
+          <FrontText
+            v-for="(card, idx) in cardInfo.front"
+            :key="idx"
+            :position="card.position"
+            :text="card.text"
+            :font-size="card.fontSize"
+          />
         </TresGroup>
         <TresGroup ref="backwardRef">
-          <Text3D
-            :position="[0, 0, 1]"
-            text="aho"
-            font="fonts/Inter_Regular.json"
-            :bevel-enabled="false"
-            :bevel-segments="1"
-            center
-            height="0.05"
-          >
-            <TresMeshToonMaterial />
-          </Text3D>
+          <BackText
+            v-for="(card, idx) in cardInfo.back"
+            :key="idx"
+            :position="card.position"
+            :text="card.text"
+            :font-size="card.fontSize"
+          />
         </TresGroup>
       </TresGroup>
     </Suspense>
