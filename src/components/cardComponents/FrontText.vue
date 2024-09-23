@@ -25,6 +25,7 @@ const computedFontSize = computed(() => {
   <Text3D
     :position="position"
     :text="text"
+    font="fonts/Inter_Regular.json"
     :bevel-enabled="false"
     bevel-segments="1"
     :bevel-thickness="0.01"
