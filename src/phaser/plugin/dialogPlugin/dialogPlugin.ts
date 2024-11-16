@@ -57,7 +57,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   boot() {
     if (this.scene != null && this.scene.dialogDisabled)
       return
-    this.init() // FIXME: initのロジックを統合するべきか?
+    this.init()
     const eventEmitter = this.systems?.events
     eventEmitter?.on(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this)
     eventEmitter?.on(Phaser.Scenes.Events.DESTROY, this.destroy, this);

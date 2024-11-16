@@ -41,7 +41,7 @@ export function boot(containerId: string) {
           systemKey: 'dialogPlugin',
           sceneKey: 'dialogScenePlugin',
           start: true,
-        } as Phaser.Types.Core.PluginObjectItem,
+        },
         {
           plugin: NPCManagerPlugin,
           key: 'npcManager',
@@ -50,7 +50,7 @@ export function boot(containerId: string) {
           sceneKey: 'npcManagerPlugin',
           start: true,
         },
-      ],
+      ] as Phaser.Types.Core.PluginObjectItem[],
     },
   }
 
