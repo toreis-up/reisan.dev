@@ -418,7 +418,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         this._setTimeline(choice.nextId)
         // eslint-disable-next-line eqeqeq
         if (this.timelineContent == undefined)
-          this.closeWindow()
+          setTimeout(() => this.closeWindow())
         else this._next()
       })
     })
