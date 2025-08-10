@@ -50,7 +50,7 @@
     "sass": "^1.77.8",
     "typescript": "^5.5.4",
     "unplugin-fonts": "^1.1.1",
-    "vite": "5.4.6",
+    "vite": "5.4.19",
     "vite-plugin-vuetify": "^2.0.4",
     "vue-tsc": "^2.0.29"
   },
