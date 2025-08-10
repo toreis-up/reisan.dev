@@ -650,6 +650,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/chroma-js@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@types/chroma-js@npm:3.1.1"
+  checksum: 10c0/2b2d2eb44fd6e7103696c890c04a84c55441e9fea2f3913949bb377ec7249fe8a95e8117108b6e837422dbb23dee8180ad6907a29a8ae6d9443e7423cd0b2f6a
+  languageName: node
+  linkType: hard
+
 "@types/draco3d@npm:^1.4.0":
   version: 1.4.10
   resolution: "@types/draco3d@npm:1.4.10"
@@ -1791,6 +1798,13 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: 10c0/594754e1303672171cc04e50f6c398ae16128eb134a88f801bf5354fd96f205320f23536a045d9abd8b51024a149696e51231565891d4efdab8846021ecf88e6
+  languageName: node
+  linkType: hard
+
+"chroma-js@npm:^2.0.3":
+  version: 2.6.0
+  resolution: "chroma-js@npm:2.6.0"
+  checksum: 10c0/6e17f43246f9b3eba8a9db67f5ee9a2d0ef1360077211887da09ec1f0934bb98a358eefaf021003c0bd47cbab540f573a373f362d6b2ba04d0e80ab7677e1640
   languageName: node
   linkType: hard
 
@@ -3062,6 +3076,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hello-color@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "hello-color@npm:1.0.2"
+  dependencies:
+    chroma-js: "npm:^2.0.3"
+  checksum: 10c0/465eca99f88c69cc4d725ddefe989f90599943b865670c3422532aad496b702de5f6737812cc737913fb7775ee695714e4f06363de3449b2efbb165658993bc7
+  languageName: node
+  linkType: hard
+
 "hosted-git-info@npm:^2.1.4":
   version: 2.8.9
   resolution: "hosted-git-info@npm:2.8.9"
@@ -4196,6 +4219,7 @@ __metadata:
     "@mdi/font": "npm:7.4.47"
     "@tresjs/cientos": "npm:^4.0.2"
     "@tresjs/core": "npm:^4.2.10"
+    "@types/chroma-js": "npm:^3.1.1"
     "@types/node": "npm:^22.1.0"
     "@types/three": "npm:^0.168.0"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
@@ -4206,6 +4230,7 @@ __metadata:
     core-js: "npm:^3.38.0"
     eslint: "npm:^8.57.0"
     eslint-plugin-vue: "npm:^9.27.0"
+    hello-color: "npm:^1.0.2"
     husky: "npm:^9.1.5"
     lint-staged: "npm:^15.2.10"
     phaser: "npm:^3.85.1"
