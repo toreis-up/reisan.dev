@@ -1,5 +1,20 @@
-<script lang="ts">
+<script lang="ts" setup>
+import { onBeforeUnmount, onMounted } from 'vue'
+import { useColor } from '@/composables/useColor'
+import { useAppColor } from '@/composables/useAppColor'
 
+const { color, backgroundColor } = useColor()
+const { setColor, setBg } = useAppColor()
+
+onMounted(() => {
+  setBg(backgroundColor.value)
+  setColor(color.value)
+})
+
+onBeforeUnmount(() => {
+  setBg(null)
+  setColor(null)
+})
 </script>
 
 <template>
