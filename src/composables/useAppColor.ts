@@ -35,10 +35,14 @@ function anyToTriplet(input: string) {
 export function useAppColor() {
   const styleVars = computed<Record<string, string>>(() => {
     const vars: Record<string, string> = {}
-    if (bgColor.value)
+    if (bgColor.value) {
       vars['--v-theme-background'] = anyToTriplet(bgColor.value)
-    if (color.value)
+      vars['--v-theme-surface'] = anyToTriplet(bgColor.value)
+    }
+    if (color.value) {
       vars['--v-theme-on-background'] = anyToTriplet(color.value)
+      vars['--v-theme-on-surface'] = anyToTriplet(color.value)
+    }
     return vars
   })
 
