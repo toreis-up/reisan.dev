@@ -32,20 +32,26 @@ export class GridPhysics {
 
     this.speedPixelsPerSecond = tileMap.scene.getTilesize() * 6
 
-    this.mapMaze = this.genMapPath(tileMap)
+    this.mapMaze = this.genMapPath(tileMap, ({ x, y }) => this.isNPCTile({ x, y } as Vector2))
   }
 
   private gen2DArray<T>(x: number, y: number, val: T) {
     return [...Array(y)].map(_ => Array<T>(x).fill(val))
   }
 
-  private genMapPath(tilemap: Phaser.Tilemaps.Tilemap) {
+  private genMapPath(tilemap: Phaser.Tilemaps.Tilemap, conditionFn?: ({ x, y }: { x: number; y: number }) => boolean) {
     const mapMaze = this.gen2DArray<MapElm>(tilemap.width, tilemap.height, 1)
     const mapTiles = this.tileAllLayer(tilemap)
     mapTiles.forEach((xTiles, yIdx) => {
       xTiles.forEach((layers, xIdx) => {
         mapMaze[yIdx][xIdx] = layers.map((tile) => {
-          return tile.index === -1 || !(tile.properties.collides || this.isNPCTile({ x: xIdx, y: yIdx } as Vector2)) ? 0 : 1
+          return tile.index === -1
+            || !(tile.properties.collides
+            || conditionFn === undefined
+              ? false
+              : conditionFn({ x: xIdx, y: yIdx }))
+            ? 0
+            : 1
         }).every(v => v === 0)
           ? 0
           : 1
@@ -131,7 +137,7 @@ export class GridPhysics {
       for (const dir of directions) {
         const nextPoint: Vector2 = { x: point.x + dir.x, y: point.y + dir.y } as Vector2
 
-        if (inBounds(nextPoint) && !this.mapMaze[nextPoint.y][nextPoint.x] && !visited[nextPoint.y][nextPoint.x]) {
+        if (inBounds(nextPoint) && ((nextPoint.x === dist.x && nextPoint.y === dist.y) || !this.mapMaze[nextPoint.y][nextPoint.x]) && !visited[nextPoint.y][nextPoint.x]) {
           visited[nextPoint.y][nextPoint.x] = true
           queue.push({ point: nextPoint, path: [...path, dir] })
         }
