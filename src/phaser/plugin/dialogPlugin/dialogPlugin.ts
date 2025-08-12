@@ -1,9 +1,16 @@
 import type { Scene } from 'phaser'
-import Phaser from 'phaser'
-import type { ChatContentType, Choice, ChoiceContentType, HidePictureContentType, NextTimelineContentType, ShowPictureContentType, SwitchSceneContentType, Timeline } from '.'
 import type {
-  TimelineContent,
-} from '../../class/Timeline/types'
+  ChatContentType,
+  Choice,
+  ChoiceContentType,
+  HidePictureContentType,
+  NextTimelineContentType,
+  ShowPictureContentType,
+  SwitchSceneContentType,
+  Timeline,
+} from '.'
+import type { TimelineContent } from '../../class/Timeline/types'
+import Phaser from 'phaser'
 import { ContentType } from '.'
 import WindowManager from './dialogWindowManager'
 
@@ -263,7 +270,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
       setTimeout(() => this._next()) // to execute function without stack
 
     if (
-      this.timelineContent ? this.timelineContent[this.timelineIndex - 1].type === ContentType.CHAT : false
+      this.timelineContent
+        ? this.timelineContent[this.timelineIndex - 1].type === ContentType.CHAT
+        : false
     ) {
       this.scene?.input.keyboard?.once('keydown-SPACE', this._next, this)
       this.scene?.input.once('pointerdown', this._next, this)
@@ -467,7 +476,8 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   private _calculateTextPosition() {
     const pos: TextPosition = {
       x: this.config.padding + (this.scene?.cameras.main.scrollX || 0) + 10,
-      y: this._getGameHeight()
+      y:
+        this._getGameHeight()
         - this.config.windowHeight
         - this.config.padding
         + (this.scene?.cameras.main.scrollY || 0)

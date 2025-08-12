@@ -35,8 +35,8 @@ export class GridPhysics {
     this.mapMaze = this.genMapPath(tileMap, ({ x, y }) => this.isNPCTile({ x, y } as Vector2))
   }
 
-  private gen2DArray<T>(x: number, y: number, val: T) {
-    return [...new Array(y)].map(_ => new Array<T>(x).fill(val))
+  private gen2DArray<T>(x: number, y: number, val: T): T[][] {
+    return Array.from({ length: y }, () => Array.from<T>({ length: x }).fill(val))
   }
 
   private genMapPath(tilemap: Phaser.Tilemaps.Tilemap, conditionFn?: ({ x, y }: { x: number, y: number }) => boolean) {
@@ -121,7 +121,7 @@ export class GridPhysics {
     const inBounds = (point: Vector2): boolean =>
       point.x >= 0 && point.x < cols && point.y >= 0 && point.y < rows
 
-    const visited: boolean[][] = Array.from({ length: rows }, () => new Array(cols).fill(false))
+    const visited: boolean[][] = Array.from({ length: rows }, () => Array.from<boolean>({ length: cols }).fill(false))
     const queue: { point: Vector2, path: Vector2[] }[] = [{ point: origin, path: [] }]
 
     visited[origin.y][origin.x] = true
