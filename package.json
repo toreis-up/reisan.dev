@@ -56,5 +56,5 @@
     "vite-plugin-vuetify": "^2.0.4",
     "vue-tsc": "^2.0.29"
   },
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.9.2"
 }
