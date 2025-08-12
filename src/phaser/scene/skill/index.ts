@@ -1,12 +1,12 @@
-import { ChatContent } from '../../class/Timeline/types'
-import { CanvanNPC } from './npc/canvanNPC'
-import { SceneBase } from '#/class/Scene'
+import type { DialogPlugin, Timeline } from '#/plugin/dialogPlugin'
+import type { Skill } from '@/types/Skill'
 import { NPC } from '#/class/NPC'
+import { Player } from '#/class/Player'
+import { SceneBase } from '#/class/Scene'
 import { GridControls } from '#/core/GridControls'
 import { GridPhysics } from '#/core/GridPhysics'
-import { Player } from '#/class/Player'
-import type { Skill } from '@/types/Skill'
-import type { DialogPlugin, Timeline } from '#/plugin/dialogPlugin'
+import { ChatContent } from '../../class/Timeline/types'
+import { CanvanNPC } from './npc/canvanNPC'
 
 export class SkillScene extends SceneBase {
   TILE_SIZE: number = 32

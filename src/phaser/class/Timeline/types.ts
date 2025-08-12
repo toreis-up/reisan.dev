@@ -13,7 +13,7 @@ import { ContentType } from '#/plugin/dialogPlugin'
 
 export interface TimelineContent {
   type: string
-  process(): void
+  process: () => void
 }
 
 export class ChatContent implements TimelineContent {

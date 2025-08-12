@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import DefaultBar from './AppBar.vue'
 import { useAppColor } from '@/composables/useAppColor'
+import DefaultBar from './AppBar.vue'
 
 const { styleVars } = useAppColor()
 </script>

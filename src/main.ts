@@ -6,12 +6,12 @@
 
 // Components
 import { createApp } from 'vue'
-import App from './App.vue'
+// Plugins
+import { registerPlugins } from '@/plugins'
 
 // Composables
 
-// Plugins
-import { registerPlugins } from '@/plugins'
+import App from './App.vue'
 
 const app = createApp(App)
 

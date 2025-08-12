@@ -1,6 +1,6 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
 import { boot } from '#/main'
+import { defineComponent } from 'vue'
 import { usePhaserStore } from '@/store/phaser'
 
 const phaserStore = usePhaserStore()

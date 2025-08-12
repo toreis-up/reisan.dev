@@ -1,13 +1,13 @@
-import Phaser from 'phaser'
-import { ReisanNPC } from './npc/reisanNPC'
-import { CanvanNPC } from './npc/canvanNPC'
-import { ChatContent } from '#/class/Timeline/types'
-import { SceneBase } from '#/class/Scene'
+import type { Timeline } from '#/plugin/dialogPlugin'
 import { Player } from '#/class/Player'
+import { SceneBase } from '#/class/Scene'
+import { ChatContent } from '#/class/Timeline/types'
+import { Direction } from '#/core/Direction'
 import { GridControls } from '#/core/GridControls'
 import { GridPhysics } from '#/core/GridPhysics'
-import { Direction } from '#/core/Direction'
-import type { Timeline } from '#/plugin/dialogPlugin'
+import Phaser from 'phaser'
+import { CanvanNPC } from './npc/canvanNPC'
+import { ReisanNPC } from './npc/reisanNPC'
 
 export class MainScene extends SceneBase {
   static readonly TILE_SIZE = 32

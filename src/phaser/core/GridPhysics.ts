@@ -1,6 +1,6 @@
 import type { Player } from '../class/Player'
-import { Direction } from './Direction'
 import { BiDirectionalMap } from '@/utils'
+import { Direction } from './Direction'
 
 const Vector2_C = Phaser.Math.Vector2
 type Vector2 = Phaser.Math.Vector2
@@ -36,10 +36,10 @@ export class GridPhysics {
   }
 
   private gen2DArray<T>(x: number, y: number, val: T) {
-    return [...Array(y)].map(_ => Array<T>(x).fill(val))
+    return [...new Array(y)].map(_ => new Array<T>(x).fill(val))
   }
 
-  private genMapPath(tilemap: Phaser.Tilemaps.Tilemap, conditionFn?: ({ x, y }: { x: number; y: number }) => boolean) {
+  private genMapPath(tilemap: Phaser.Tilemaps.Tilemap, conditionFn?: ({ x, y }: { x: number, y: number }) => boolean) {
     const mapMaze = this.gen2DArray<MapElm>(tilemap.width, tilemap.height, 1)
     const mapTiles = this.tileAllLayer(tilemap)
     mapTiles.forEach((xTiles, yIdx) => {
@@ -48,8 +48,8 @@ export class GridPhysics {
           return tile.index === -1
             || !(tile.properties.collides
               || (conditionFn === undefined
-              ? false
-              : conditionFn({ x: xIdx, y: yIdx })))
+                ? false
+                : conditionFn({ x: xIdx, y: yIdx })))
             ? 0
             : 1
         }).every(v => v === 0)
@@ -121,8 +121,8 @@ export class GridPhysics {
     const inBounds = (point: Vector2): boolean =>
       point.x >= 0 && point.x < cols && point.y >= 0 && point.y < rows
 
-    const visited: boolean[][] = Array.from({ length: rows }, () => Array(cols).fill(false))
-    const queue: { point: Vector2; path: Vector2[] }[] = [{ point: origin, path: [] }]
+    const visited: boolean[][] = Array.from({ length: rows }, () => new Array(cols).fill(false))
+    const queue: { point: Vector2, path: Vector2[] }[] = [{ point: origin, path: [] }]
 
     visited[origin.y][origin.x] = true
 

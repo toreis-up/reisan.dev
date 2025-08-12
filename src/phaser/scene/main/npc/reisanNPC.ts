@@ -1,6 +1,6 @@
+import type { DialogPlugin, Timeline } from '#/plugin/dialogPlugin'
 import type { Scene } from 'phaser'
 import { NPC } from '#/class/NPC'
-import type { DialogPlugin, Timeline } from '#/plugin/dialogPlugin'
 import { ChatContent, ChoiceContent } from '#/class/Timeline/types'
 
 function timelines(dialogPlugin: DialogPlugin) {
@@ -22,10 +22,12 @@ function timelines(dialogPlugin: DialogPlugin) {
         }),
       ],
       yes: [
-        new ChatContent(dialogPlugin, { text: 'まあもう慣れっこだけどね' })],
+        new ChatContent(dialogPlugin, { text: 'まあもう慣れっこだけどね' }),
+      ],
 
       no: [
-        new ChatContent(dialogPlugin, { text: 'ほなドッペルゲンガーと違うかー。' })],
+        new ChatContent(dialogPlugin, { text: 'ほなドッペルゲンガーと違うかー。' }),
+      ],
     },
   ] as Timeline[]
 }

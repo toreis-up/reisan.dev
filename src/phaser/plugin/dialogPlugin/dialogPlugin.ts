@@ -1,10 +1,11 @@
 import type { Scene } from 'phaser'
+import Phaser from 'phaser'
+import type { ChatContentType, Choice, ChoiceContentType, HidePictureContentType, NextTimelineContentType, ShowPictureContentType, SwitchSceneContentType, Timeline } from '.'
 import type {
   TimelineContent,
 } from '../../class/Timeline/types'
-import WindowManager from './dialogWindowManager'
-import type { ChatContentType, Choice, ChoiceContentType, HidePictureContentType, NextTimelineContentType, ShowPictureContentType, SwitchSceneContentType, Timeline } from '.'
 import { ContentType } from '.'
+import WindowManager from './dialogWindowManager'
 
 export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   protected config = {} as DialogConfig
@@ -63,13 +64,13 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     eventEmitter?.on(Phaser.Scenes.Events.DESTROY, this.destroy, this);
     (this.scene?.events.listenerCount('dialogStart') || 0) < 1
       ? eventEmitter?.on(
-        'dialogStart',
-        (e: Timeline) => {
-          console.log('event handled')
-          this.setTimeline(e)
-        },
-        this,
-      )
+          'dialogStart',
+          (e: Timeline) => {
+            console.log('event handled')
+            this.setTimeline(e)
+          },
+          this,
+        )
       : console.log('The listener has already registered. Skip.')
     this.systems?.scale.on(
       Phaser.Scale.Events.RESIZE,
@@ -115,9 +116,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     const x = this.config.padding + (this.scene?.cameras.main.scrollX || 0)
     const y
       = height
-      - this.config.windowHeight
-      - this.config.padding
-      + (this.scene?.cameras.main.scrollY || 0)
+        - this.config.windowHeight
+        - this.config.padding
+        + (this.scene?.cameras.main.scrollY || 0)
     const rectWidth = width - this.config.padding * 2
     const rectHeight = this.config.windowHeight
     return { x, y, rectWidth, rectHeight }
@@ -369,9 +370,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     choices.forEach((choice, index) => {
       const offsetY
         = buttonGroupOriginY
-        + buttonHeight * (index + 0.5)
-        + buttonMargin * index
-        + cameraY
+          + buttonHeight * (index + 0.5)
+          + buttonMargin * index
+          + cameraY
 
       // Rectangleでボタンを作成
       const button = new Phaser.GameObjects.Rectangle(
@@ -467,10 +468,10 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
     const pos: TextPosition = {
       x: this.config.padding + (this.scene?.cameras.main.scrollX || 0) + 10,
       y: this._getGameHeight()
-          - this.config.windowHeight
-          - this.config.padding
-          + (this.scene?.cameras.main.scrollY || 0)
-          + 10,
+        - this.config.windowHeight
+        - this.config.padding
+        + (this.scene?.cameras.main.scrollY || 0)
+        + 10,
     }
 
     return pos
