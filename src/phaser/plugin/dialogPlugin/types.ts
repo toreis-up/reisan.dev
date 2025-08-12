@@ -8,13 +8,13 @@ export interface Timeline {
 type TimelineId = string
 
 export enum ContentType {
-  'CHAT' = 'chat',
-  'CHOICE' = 'choice',
-  'NEXTTL' = 'nextTimeline',
-  'EXTERNALURL' = 'externalURL',
-  'SCENE' = 'scene',
-  'SHOW_PICTURE' = 'showPicture',
-  'HIDE_PICTURE' = 'hidePicture',
+  CHAT = 'chat',
+  CHOICE = 'choice',
+  NEXTTL = 'nextTimeline',
+  EXTERNALURL = 'externalURL',
+  SCENE = 'scene',
+  SHOW_PICTURE = 'showPicture',
+  HIDE_PICTURE = 'hidePicture',
 }
 
 export interface Choice {

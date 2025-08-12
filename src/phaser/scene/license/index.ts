@@ -69,9 +69,9 @@ export class LicenseScene extends SceneBase {
     const dialogTextObject = this.add.text(
       width / 7 + this.scene.scene.cameras.main.scrollX + 10,
       height / 2
-        + this.scene.scene.cameras.main.scrollY
-        - (height / 12) * 5
-        + 10,
+      + this.scene.scene.cameras.main.scrollY
+      - (height / 12) * 5
+      + 10,
       licenseText,
       {
         fontFamily: 'DotGothic16',

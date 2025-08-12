@@ -1,6 +1,6 @@
-import { onMounted, ref } from 'vue'
-import hello from 'hello-color'
 import chroma from 'chroma-js'
+import hello from 'hello-color'
+import { onMounted, ref } from 'vue'
 
 export function useColor() {
   const color = ref('#000000')

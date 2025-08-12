@@ -32,7 +32,6 @@ const routes = [
 ]
 
 const router = createRouter({
-  // eslint-disable-next-line n/prefer-global/process
   history: createWebHistory(process.env.BASE_URL),
   routes,
 })

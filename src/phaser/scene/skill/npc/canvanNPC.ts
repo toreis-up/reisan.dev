@@ -1,6 +1,6 @@
+import type { DialogPlugin, Timeline } from '#/plugin/dialogPlugin'
 import type { Scene } from 'phaser'
 import { NPC } from '#/class/NPC'
-import type { DialogPlugin, Timeline } from '#/plugin/dialogPlugin'
 import { ChoiceContent, SwitchSceneContent } from '#/class/Timeline/types'
 
 function canvanTimeline(dialogPlugin: DialogPlugin) {

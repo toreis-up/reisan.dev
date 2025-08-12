@@ -1,6 +1,6 @@
+import type { Timeline } from '#/plugin/dialogPlugin'
 import type { Scene } from 'phaser'
 import Phaser from 'phaser'
-import type { Timeline } from '#/plugin/dialogPlugin'
 
 export class NPC extends Phaser.GameObjects.Sprite {
   constructor(scene: Scene, private pos: Phaser.Math.Vector2, texture: string | Phaser.Textures.Texture, private timelines: Timeline[], frame?: string | number) {
@@ -16,7 +16,7 @@ export class NPC extends Phaser.GameObjects.Sprite {
 
     this.setDepth((pos.y + 0.5))
     console.log(this.pos)
-    this.scene.events.on('interactionDispatch', (e: { pos: Phaser.Math.Vector2; scene: Phaser.Scene }) => this.interaction(e.pos, e.scene))
+    this.scene.events.on('interactionDispatch', (e: { pos: Phaser.Math.Vector2, scene: Phaser.Scene }) => this.interaction(e.pos, e.scene))
   }
 
   interaction(position: Phaser.Math.Vector2, scene: Phaser.Scene) {

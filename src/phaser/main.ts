@@ -1,11 +1,11 @@
-import Phaser from 'phaser'
-import { PreloadScene } from '#/scene/preload'
-import { MainScene } from '#/scene/main'
-import { SkillScene } from '#/scene/skill'
-import { AboutMeScene } from '#/scene/aboutme'
-import { LicenseScene } from '#/scene/license'
 import { DialogPlugin } from '#/plugin/dialogPlugin'
 import { NPCManagerPlugin } from '#/plugin/NPCManagerPlugin'
+import { AboutMeScene } from '#/scene/aboutme'
+import { LicenseScene } from '#/scene/license'
+import { MainScene } from '#/scene/main'
+import { PreloadScene } from '#/scene/preload'
+import { SkillScene } from '#/scene/skill'
+import Phaser from 'phaser'
 
 const preloadScene = new PreloadScene()
 const mainScene = new MainScene()
@@ -62,6 +62,6 @@ window.addEventListener('resize', () => {
   game.scale.resize(
     window.innerWidth,
     window.innerHeight
-      - document.getElementsByClassName('v-toolbar__content')[0].clientHeight,
+    - document.getElementsByClassName('v-toolbar__content')[0].clientHeight,
   )
 })

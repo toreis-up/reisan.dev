@@ -1,6 +1,6 @@
+import type { GridPhysics } from './GridPhysics'
 import { Direction } from './Direction'
 import { DirectionHandler } from './DirectionHandler'
-import type { GridPhysics } from './GridPhysics'
 import { KeyEventHandler } from './KeyEventHandler'
 
 export class GridControls {

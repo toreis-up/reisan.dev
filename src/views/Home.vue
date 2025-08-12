@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { onBeforeUnmount, onMounted } from 'vue'
-import { useColor } from '@/composables/useColor'
-import { useAppColor } from '@/composables/useAppColor'
 import UiHomeCard from '@/components/ui/homeCard.vue'
+import { useAppColor } from '@/composables/useAppColor'
+import { useColor } from '@/composables/useColor'
 
 const { color, backgroundColor } = useColor()
 const { setColor, setBg } = useAppColor()

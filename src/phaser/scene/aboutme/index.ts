@@ -10,13 +10,13 @@ const dateOptions: Intl.DateTimeFormatOptions = {
   day: 'numeric',
 }
 
-/* eslint-disable vue/no-irregular-whitespace, no-irregular-whitespace */
+/* eslint-disable no-irregular-whitespace */
 const dialogText = `名前：とれいす（toreis）
 誕生日：${birthday.toLocaleDateString('ja-JP', dateOptions)}（${
   today.getFullYear()
   - birthday.getFullYear()
   - (today.getMonth() <= birthday.getMonth()
-  && today.getDate() < birthday.getDate()
+    && today.getDate() < birthday.getDate()
     ? 1
     : 0)
 }歳）

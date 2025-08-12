@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { usePhaserStore } from '@/store/phaser'
 import { useAppColor } from '@/composables/useAppColor'
+import { usePhaserStore } from '@/store/phaser'
 
 const phaserStore = usePhaserStore()
 function openLicense() {

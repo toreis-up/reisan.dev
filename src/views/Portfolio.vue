@@ -11,6 +11,6 @@ import Game from '@/components/Game.vue'
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=DotGothic16');
 * {
-  font-family: 'DotGothic16'
+  font-family: 'DotGothic16';
 }
 </style>

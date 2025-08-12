@@ -7,8 +7,8 @@
 // Plugins
 import type { App } from 'vue'
 import Tres from '@tresjs/core'
-import pinia from '../store'
 import router from '../router'
+import pinia from '../store'
 import vuetify from './vuetify'
 
 // Types

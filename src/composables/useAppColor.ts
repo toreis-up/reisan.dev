@@ -1,5 +1,4 @@
-import { useTheme } from 'vuetify/lib/framework.mjs'
-import { computed, ref, watchEffect } from 'vue'
+import { computed, ref } from 'vue'
 
 const color = ref<string | null>(null)
 const bgColor = ref<string | null>(null)
