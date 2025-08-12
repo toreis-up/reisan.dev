@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { usePhaserStore } from '@/store/phaser'
+import { useAppColor } from '@/composables/useAppColor'
 
 const phaserStore = usePhaserStore()
 function openLicense() {
@@ -7,10 +8,12 @@ function openLicense() {
   if (currentScenes)
     currentScenes[0].input.emit('ENTER_LICENSE')
 }
+
+const { styleVars } = useAppColor()
 </script>
 
 <template>
-  <v-app-bar flat>
+  <v-app-bar :style="styleVars" flat>
     <v-app-bar-title>
       toreis desu
     </v-app-bar-title>
