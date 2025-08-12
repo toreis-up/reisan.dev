@@ -47,9 +47,9 @@ export class GridPhysics {
         mapMaze[yIdx][xIdx] = layers.map((tile) => {
           return tile.index === -1
             || !(tile.properties.collides
-            || conditionFn === undefined
+              || (conditionFn === undefined
               ? false
-              : conditionFn({ x: xIdx, y: yIdx }))
+              : conditionFn({ x: xIdx, y: yIdx })))
             ? 0
             : 1
         }).every(v => v === 0)
