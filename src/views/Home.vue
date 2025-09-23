@@ -40,6 +40,13 @@ onBeforeUnmount(() => {
             </v-btn>
           </v-col>
         </v-row>
+        <v-row>
+          <v-col>
+            <v-btn append-icon="mdi-arrow-top-right-bold-box-outline" variant="outlined" href="https://shati.reisan.dev" target="_blank" rel="noopener">
+              ShaTi (共有タイマーアプリ) をつかう
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
