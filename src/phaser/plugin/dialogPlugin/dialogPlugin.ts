@@ -225,7 +225,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   closeWindow() {
     if (this.visible)
       this.toggleWindow()
-    this.scene?.input.emit('ENABLE_CONTROL_COOLDOWN')
+    this.scene?.input.emit('ENABLE_CONTROL_COOLDOWN', 100)
   }
 
   private _openWindow() {
