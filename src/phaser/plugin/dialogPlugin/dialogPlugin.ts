@@ -225,7 +225,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
   closeWindow() {
     if (this.visible)
       this.toggleWindow()
-    this.scene?.input.emit('ENABLE_CONTROL')
+    this.scene?.input.emit('ENABLE_CONTROL_COOLDOWN', 100)
   }
 
   private _openWindow() {
@@ -261,7 +261,9 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         this._setFullText,
         this,
       )
-      this.scene?.input.once('pointerdown', this._setFullText, this)
+      setTimeout(() =>
+        this.scene?.input.once('pointerdown', this._setFullText, this)
+      , 10)
     }
   }
 

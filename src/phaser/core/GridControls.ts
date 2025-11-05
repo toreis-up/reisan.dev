@@ -20,6 +20,7 @@ export class GridControls {
 
     input.on('DISABLE_CONTROL', () => this.disable(), this)
     input.on('ENABLE_CONTROL', () => this.enable(), this)
+    input.on('ENABLE_CONTROL_COOLDOWN', (cooldownms = 100) => this.enableWithCooldown(cooldownms), this)
     input.on('ENTER_LICENSE', () => this.enterLicense(), this)
     input.on('RESUME_CONTROL', () => this.resume(), this)
     input.on('pointerdown', pointer => this.handleTouch(pointer), this)
@@ -76,6 +77,12 @@ export class GridControls {
 
   enable() {
     this.isEnabled = true
+  }
+
+  enableWithCooldown(cooldownms: number) {
+    setTimeout(() => {
+      this.enable()
+    }, cooldownms)
   }
 
   pause() {
