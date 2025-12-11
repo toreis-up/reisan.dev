@@ -49,6 +49,12 @@ onBeforeUnmount(() => {
         </v-row>
       </v-col>
     </v-row>
+    <div class="position-absolute bottom-0 mb-4 right-0 mr-4">
+      <v-chip>
+        <span><v-chip class="my-2" size="small" :style="{ backgroundColor }">text: {{ color }}</v-chip></span>
+        <span><v-chip class="my-2" size="small" :style="{ backgroundColor: color, color: backgroundColor }">bg: {{ backgroundColor }}</v-chip></span>
+      </v-chip>
+    </div>
   </v-container>
 </template>
 
