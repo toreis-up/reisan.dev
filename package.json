@@ -10,11 +10,6 @@
     "lint": "eslint src/**/*.{ts,vue}",
     "lintfix": "eslint src/**/*.{ts,vue} --fix"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "src/**/*.{ts,vue}": [
       "eslint"
