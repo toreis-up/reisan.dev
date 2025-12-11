@@ -54,6 +54,6 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .main-container {
-  height: calc(100vh - 64px);
+  height: 100%;
 }
 </style>
