@@ -46,8 +46,8 @@ export function useColor(safeColor = true) {
       backgroundColor.value = darkColor
     }
     else {
-      color.value = lightColor
-      backgroundColor.value = darkColor
+      color.value = darkColor
+      backgroundColor.value = lightColor
     }
   })
 
