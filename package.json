@@ -20,6 +20,7 @@
     "@tresjs/cientos": "^4.3.1",
     "@tresjs/core": "^4.3.6",
     "@vueuse/core": "^14.1.0",
+    "chroma-js": "^3.2.0",
     "core-js": "^3.47.0",
     "hello-color": "^1.0.2",
     "phaser": "^3.90.0",
