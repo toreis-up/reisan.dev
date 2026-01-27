@@ -3,6 +3,7 @@ WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
 COPY . .
+RUN npm install -g pnpm
 RUN rm -rf node_modules
 RUN pnpm install --frozen-lockfile
 
@@ -25,6 +26,7 @@ WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
 RUN rm -rf node_modules
+RUN npm install -g pnpm
 RUN pnpm install --frozen-lockfile --ignore-scripts
 
 COPY --from=build /app/dist ./dist
