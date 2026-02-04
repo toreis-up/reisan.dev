@@ -262,8 +262,7 @@ export class DialogPlugin extends Phaser.Plugins.ScenePlugin {
         this,
       )
       setTimeout(() =>
-        this.scene?.input.once('pointerdown', this._setFullText, this)
-      , 10)
+        this.scene?.input.once('pointerdown', this._setFullText, this), 10)
     }
   }
 

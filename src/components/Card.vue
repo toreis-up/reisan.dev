@@ -2,10 +2,10 @@
 import { OrbitControls, Stars } from '@tresjs/cientos'
 import { TresCanvas } from '@tresjs/core'
 import { computed, shallowRef } from 'vue'
-import cardInfo from '../../public/card/card.json'
 import BackText from './cardComponents/BackText.vue'
 import Base from './cardComponents/Base.vue'
 import FrontText from './cardComponents/FrontText.vue'
+import cardInfo from '/assets/card/card.json'
 
 const frontwardRef = shallowRef()
 const backwardRef = shallowRef()
