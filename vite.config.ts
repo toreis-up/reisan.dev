@@ -34,6 +34,7 @@ export default defineConfig({
         ],
       },
     }),
+    process.env.CLOUDFLARE ? cloudflare() : false,
   ],
   define: { "process.env": {} },
   resolve: {
